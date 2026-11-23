@@ -1,4 +1,4 @@
-# TripNest – React + Tailwind website (B2C + B2B)
+# TripNest – React + Tailwind website (B2C + B2B) 
 
 Run: `npm install && npm run dev` · Build: `npm run build`
 
