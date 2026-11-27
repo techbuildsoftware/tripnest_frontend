@@ -214,16 +214,16 @@ export function buildRecords(m) {
     ['Rohan Iyer', 'rohan.iyer@example.com', '+91 98450 33344', 'Bengaluru', 'Karnataka'],
     ['Sara Thompson', 'sara.thompson@example.com', '+44 7700 900123', 'London', 'England'],
   ].map(([name, email, phone, city, state], i) => ({
-    id: `B2C-${String(i + 1).padStart(3, '0')}`, name, email, phone, salesPerson: 'BuildSoftware', status: 'Active', gstVatNumber: '', dateOfBirth: '', anniversaryDate: '',
+    id: `B2C-${String(i + 1).padStart(3, '0')}`, name, email, phone, salesPerson: 'TripNest', status: 'Active', gstVatNumber: '', dateOfBirth: '', anniversaryDate: '',
     country: i === 2 ? 'United Kingdom' : 'India', state, city, zip: '', address: `${city}`, companyLogo: null, familyMembers: [], createdAt: stamp(-200 + i * 20), updatedAt: stamp(-20),
   }));
 
   // Users -------------------------------------------------------------------
   const users = [
-    { id: 'USR-001', name: 'Admin User', email: 'admin@buildsoftware.in', role: 'Administrator', status: 'Active', createdAt: stamp(-900) },
-    { id: 'USR-002', name: 'Priya Sales', email: 'sales@buildsoftware.in', role: 'Sales', status: 'Active', createdAt: stamp(-600) },
-    { id: 'USR-003', name: 'Arjun Operations', email: 'operations@buildsoftware.in', role: 'Operations', status: 'Active', createdAt: stamp(-500) },
-    { id: 'USR-004', name: 'Meera Accounts', email: 'accounts@buildsoftware.in', role: 'Accounts', status: 'Active', createdAt: stamp(-400) },
+    { id: 'USR-001', name: 'Admin User', email: 'admin@tripnest.com', role: 'Administrator', status: 'Active', createdAt: stamp(-900) },
+    { id: 'USR-002', name: 'Priya Sales', email: 'sales@tripnest.com', role: 'Sales', status: 'Active', createdAt: stamp(-600) },
+    { id: 'USR-003', name: 'Arjun Operations', email: 'operations@tripnest.com', role: 'Operations', status: 'Active', createdAt: stamp(-500) },
+    { id: 'USR-004', name: 'Meera Accounts', email: 'accounts@tripnest.com', role: 'Accounts', status: 'Active', createdAt: stamp(-400) },
   ];
 
   // Trip specs ---------------------------------------------------------------
@@ -271,7 +271,7 @@ export function buildRecords(m) {
       queryTitle: plan.title, queryTitleMasterId: '', ccMails: [], market, destination: plan.destination,
       travelSegments: plan.legs.map(([dep, arr, from, to]) => ({ departureDestination: dep, arrivalDestination: arr, fromDate: addDays(start, from), toDate: addDays(start, to) })),
       adults, children, infants: 0, childAges: Array.from({ length: children }, () => 8), childHeights: [], infantAges: [], rooms, roomAllocation,
-      leadSource: client.type === 'Agent' ? 'Agent' : 'Website', serviceType: 'Complete Package', operationPerson: 'Arjun Operations', salesPerson: 'Priya Sales', company: 'BuildSoftware',
+      leadSource: client.type === 'Agent' ? 'Agent' : 'Website', serviceType: 'Complete Package', operationPerson: 'Arjun Operations', salesPerson: 'Priya Sales', company: 'TripNest',
       priority: ['Normal', 'Medium', 'High', 'Urgent'][i % 4], status: queryStatus, followUpDate: addDays(T, (i % 5) - 1), importantNotes: `Client prefers ${i % 2 ? 'vegetarian' : 'Indian'} meals.`, otherInformation: '',
       quotations: [], createdAt: stamp(startOffset - 25), updatedAt: stamp(Math.min(-1, startOffset - 3)),
     };
@@ -323,7 +323,7 @@ export function buildRecords(m) {
       queryTitle: title, queryTitleMasterId: '', ccMails: [], market: agent.market, destination,
       travelSegments: [{ departureDestination: 'Bangkok', arrivalDestination: destination.split(', ')[0], fromDate: start, toDate: addDays(start, 5) }],
       adults, children, infants: 0, childAges: Array.from({ length: children }, () => 7), childHeights: [], infantAges: [], rooms: Math.ceil(adults / 2), roomAllocation: { sgl: 0, dbl: Math.ceil(adults / 2), adultExtraBed: 0, cwb: 0, cnb: 0, inf: 0 },
-      leadSource: 'Agent', serviceType: 'Complete Package', operationPerson: 'Arjun Operations', salesPerson: 'Priya Sales', company: 'BuildSoftware', priority, status, followUpDate: addDays(T, k + 1),
+      leadSource: 'Agent', serviceType: 'Complete Package', operationPerson: 'Arjun Operations', salesPerson: 'Priya Sales', company: 'TripNest', priority, status, followUpDate: addDays(T, k + 1),
       importantNotes: 'Share 2–3 hotel options per destination.', otherInformation: '', quotations: [], createdAt: stamp(-k), updatedAt: stamp(-k),
     });
   });
@@ -386,7 +386,7 @@ export function quotationToBooking(quotation, { id, bookingDate, stamp, startOff
     clientType: quotation.clientType, agentId: quotation.agentId, agentName: quotation.agentName, guestName: quotation.guestName, guests: quotation.guests, guestPhone: quotation.guests?.[0]?.phone || '', guestEmail: quotation.recipientEmail,
     contactPerson: quotation.guestName, contactEmail: quotation.recipientEmail, destination: quotation.destination, destinations: String(quotation.destination || '').split(',').map((x) => x.trim()).filter(Boolean),
     arrivalDate: arrival, departureDate: departure, travelEndDate: departure, travelDate: arrival, endDate: departure, adults: quotation.adults, children: quotation.children, infants: quotation.infants, rooms: quotation.rooms, roomAllocation: quotation.roomAllocation,
-    currency: 'THB', market: quotation.market, salesPerson: quotation.salesPerson, operationPerson: 'Arjun Operations', company: 'BuildSoftware', title: quotation.packageType,
+    currency: 'THB', market: quotation.market, salesPerson: quotation.salesPerson, operationPerson: 'Arjun Operations', company: 'TripNest', title: quotation.packageType,
     hotels, services, itinerary: days, flights: [], payments: [], creditNotes: [], debitNotes: [], supplierOverrides: {}, invoiceSettings: { taxTreatment: 'GST Exclude', vatPercent: 0, discount: 0, bankCharges: 0, dueDate: addDays(arrival, -7) },
     totalCost, totalSelling, profit, margin: totalSelling ? Number(((profit / totalSelling) * 100).toFixed(2)) : 0, paidAmount: 0, balanceDue: totalSelling, paymentStatus: 'Pending',
     paymentDeadline: addDays(arrival, -7), quotationAcceptedAt: bookingDate || T,

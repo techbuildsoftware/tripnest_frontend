@@ -209,7 +209,7 @@ export default function HotelReservation() {
           ]
             .join(" ")
             .toLowerCase();
-          const company = row.booking.company || "BuildSoftware";
+          const company = row.booking.company || "TripNest";
           return (
             (!fromDate || row.checkIn >= fromDate) &&
             (!toDate || row.checkIn <= toDate) &&
@@ -494,7 +494,7 @@ export default function HotelReservation() {
                       BKG-00125
                     </div>
                     <div className="mt-1.5 inline-flex rounded bg-emerald-500 px-1.5 py-[1px] text-[8.5px] font-bold text-white shadow-sm leading-none">
-                      {row.booking.company || "BuildSoftware Pvt Ltd"}
+                      {row.booking.company || "TripNest Pvt Ltd"}
                     </div>
                   </td>
                   <td data-col="guest" className="px-2 py-2">

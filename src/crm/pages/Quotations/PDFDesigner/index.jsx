@@ -19,7 +19,7 @@ import {
   PremiumTemplate,
   DetailedTemplate,
   CompactTemplate,
-  BuildSoftwarePremiumTemplate,
+  TripNestPremiumTemplate,
   LuxuryBoutiqueTemplate,
   LuxuryTravelQuotationTemplate,
   ThaiExperienceTemplate,
@@ -59,7 +59,7 @@ const TEMPLATES = [
   },
   {
     id: 'buildsoftware-premium',
-    name: 'BuildSoftware',
+    name: 'TripNest',
     fullName: 'Premium Thailand Travel',
     desc: 'Luxury CRM template: hero cover, day cards, teal/navy/gold',
     thumb: 'buildsoftware-premium',
@@ -96,7 +96,7 @@ const TEMPLATES = [
 
 const SECTION_STYLES = ['standard', 'cards', 'modern', 'luxury'];
 const IMAGE_LAYOUTS = ['full-width', 'two-column', 'three-column', 'grid', 'hero-cards'];
-const ACCENT_PRESETS = ['#0B5EA8', '#F59E0B', '#059669', '#EF4444', '#1d62c9', '#8B5CF6', '#64748B'];
+const ACCENT_PRESETS = ['#0B5EA8', '#F59E0B', '#059669', '#EF4444', '#0e8a85', '#8B5CF6', '#64748B'];
 const FONT_STYLES = ['inter', 'georgia', 'roboto'];
 
 // ─── Mini template thumbnail ──────────────────────────────────────────────────
@@ -105,11 +105,11 @@ function TemplateThumbnail({ id, selected, onClick }) {
     classic: { bg: '#F0F4FF', accent: '#0B5EA8', line1: '#93C5FD', line2: '#BFDBFE' },
     premium: { bg: '#1E3A5F', accent: '#F59E0B', line1: '#60A5FA', line2: '#93C5FD' },
     detailed: { bg: '#F0FDF4', accent: '#059669', line1: '#6EE7B7', line2: '#A7F3D0' },
-    compact: { bg: '#eff6ff', accent: '#1d62c9', line1: '#bfdbfe', line2: '#FEF3C7' },
+    compact: { bg: '#eff6ff', accent: '#0e8a85', line1: '#bfdbfe', line2: '#FEF3C7' },
     'buildsoftware-premium': { bg: '#E7F5F3', accent: '#102A43', line1: '#008F87', line2: '#C9A13B' },
     'luxury-boutique': { bg: '#1a1a2e', accent: '#B8860B', line1: '#D4A017', line2: '#F5EBD0' },
     'luxury-travel':   { bg: '#F7EED8', accent: '#102A43', line1: '#168F89', line2: '#D5AA3A' },
-    'thai-experience': { bg: '#0A2240', accent: '#FF6B4A', line1: '#7cb8ff', line2: '#E0F7FA' },
+    'thai-experience': { bg: '#0A2240', accent: '#FF6B4A', line1: '#74d0cb', line2: '#E0F7FA' },
     'portrait-creative': { bg: '#EAF6FD', accent: '#0E9B97', line1: '#0E9B97', line2: '#F6B73C' },
   };
   const c = colors[id] || colors.classic;
@@ -266,7 +266,7 @@ function SaveTemplateModal({ config, onSave, onClose, defaultRequested = false }
           <label style={{ fontSize: 10, fontWeight: 600, color: '#374151', display: 'block', marginBottom: 4 }}>Template Name *</label>
           <input
             value={name} onChange={e => setName(e.target.value)}
-            placeholder="e.g. BuildSoftware Premium Blue"
+            placeholder="e.g. TripNest Premium Blue"
             style={{ width: '100%', border: '1px solid #CBD5E1', borderRadius: 6, padding: '7px 10px', fontSize: 12, outline: 'none', boxSizing: 'border-box' }}
           />
         </div>
@@ -469,7 +469,7 @@ export default function PDFDesigner() {
       case 'premium': return <PremiumTemplate {...props} />;
       case 'detailed': return <DetailedTemplate {...props} />;
       case 'compact': return <CompactTemplate {...props} />;
-      case 'buildsoftware-premium': return <BuildSoftwarePremiumTemplate {...props} />;
+      case 'buildsoftware-premium': return <TripNestPremiumTemplate {...props} />;
       case 'luxury-boutique': return <LuxuryBoutiqueTemplate {...props} />;
       case 'luxury-travel': return <LuxuryTravelQuotationTemplate {...props} />;
       case 'thai-experience': return <ThaiExperienceTemplate {...props} />;
@@ -497,8 +497,8 @@ export default function PDFDesigner() {
           </button>
           {/* Logo */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
-            <img src={LogoImg} alt="BuildSoftware" style={{ height: 26, objectFit: 'contain' }} />
-            <span style={{ fontWeight: 800, fontSize: 12, color: '#0B5EA8' }}>BuildSoftware</span>
+            <img src={LogoImg} alt="TripNest" style={{ height: 26, objectFit: 'contain' }} />
+            <span style={{ fontWeight: 800, fontSize: 12, color: '#0B5EA8' }}>TripNest</span>
           </div>
           <span style={{ color: '#CBD5E1', fontSize: 12 }}>›</span>
           <span style={{ fontSize: 11, color: '#64748B', cursor: 'pointer', hover: { color: '#374151' } }} onClick={() => navigate('/app/quotations')}>Quotations</span>
@@ -737,7 +737,7 @@ export default function PDFDesigner() {
                     textAlign: 'center', textTransform: 'capitalize', whiteSpace: 'nowrap',
                   }}
                 >
-                  {l === 'buildsoftware' ? 'BuildSoftware' : l.charAt(0).toUpperCase() + l.slice(1)}
+                  {l === 'buildsoftware' ? 'TripNest' : l.charAt(0).toUpperCase() + l.slice(1)}
                 </div>
               ))}
             </div>

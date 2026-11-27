@@ -13,7 +13,7 @@ const printableAssetUrl = (source) => typeof window === 'undefined' || /^https?:
   ? source
   : new URL(source, window.location.origin).href;
 
-const documentBrandName = (quotation) => quotation?.companyDetails?.name || quotation?.agent?.name || 'BuildSoftware';
+const documentBrandName = (quotation) => quotation?.companyDetails?.name || quotation?.agent?.name || 'TripNest';
 function DocumentBrandMark({ quotation, size = 30 }) {
   return quotation?.logo ? <img src={printableAssetUrl(quotation.logo)} alt="Company logo" style={{ height: size, maxWidth: size * 3, objectFit: 'contain', borderRadius: 6 }} /> : null;
 }
@@ -213,7 +213,7 @@ const THEME_MAP = {
   'tropical':       { navy: '#065F46', accent: '#059669', gold: '#F59E0B', lightAccent: '#ECFDF5', darkCard: '#059669' },
   'modern-dark':    { navy: '#1E293B', accent: '#6366F1', gold: '#EC4899', lightAccent: '#EDE9FE', darkCard: '#1E293B' },
   'minimal':        { navy: '#374151', accent: '#374151', gold: '#6B7280', lightAccent: '#F9FAFB', darkCard: '#374151' },
-  'sunset-orange':  { navy: '#7C2D12', accent: '#1d62c9', gold: '#F59E0B', lightAccent: '#eff6ff', darkCard: '#1d62c9' },
+  'sunset-orange':  { navy: '#7C2D12', accent: '#0e8a85', gold: '#F59E0B', lightAccent: '#eff6ff', darkCard: '#0e8a85' },
   'nature-green':   { navy: '#14532D', accent: '#15803D', gold: '#854D0E', lightAccent: '#F0FDF4', darkCard: '#15803D' },
   'custom':         { navy: '#102A43', accent: '#0B5EA8', gold: '#D5AA3A', lightAccent: '#EFF6FF', darkCard: '#0B5EA8' },
 };
@@ -528,7 +528,7 @@ export function LuxuryTravelQuotationTemplate({ quotation, config }) {
                   <div style={{ fontSize: 7, color: LT.secondary, marginTop: 2 }}>{quotation.adults || 0} Adults • All Taxes Included</div>
                   <div style={{ fontSize: 26, fontWeight: 900, color: C.navy, letterSpacing: '-1px', margin: '6px 0 10px' }}>{fmt(totalSell, sym)}</div>
                   <div style={{ fontSize: 7.5, fontWeight: 800, color: C.accent, marginTop: -6, marginBottom: 8 }}>{perPersonLabel}</div>
-                  <div style={{ fontSize: 7.5, color: LT.secondary, marginBottom: 3 }}>✉ {quotation.companyDetails?.email || 'admin@buildsoftware.in'}</div>
+                  <div style={{ fontSize: 7.5, color: LT.secondary, marginBottom: 3 }}>✉ {quotation.companyDetails?.email || 'admin@tripnest.com'}</div>
                   <div style={{ fontSize: 7.5, color: LT.secondary, marginBottom: 10 }}>📞 {quotation.companyDetails?.phone || '+66 76 345 678'}</div>
                   <div style={{ borderTop: `1px solid ${LT.border}`, paddingTop: 8 }}>
                     <div style={{ fontSize: 7, color: LT.secondary, fontStyle: 'italic' }}>Thank you for choosing {documentBrandName(quotation)}.</div>

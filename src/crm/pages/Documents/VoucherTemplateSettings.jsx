@@ -71,7 +71,7 @@ const VIBRANT_VOUCHER_CONFIG = {
   ...mergeVoucherSettings(),
   templateName: 'Vibrant Voucher', companyName: 'BUILDSOFTWARE',
   tagline: 'Your Thailand travel partner', welcomeTitle: 'Travel Voucher',
-  primaryColor: '#ec4899', secondaryColor: '#8b5cf6', accentColor: '#2b7de9',
+  primaryColor: '#ec4899', secondaryColor: '#8b5cf6', accentColor: '#14a09a',
   showHotelImages: false, showActivityImages: false, theme: 'vibrant'
 };
 const emptyTemplate = () => ({ id: '', name: 'Simple Voucher Template', description: 'Clean, compact travel voucher', isDefault: false, config: { ...SIMPLE_VOUCHER_CONFIG } });
@@ -300,7 +300,7 @@ export default function VoucherTemplateSettings() {
         </div>
         <div style={{ width: 1, height: 22, background: '#e2e8f0' }} />
         <button onClick={printVoucher} style={topBtn('#059669')}><Eye size={14} /> <span className="hidden sm:inline">Print / Save PDF</span></button>
-        <button onClick={() => save()} disabled={saving || loading} style={{ ...topBtn('#1d62c9'), opacity: saving ? 0.6 : 1 }}><Save size={14} /> <span className="hidden sm:inline">{saving ? 'Saving…' : 'Save'}</span></button>
+        <button onClick={() => save()} disabled={saving || loading} style={{ ...topBtn('#0e8a85'), opacity: saving ? 0.6 : 1 }}><Save size={14} /> <span className="hidden sm:inline">{saving ? 'Saving…' : 'Save'}</span></button>
       </header>
 
       {/* ── Mobile pane switcher ─────────────────────────────────────────── */}
@@ -332,9 +332,9 @@ export default function VoucherTemplateSettings() {
               const type = editorialType(tpl); const isMod = type === 'modern-journey'; const isTravel = type === 'travel-itinerary'; const isConfirmation = type === 'confirmation-itinerary';
               const isSel = selectedId === tpl.id;
               return (
-                <button key={tpl.id} onClick={() => choose(tpl)} style={{ width: '100%', textAlign: 'left', background: isSel ? 'linear-gradient(135deg, #eff6ff, #dbeafe)' : 'white', border: `1.5px solid ${isSel ? '#2b7de9' : '#e2e8f0'}`, borderRadius: 10, padding: '8px 9px', cursor: 'pointer', transition: 'all 0.15s', marginBottom: 5, display: 'flex', alignItems: 'center', gap: 8 }}>
+                <button key={tpl.id} onClick={() => choose(tpl)} style={{ width: '100%', textAlign: 'left', background: isSel ? 'linear-gradient(135deg, #eff6ff, #dbeafe)' : 'white', border: `1.5px solid ${isSel ? '#14a09a' : '#e2e8f0'}`, borderRadius: 10, padding: '8px 9px', cursor: 'pointer', transition: 'all 0.15s', marginBottom: 5, display: 'flex', alignItems: 'center', gap: 8 }}>
                   {/* Mini colour swatch */}
-                  <div style={{ width: 32, height: 32, borderRadius: 7, flexShrink: 0, background: type ? `linear-gradient(135deg, ${tpl.config?.secondaryColor || '#0F2348'}, ${tpl.config?.primaryColor || '#173B8F'})` : `linear-gradient(135deg, ${tpl.config?.secondaryColor || '#172554'}, ${tpl.config?.primaryColor || '#154aa0'})`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 11 }}>
+                  <div style={{ width: 32, height: 32, borderRadius: 7, flexShrink: 0, background: type ? `linear-gradient(135deg, ${tpl.config?.secondaryColor || '#0F2348'}, ${tpl.config?.primaryColor || '#173B8F'})` : `linear-gradient(135deg, ${tpl.config?.secondaryColor || '#172554'}, ${tpl.config?.primaryColor || '#0b6f6b'})`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 11 }}>
                     {type ? <span style={{ color: tpl.config?.accentColor || '#F4B942' }}>{isConfirmation ? '✓' : isTravel ? '✧' : '✦'}</span> : <span style={{ color: 'rgba(255,255,255,0.7)' }}>⬜</span>}
                   </div>
                   <div style={{ flex: 1, minWidth: 0 }}>
@@ -343,7 +343,7 @@ export default function VoucherTemplateSettings() {
                       {tpl.isDefault && <span style={{ fontSize: 8, fontWeight: 700, color: '#059669', background: '#d1fae5', borderRadius: 3, padding: '1px 4px' }}>DEFAULT</span>}
                       {isMod && <span style={{ fontSize: 8, fontWeight: 700, color: '#173B8F', background: '#dbeafe', borderRadius: 3, padding: '1px 4px' }}>MODERN</span>}
                       {isTravel && <span style={{ fontSize: 8, fontWeight: 700, color: '#6d28d9', background: '#ede9fe', borderRadius: 3, padding: '1px 4px' }}>ITINERARY</span>}
-                      {isConfirmation && <span style={{ fontSize: 8, fontWeight: 700, color: '#154aa0', background: '#dbeafe', borderRadius: 3, padding: '1px 4px' }}>CONFIRMATION</span>}
+                      {isConfirmation && <span style={{ fontSize: 8, fontWeight: 700, color: '#0b6f6b', background: '#dbeafe', borderRadius: 3, padding: '1px 4px' }}>CONFIRMATION</span>}
                     </div>
                   </div>
                   {tpl.isFavorite && <Star size={11} className="fill-amber-400 text-amber-400" />}
@@ -365,8 +365,8 @@ export default function VoucherTemplateSettings() {
             <button onClick={newVibrantTemplate} style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '8px 10px', background: 'white', border: '1px solid #e2e8f0', borderRadius: 6, fontSize: 11, fontWeight: 600, color: '#475569', cursor: 'pointer', transition: 'all 0.2s', boxShadow: '0 1px 2px rgba(0,0,0,0.02)' }} onMouseOver={(e) => e.currentTarget.style.borderColor = '#ec4899'} onMouseOut={(e) => e.currentTarget.style.borderColor = '#e2e8f0'}>
               <Palette size={14} color="#ec4899" /> Vibrant Theme
             </button>
-            <button onClick={newConfirmationItineraryTemplate} style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '8px 10px', background: 'white', border: '1px solid #bfdbfe', borderRadius: 6, fontSize: 11, fontWeight: 700, color: '#154aa0', cursor: 'pointer', transition: 'all 0.2s', boxShadow: '0 1px 2px rgba(0,0,0,0.02)' }}>
-              <Layout size={14} color="#1d62c9" /> Confirmation Itinerary
+            <button onClick={newConfirmationItineraryTemplate} style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '8px 10px', background: 'white', border: '1px solid #bfdbfe', borderRadius: 6, fontSize: 11, fontWeight: 700, color: '#0b6f6b', cursor: 'pointer', transition: 'all 0.2s', boxShadow: '0 1px 2px rgba(0,0,0,0.02)' }}>
+              <Layout size={14} color="#0e8a85" /> Confirmation Itinerary
             </button>
           </div>
 
@@ -399,7 +399,7 @@ export default function VoucherTemplateSettings() {
               { id: 'privacy',  label: 'Privacy',   Icon: Settings2 },
                { id: 'print',    label: 'Print layout', Icon: Settings2 },
             ].map(({ id, label, Icon }) => (
-              <button key={id} onClick={() => setActiveTab(id)} style={{ display: 'flex', alignItems: 'center', gap: 4, padding: '8px 10px', fontSize: 10.5, fontWeight: activeTab === id ? 700 : 600, color: activeTab === id ? '#1d62c9' : '#64748b', border: 'none', background: 'none', cursor: 'pointer', borderBottom: `2px solid ${activeTab === id ? '#1d62c9' : 'transparent'}`, transition: 'all 0.15s' }}>
+              <button key={id} onClick={() => setActiveTab(id)} style={{ display: 'flex', alignItems: 'center', gap: 4, padding: '8px 10px', fontSize: 10.5, fontWeight: activeTab === id ? 700 : 600, color: activeTab === id ? '#0e8a85' : '#64748b', border: 'none', background: 'none', cursor: 'pointer', borderBottom: `2px solid ${activeTab === id ? '#0e8a85' : 'transparent'}`, transition: 'all 0.15s' }}>
                 <Icon size={12} />{label}
               </button>
             ))}
@@ -470,8 +470,8 @@ export default function VoucherTemplateSettings() {
 
           {/* Bottom action row */}
           <div style={{ padding: '10px 14px', borderTop: '1px solid #e2e8f0', background: 'white', display: 'flex', gap: 6, flexShrink: 0 }}>
-            <button onClick={() => save(true)} disabled={saving} style={{ flex: 1, height: 32, borderRadius: 8, border: '1.5px solid #1d62c9', background: 'white', color: '#1d62c9', fontSize: 11, fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4 }}><Check size={13} /> Set Default</button>
-            <button onClick={() => save()}     disabled={saving} style={{ flex: 1, height: 32, borderRadius: 8, border: 'none', background: '#1d62c9', color: 'white', fontSize: 11, fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4 }}><Save size={13} /> {saving ? 'Saving…' : 'Save'}</button>
+            <button onClick={() => save(true)} disabled={saving} style={{ flex: 1, height: 32, borderRadius: 8, border: '1.5px solid #0e8a85', background: 'white', color: '#0e8a85', fontSize: 11, fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4 }}><Check size={13} /> Set Default</button>
+            <button onClick={() => save()}     disabled={saving} style={{ flex: 1, height: 32, borderRadius: 8, border: 'none', background: '#0e8a85', color: 'white', fontSize: 11, fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4 }}><Save size={13} /> {saving ? 'Saving…' : 'Save'}</button>
             <button onClick={remove} disabled={saving} title="Delete this voucher template" style={{ height: 32, borderRadius: 8, border: '1px solid #fecaca', background: 'white', color: '#dc2626', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 5, padding: '0 9px', flexShrink: 0 }}><Trash2 size={13} /> Delete</button>
           </div>
         </div>
@@ -481,7 +481,7 @@ export default function VoucherTemplateSettings() {
 
           {/* Preview toolbar */}
           <div style={{ background: 'white', borderBottom: '1px solid #e2e8f0', padding: '7px 10px', display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 8, flexShrink: 0 }}>
-            <Eye size={14} style={{ color: '#1d62c9' }} />
+            <Eye size={14} style={{ color: '#0e8a85' }} />
             <span style={{ fontSize: 11, fontWeight: 700, color: '#0f172a', flex: 1 }}>Live Voucher Preview</span>
             <span style={{ fontSize: 10, color: '#64748b', marginRight: 4 }}>Page {safePage} / {totalPages}</span>
             <button onClick={() => setZoom((z) => Math.max(0.25, +(z - 0.1).toFixed(2)))} style={zBtnSt}><ZoomOut size={12} /></button>
@@ -499,7 +499,7 @@ export default function VoucherTemplateSettings() {
                   setPreviewPage(idx + 1);
                   document.getElementById(`preview-page-${page.key}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }}
-                  style={{ flexShrink: 0, display: 'flex', alignItems: 'center', gap: 4, padding: '4px 10px', borderRadius: 6, background: isActive ? '#1d62c9' : '#334155', border: `1px solid ${isActive ? '#60a5fa' : '#475569'}`, color: 'white', fontSize: 9.5, fontWeight: 700, cursor: 'pointer', transition: 'all 0.15s', whiteSpace: 'nowrap' }}>
+                  style={{ flexShrink: 0, display: 'flex', alignItems: 'center', gap: 4, padding: '4px 10px', borderRadius: 6, background: isActive ? '#0e8a85' : '#334155', border: `1px solid ${isActive ? '#60a5fa' : '#475569'}`, color: 'white', fontSize: 9.5, fontWeight: 700, cursor: 'pointer', transition: 'all 0.15s', whiteSpace: 'nowrap' }}>
                   <span>{idx + 1}</span>
                   <span style={{ opacity: 0.85 }}>{page.label}</span>
                 </button>
@@ -642,7 +642,7 @@ function ClassicSinglePage({ settings, booking, pageKey }) {
       );
     }
     return (
-      <div style={{ padding: '10px 14px', color: 'white', background: `linear-gradient(135deg, ${settings.secondaryColor || '#172554'}, ${settings.primaryColor || '#154aa0'})`, display: 'flex', alignItems: 'center', gap: 10 }}>
+      <div style={{ padding: '10px 14px', color: 'white', background: `linear-gradient(135deg, ${settings.secondaryColor || '#172554'}, ${settings.primaryColor || '#0b6f6b'})`, display: 'flex', alignItems: 'center', gap: 10 }}>
         <img src={LogoImg} alt="Logo" style={{ height: 30, width: 64, objectFit: 'contain', objectPosition: 'left center' }} onError={(e) => { e.currentTarget.style.display = 'none'; }} />
         <div style={{ flex: 1 }}>
           <div style={{ fontSize: 11, fontWeight: 800 }}>{settings.companyName}</div>
@@ -699,7 +699,7 @@ function ClassicSinglePage({ settings, booking, pageKey }) {
                   <td style={tdSt}>{f.airline}</td>
                   <td style={{ ...tdSt, fontWeight: 700 }}>{f.flightNo}</td>
                   <td style={tdSt}>{f.fromSector} → {f.toSector}</td>
-                  <td style={{ ...tdSt, color: '#1d62c9', fontWeight: 700 }}>{f.departure}</td>
+                  <td style={{ ...tdSt, color: '#0e8a85', fontWeight: 700 }}>{f.departure}</td>
                   <td style={{ ...tdSt, color: '#dc2626', fontWeight: 700 }}>{f.arrival}</td>
                   <td style={{ ...tdSt, fontFamily: 'monospace', fontSize: 8 }}>{f.pnr || '—'}</td>
                 </tr>
@@ -712,7 +712,7 @@ function ClassicSinglePage({ settings, booking, pageKey }) {
         <div style={{ padding: '12px 14px' }}>
           <SectionTitle>Hotel Details</SectionTitle>
           {hotels.length ? hotels.map((h, i) => (
-            <div key={i} style={{ background: '#f8fafc', borderRadius: 8, padding: '10px 12px', marginBottom: 8, borderLeft: `3px solid ${settings.primaryColor || '#154aa0'}` }}>
+            <div key={i} style={{ background: '#f8fafc', borderRadius: 8, padding: '10px 12px', marginBottom: 8, borderLeft: `3px solid ${settings.primaryColor || '#0b6f6b'}` }}>
               <div style={{ fontSize: 11, fontWeight: 800, color: '#0f172a', marginBottom: 4 }}>{h.name || h.hotel}</div>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 6, fontSize: 9.5 }}>
                 {[['Check-in', h.checkIn],['Check-out', h.checkOut],['Room', h.roomType],['Room allocation', hotelRoomAllocationText(h, booking)],['Meal', h.mealPlan],['Conf. #', h.confirmationNo || '—'],['City', h.city || h.itineraryDestination]].map(([l,v]) => (
@@ -748,7 +748,7 @@ function ClassicSinglePage({ settings, booking, pageKey }) {
           <SectionTitle>Sightseeing & Activities</SectionTitle>
           {activities.length ? activities.map((a, i) => (
             <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, padding: '8px 0', borderBottom: '1px solid #f1f5f9' }}>
-              <div style={{ width: 36, height: 36, borderRadius: 8, background: `linear-gradient(135deg, ${settings.primaryColor||'#154aa0'}, ${settings.accentColor||'#fbbf24'})`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14, flexShrink: 0 }}>🎭</div>
+              <div style={{ width: 36, height: 36, borderRadius: 8, background: `linear-gradient(135deg, ${settings.primaryColor||'#0b6f6b'}, ${settings.accentColor||'#fbbf24'})`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14, flexShrink: 0 }}>🎭</div>
               <div style={{ flex: 1 }}>
                 <div style={{ fontSize: 11, fontWeight: 700, color: '#0f172a' }}>{a.name || a.variantName}</div>
                 <div style={{ fontSize: 9.5, color: '#64748b', marginTop: 2 }}>{a.date || a.serviceDate} · {a.fromTime || '—'} · {a.type || a.basis}</div>
@@ -774,7 +774,7 @@ function ClassicSinglePage({ settings, booking, pageKey }) {
             {itinerary.length ? itinerary.map((day, i) => (
               <div key={i} style={{ marginBottom: 12 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 5 }}>
-                  <div style={{ background: `linear-gradient(135deg, ${settings.secondaryColor||'#172554'}, ${settings.primaryColor||'#154aa0'})`, color: '#fff', borderRadius: 6, padding: '3px 8px', fontSize: 9, fontWeight: 800 }}>DAY {day.day || i+1}</div>
+                  <div style={{ background: `linear-gradient(135deg, ${settings.secondaryColor||'#172554'}, ${settings.primaryColor||'#0b6f6b'})`, color: '#fff', borderRadius: 6, padding: '3px 8px', fontSize: 9, fontWeight: 800 }}>DAY {day.day || i+1}</div>
                   <span style={{ fontSize: 10, fontWeight: 700, color: '#0f172a' }}>{day.title || day.destination}</span>
                   {day.date && <span style={{ fontSize: 9, color: '#94a3b8', marginLeft: 'auto' }}>{day.date}</span>}
                 </div>
@@ -853,7 +853,7 @@ function Toggle({ label, checked, onChange }) {
   return (
     <label style={{ display: 'flex', cursor: 'pointer', alignItems: 'center', justifyContent: 'space-between', border: '1px solid #e2e8f0', borderRadius: 8, padding: '7px 10px', background: checked ? '#f0f9ff' : 'white', transition: 'background 0.15s' }}>
       <span style={{ fontSize: 11, fontWeight: 600, color: '#374151' }}>{label}</span>
-      <div style={{ position: 'relative', width: 34, height: 19, borderRadius: 10, background: checked ? '#1d62c9' : '#d1d5db', transition: 'background 0.2s', flexShrink: 0 }}>
+      <div style={{ position: 'relative', width: 34, height: 19, borderRadius: 10, background: checked ? '#0e8a85' : '#d1d5db', transition: 'background 0.2s', flexShrink: 0 }}>
         <div style={{ position: 'absolute', top: 2.5, left: checked ? 15 : 2.5, width: 14, height: 14, borderRadius: '50%', background: 'white', transition: 'left 0.2s', boxShadow: '0 1px 3px rgba(0,0,0,0.2)' }} />
         <input type="checkbox" checked={!!checked} onChange={onChange} style={{ position: 'absolute', opacity: 0, width: '100%', height: '100%', cursor: 'pointer', margin: 0 }} />
       </div>
@@ -866,9 +866,9 @@ function RangeField({ label, value, min, max, step = 1, suffix = '', onChange })
     <label style={{ display: 'block' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', gap: 8, marginBottom: 5 }}>
         <span style={{ fontSize: 10.5, fontWeight: 650, color: '#374151' }}>{label}</span>
-        <span style={{ fontSize: 10, fontWeight: 800, color: '#1d62c9' }}>{numericValue}{suffix}</span>
+        <span style={{ fontSize: 10, fontWeight: 800, color: '#0e8a85' }}>{numericValue}{suffix}</span>
       </div>
-      <input type="range" min={min} max={max} step={step} value={numericValue} onChange={(event) => onChange(Number(event.target.value))} style={{ width: '100%', accentColor: '#1d62c9', cursor: 'pointer' }} />
+      <input type="range" min={min} max={max} step={step} value={numericValue} onChange={(event) => onChange(Number(event.target.value))} style={{ width: '100%', accentColor: '#0e8a85', cursor: 'pointer' }} />
       <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 1, fontSize: 8.5, color: '#94a3b8' }}><span>{min}{suffix}</span><span>{max}{suffix}</span></div>
     </label>
   );

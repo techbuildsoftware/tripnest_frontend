@@ -12,7 +12,7 @@ import {
   PremiumTemplate,
   DetailedTemplate,
   CompactTemplate,
-  BuildSoftwarePremiumTemplate,
+  TripNestPremiumTemplate,
   LuxuryBoutiqueTemplate,
   LuxuryTravelQuotationTemplate,
   ThaiExperienceTemplate,
@@ -31,12 +31,12 @@ const DUMMY_QUOTATION = {
   agent: { name: 'Surya Kiran DMC', email: 'surya@dmc.com', phone: '' },
   guest: { name: 'Mr Ronik', email: '', phone: '' },
   companyDetails: {
-    name: 'BuildSoftware Co., Ltd.',
+    name: 'TripNest Co., Ltd.',
     tagline: 'Travel · Explore · Discover',
     phone: '+66 76 345 678',
-    email: 'admin@buildsoftware.in',
+    email: 'admin@tripnest.com',
     address: 'Phuket, Thailand',
-    website: 'www.buildsoftware.in'
+    website: 'www.tripnest.com'
   },
   travelStartDate: '02 Nov 2026',
   travelEndDate:   '08 Nov 2026',
@@ -129,7 +129,7 @@ const DUMMY_QUOTATION = {
   paymentTerms: ['50% advance at the time of booking', '50% before departure'],
   cancellationPolicy: ['30+ days: Full refund', '15–29 days: 50% refund', 'Less than 15 days: No refund'],
   importantNotes: ['All rates are in THB', 'Prices are subject to change during peak season'],
-  companyDetails: { name: 'BuildSoftware Co., Ltd.', address: 'Phuket, Thailand', phone: '+66 76 345 678', email: 'admin@buildsoftware.in', website: 'www.buildsoftware.in', tagline: 'Travel · Explore · Discover' },
+  companyDetails: { name: 'TripNest Co., Ltd.', address: 'Phuket, Thailand', phone: '+66 76 345 678', email: 'admin@tripnest.com', website: 'www.tripnest.com', tagline: 'Travel · Explore · Discover' },
   logo: null,
 };
 
@@ -139,8 +139,8 @@ const FORMAT_PRESETS = [
   { id: 'classic', name: 'Classic Professional', style: 'Corporate Clean', status: 'Active', isDefault: false, primaryColor: '#0B5EA8', secondaryColor: '#F59E0B', font: 'Inter', description: 'Clean corporate format for travel agents (B2B). Header + summary + hotel table + itinerary.', updatedAt: '28 Sep 2026' },
   { id: 'premium', name: 'Premium Visual', style: 'Modern Travel', status: 'Active', isDefault: false, primaryColor: '#1E3A5F', secondaryColor: '#F59E0B', font: 'Manrope', description: 'Destination-focused visual template for B2C clients. Large cover image with itinerary.', updatedAt: '29 Sep 2026' },
   { id: 'detailed', name: 'Detailed Itinerary', style: 'Day-by-Day', status: 'Active', isDefault: false, primaryColor: '#059669', secondaryColor: '#0891B2', font: 'Inter', description: 'Comprehensive day-wise itinerary with all services, transfers, hotels and notes.', updatedAt: '27 Sep 2026' },
-  { id: 'compact', name: 'Compact Rate Quotation', style: 'Price Focused', status: 'Active', isDefault: false, primaryColor: '#1d62c9', secondaryColor: '#DC2626', font: 'Roboto', description: 'Short, price-focused B2B quotation with hotel table and basic summary.', updatedAt: '26 Sep 2026' },
-  { id: 'buildsoftware-premium', name: 'Premium Thailand Travel', style: 'Modern Travel', status: 'Active', isDefault: true, primaryColor: '#102A43', secondaryColor: '#C9A13B', font: 'Manrope', description: 'Luxury BuildSoftware CRM template with hero cover, day-by-day itinerary cards, teal/navy/gold system.', updatedAt: '01 Oct 2026' },
+  { id: 'compact', name: 'Compact Rate Quotation', style: 'Price Focused', status: 'Active', isDefault: false, primaryColor: '#0e8a85', secondaryColor: '#DC2626', font: 'Roboto', description: 'Short, price-focused B2B quotation with hotel table and basic summary.', updatedAt: '26 Sep 2026' },
+  { id: 'buildsoftware-premium', name: 'Premium Thailand Travel', style: 'Modern Travel', status: 'Active', isDefault: true, primaryColor: '#102A43', secondaryColor: '#C9A13B', font: 'Manrope', description: 'Luxury TripNest CRM template with hero cover, day-by-day itinerary cards, teal/navy/gold system.', updatedAt: '01 Oct 2026' },
   { id: 'luxury-boutique', name: 'Luxury Boutique Travel', style: 'Premium Dark', status: 'Active', isDefault: false, primaryColor: '#1a1a2e', secondaryColor: '#B8860B', font: 'Poppins', description: 'Dark luxury theme with gold accents. Ideal for honeymoon and boutique packages.', updatedAt: '30 Sep 2026' },
   { id: 'luxury-travel', name: 'Luxury Travel Quotation', style: 'Premium Luxury', status: 'Active', isDefault: false, primaryColor: '#102A43', secondaryColor: '#D5AA3A', font: 'Inter', description: 'Premium travel proposal: large hero, trip summary, pricing, day cards with city banners, final package total. Navy/Teal/Gold palette.', updatedAt: '02 Oct 2026' },
   { id: 'thai-experience', name: 'Thai Experience', style: 'Tropical Editorial', status: 'Active', isDefault: false, primaryColor: '#0A2240', secondaryColor: '#FF6B4A', font: 'Manrope', description: 'Magazine-style Thailand itinerary with tropical navy, coral and sunset-gold accents for activities, islands and yacht journeys.', updatedAt: '03 Oct 2026' },
@@ -414,7 +414,7 @@ export default function PDFTemplateSettings() {
       case 'premium':               return <PremiumTemplate {...props} />;
       case 'detailed':              return <DetailedTemplate {...props} />;
       case 'compact':               return <CompactTemplate {...props} />;
-      case 'buildsoftware-premium':  return <BuildSoftwarePremiumTemplate {...props} />;
+      case 'buildsoftware-premium':  return <TripNestPremiumTemplate {...props} />;
       case 'luxury-boutique':       return <LuxuryBoutiqueTemplate {...props} />;
       case 'luxury-travel':         return <LuxuryTravelQuotationTemplate {...props} />;
       case 'thai-experience':      return <ThaiExperienceTemplate {...props} />;
@@ -450,7 +450,7 @@ export default function PDFTemplateSettings() {
               <button
                 onClick={handleUseForQuotations}
                 disabled={saving}
-                style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '7px 14px', borderRadius: 8, border: 'none', background: 'linear-gradient(135deg, #2b7de9, #1d62c9)', color: 'white', cursor: saving ? 'wait' : 'pointer', opacity: saving ? 0.7 : 1, fontSize: 12, fontWeight: 700, boxShadow: '0 3px 10px rgba(43,125,233,0.3)' }}
+                style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '7px 14px', borderRadius: 8, border: 'none', background: 'linear-gradient(135deg, #14a09a, #0e8a85)', color: 'white', cursor: saving ? 'wait' : 'pointer', opacity: saving ? 0.7 : 1, fontSize: 12, fontWeight: 700, boxShadow: '0 3px 10px rgba(14,160,154,0.3)' }}
               >
                 <FileText size={13} /> <span className="hidden sm:inline">Use for Quotations</span>
               </button>
@@ -459,7 +459,7 @@ export default function PDFTemplateSettings() {
           <button
             onClick={handleSave}
             disabled={saving}
-            style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '7px 14px', borderRadius: 8, border: 'none', background: saved ? '#10b981' : 'linear-gradient(135deg, #0B5EA8, #154aa0)', color: 'white', cursor: saving ? 'wait' : 'pointer', opacity: saving ? 0.7 : 1, fontSize: 12, fontWeight: 700, boxShadow: '0 3px 10px rgba(11,94,168,0.3)' }}
+            style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '7px 14px', borderRadius: 8, border: 'none', background: saved ? '#10b981' : 'linear-gradient(135deg, #0B5EA8, #0b6f6b)', color: 'white', cursor: saving ? 'wait' : 'pointer', opacity: saving ? 0.7 : 1, fontSize: 12, fontWeight: 700, boxShadow: '0 3px 10px rgba(11,94,168,0.3)' }}
           >
             {saved ? <><Check size={13} /> Saved!</> : <><Save size={13} /> <span className="hidden sm:inline">{saving ? 'Saving…' : 'Save Settings'}</span></>}
           </button>
@@ -484,7 +484,7 @@ export default function PDFTemplateSettings() {
         <div className={`${mobilePane === 'templates' ? 'flex' : 'hidden'} lg:flex flex-1 min-h-0 lg:flex-none lg:w-[30%]`} style={{ flexShrink: 0, background: 'white', borderRight: '1px solid #e2e8f0', flexDirection: 'column', overflow: 'hidden' }}>
           <div style={{ padding: '12px 14px 8px', borderBottom: '1px solid #f1f5f9', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexShrink: 0 }}>
             <span style={{ fontSize: 12, fontWeight: 700, color: '#0f172a' }}>PDF Templates</span>
-            <button onClick={() => setShowNewTemplate(true)} style={{ display: 'flex', alignItems: 'center', gap: 4, padding: '4px 10px', borderRadius: 7, background: 'linear-gradient(135deg,#2b7de9,#1d62c9)', color: 'white', border: 'none', cursor: 'pointer', fontSize: 11, fontWeight: 700 }}>
+            <button onClick={() => setShowNewTemplate(true)} style={{ display: 'flex', alignItems: 'center', gap: 4, padding: '4px 10px', borderRadius: 7, background: 'linear-gradient(135deg,#14a09a,#0e8a85)', color: 'white', border: 'none', cursor: 'pointer', fontSize: 11, fontWeight: 700 }}>
               <Plus size={11} /> New
             </button>
           </div>
@@ -650,7 +650,7 @@ export default function PDFTemplateSettings() {
               {[
                 { id: 'standard', label: 'Standard',  preview: { bg: '#f8fafc', border: '1px solid #e2e8f0', text: '#374151' } },
                 { id: 'cards',    label: 'Cards',      preview: { bg: 'white',   border: '1px solid #cbd5e1', text: '#1e293b', shadow: '0 2px 6px rgba(0,0,0,0.08)' } },
-                { id: 'modern',   label: 'Modern',     preview: { bg: 'linear-gradient(135deg,#f0f7ff,#e8f4fd)', border: '1px solid #bfdbfe', text: '#123b80' } },
+                { id: 'modern',   label: 'Modern',     preview: { bg: 'linear-gradient(135deg,#f0f7ff,#e8f4fd)', border: '1px solid #bfdbfe', text: '#0a5856' } },
                 { id: 'luxury',   label: 'Luxury',     preview: { bg: 'linear-gradient(135deg,#1a1a2e,#16213e)', border: '1px solid #B8860B', text: '#F5EBD0' } },
               ].map(opt => (
                 <button key={opt.id} onClick={() => updateConfig({ sectionStyle: opt.id })}
@@ -667,7 +667,7 @@ export default function PDFTemplateSettings() {
             {/* 8. Accent Color */}
             <SettingsSection title="8. Accent Color" icon={Palette} isOpen={activeSection === 'accent'} onToggle={() => setActiveSection(activeSection === 'accent' ? null : 'accent')}>
               <div style={{ display: 'flex', gap: 5, flexWrap: 'wrap', marginBottom: 8 }}>
-                {['#0B5EA8','#102A43','#168F89','#D5AA3A','#F59E0B','#059669','#EF4444','#1d62c9','#8B5CF6','#EC4899','#64748B','#1a1a2e'].map(c => (
+                {['#0B5EA8','#102A43','#168F89','#D5AA3A','#F59E0B','#059669','#EF4444','#0e8a85','#8B5CF6','#EC4899','#64748B','#1a1a2e'].map(c => (
                   <div key={c} onClick={() => updateConfig({ accentColor: c })}
                     style={{ width: 22, height: 22, borderRadius: 5, background: c, cursor: 'pointer', border: config.accentColor === c ? '2.5px solid #0f172a' : '2px solid transparent', boxShadow: config.accentColor === c ? '0 0 0 1.5px white inset' : 'none', transition: 'transform 0.15s', transform: config.accentColor === c ? 'scale(1.15)' : 'scale(1)' }} />
                 ))}
@@ -868,7 +868,7 @@ export default function PDFTemplateSettings() {
             <textarea value={newTemplate.description} onChange={(event) => setNewTemplate((previous) => ({ ...previous, description: event.target.value }))} placeholder="When this template should be used" rows={3} style={{ resize: 'vertical', width: '100%', padding: '9px 10px', border: '1px solid #cbd5e1', borderRadius: 8, outline: 'none', fontSize: 12, marginBottom: 18 }} />
             <div style={{ display: 'flex', gap: 10 }}>
               <button onClick={() => setShowNewTemplate(false)} disabled={saving} style={{ flex: 1, padding: 9, borderRadius: 9, border: '1.5px solid #e2e8f0', background: 'white', cursor: 'pointer', fontSize: 13, fontWeight: 600 }}>Cancel</button>
-              <button onClick={handleCreate} disabled={saving} style={{ flex: 1, padding: 9, borderRadius: 9, border: 'none', background: '#1d62c9', color: 'white', cursor: saving ? 'wait' : 'pointer', opacity: saving ? 0.7 : 1, fontSize: 13, fontWeight: 700 }}>{saving ? 'Creating…' : 'Create Template'}</button>
+              <button onClick={handleCreate} disabled={saving} style={{ flex: 1, padding: 9, borderRadius: 9, border: 'none', background: '#0e8a85', color: 'white', cursor: saving ? 'wait' : 'pointer', opacity: saving ? 0.7 : 1, fontSize: 13, fontWeight: 700 }}>{saving ? 'Creating…' : 'Create Template'}</button>
             </div>
           </div>
         </div>
@@ -885,7 +885,7 @@ function TemplateCard({ tpl, isSelected, showMenu, menuRef, onSelect, onToggleMe
       style={{
         borderRadius: 12,
         cursor: 'pointer',
-        border: `1.5px solid ${isSelected ? '#2b7de9' : '#d1d5db'}`,
+        border: `1.5px solid ${isSelected ? '#14a09a' : '#d1d5db'}`,
         background: isSelected ? '#eff6ff' : 'white',
         transition: 'all 0.15s',
         position: 'relative',
@@ -895,7 +895,7 @@ function TemplateCard({ tpl, isSelected, showMenu, menuRef, onSelect, onToggleMe
         zIndex: showMenu ? 50 : 1,
         display: 'flex',
         flexDirection: 'column',
-        boxShadow: isSelected ? '0 4px 14px rgba(43,125,233,0.15)' : '0 2px 6px rgba(0,0,0,0.04)',
+        boxShadow: isSelected ? '0 4px 14px rgba(14,160,154,0.15)' : '0 2px 6px rgba(0,0,0,0.04)',
       }}
       onMouseEnter={e => { if (!isSelected) e.currentTarget.style.borderColor = '#93c5fd'; }}
       onMouseLeave={e => { if (!isSelected) e.currentTarget.style.borderColor = '#d1d5db'; }}
@@ -941,7 +941,7 @@ function TemplateCard({ tpl, isSelected, showMenu, menuRef, onSelect, onToggleMe
         
         <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <span style={{ fontSize: 9, fontWeight: 600, padding: '2px 6px', borderRadius: 6, background: tpl.isEnabled === false ? '#f1f5f9' : '#dcfce7', color: tpl.isEnabled === false ? '#64748b' : '#15803d' }}>{tpl.status}</span>
-          {tpl.isDefault && <span style={{ fontSize: 8, fontWeight: 700, color: '#2b7de9', background: '#dbeafe', padding: '2px 6px', borderRadius: 6 }}>DEFAULT</span>}
+          {tpl.isDefault && <span style={{ fontSize: 8, fontWeight: 700, color: '#14a09a', background: '#dbeafe', padding: '2px 6px', borderRadius: 6 }}>DEFAULT</span>}
         </div>
       </div>
     </div>
@@ -992,7 +992,7 @@ function MiniTemplateThumbnail({ id, selected, primaryColor }) {
       <div style={{ padding: '4px 4px 3px' }}>
         <div style={{ height: 6, background: accentColor, borderRadius: 2, marginBottom: 2 }} />
         {(id === 'premium' || isTA || isThaiExperience) && (
-          <div style={{ height: 16, background: isThaiExperience ? 'linear-gradient(135deg, #FF6B4A, #7cb8ff)' : `linear-gradient(135deg, ${accentColor}cc, #1e3a8a)`, borderRadius: 2, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div style={{ height: 16, background: isThaiExperience ? 'linear-gradient(135deg, #FF6B4A, #74d0cb)' : `linear-gradient(135deg, ${accentColor}cc, #1e3a8a)`, borderRadius: 2, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <span style={{ color: isThaiExperience ? '#0A2240' : '#F59E0B', fontSize: 5, fontWeight: 900 }}>THAILAND</span>
           </div>
         )}

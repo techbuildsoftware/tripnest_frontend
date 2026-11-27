@@ -10,12 +10,12 @@ import { formatDate } from '../../lib/date';
 
 const statusStyle = {
   Generated: { bg: '#dcfce7', text: '#15803d' },
-  Sent: { bg: '#dbeafe', text: '#154aa0' },
+  Sent: { bg: '#dbeafe', text: '#0b6f6b' },
   Draft: { bg: '#f1f5f9', text: '#64748b' },
 };
 
 const typeStyle = {
-  Quotation: { bg: '#eff6ff', text: '#2b7de9' },
+  Quotation: { bg: '#eff6ff', text: '#14a09a' },
   Voucher: { bg: '#fef3c7', text: '#d97706' },
   Package: { bg: '#f0fdf4', text: '#16a34a' },
 };
@@ -27,11 +27,11 @@ const tools = [
     title: 'Create Quotation PDF',
     desc: 'Generate professional PDF quotations with multiple options, templates and branding.',
     btnLabel: 'Create Quotation',
-    btnColor: 'linear-gradient(135deg, #2b7de9 0%, #1d62c9 100%)',
-    btnShadow: '0 4px 14px rgba(43,125,233,0.35)',
+    btnColor: 'linear-gradient(135deg, #14a09a 0%, #0e8a85 100%)',
+    btnShadow: '0 4px 14px rgba(14,160,154,0.35)',
     cardBg: '#eff6ff',
     cardBorder: '#bfdbfe',
-    iconBg: '#2b7de9',
+    iconBg: '#14a09a',
     icon: FileText,
     path: '/quotations/new',
     settingsPath: '/documents/pdf-template-settings',
@@ -188,7 +188,7 @@ export default function Documents() {
               />
             </div>
             <button
-              style={{ fontSize: 13, fontWeight: 600, color: '#2b7de9', background: 'none', border: 'none', cursor: 'pointer', padding: '6px 10px' }}
+              style={{ fontSize: 13, fontWeight: 600, color: '#14a09a', background: 'none', border: 'none', cursor: 'pointer', padding: '6px 10px' }}
             >
               View All
             </button>
@@ -358,7 +358,7 @@ function QuickLinkCard({ link, Icon, onNavigate }) {
       onClick={() => onNavigate(link.path)}
       style={{
         background: 'white',
-        border: `1.5px solid ${hovered ? '#2b7de9' : '#e2e8f0'}`,
+        border: `1.5px solid ${hovered ? '#14a09a' : '#e2e8f0'}`,
         borderRadius: 12,
         padding: '12px 14px',
         display: 'flex',
@@ -366,13 +366,13 @@ function QuickLinkCard({ link, Icon, onNavigate }) {
         gap: 12,
         cursor: 'pointer',
         textAlign: 'left',
-        boxShadow: hovered ? '0 4px 16px rgba(43,125,233,0.12)' : '0 1px 4px rgba(0,0,0,0.04)',
+        boxShadow: hovered ? '0 4px 16px rgba(14,160,154,0.12)' : '0 1px 4px rgba(0,0,0,0.04)',
         transition: 'all 0.15s',
         width: '100%',
       }}
     >
       <div style={{ width: 36, height: 36, borderRadius: 9, background: '#f1f5f9', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-        <Icon size={16} color="#2b7de9" />
+        <Icon size={16} color="#14a09a" />
       </div>
       <div style={{ flex: 1, minWidth: 0 }}>
         <div style={{ fontSize: 13, fontWeight: 600, color: '#0f172a', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{link.label}</div>
@@ -388,17 +388,17 @@ function ToolPreview({ id, iconBg }) {
   if (id === 'quotation-pdf') {
     return (
       <div style={{ position: 'relative', width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <div style={{ position: 'absolute', width: 68, height: 90, background: 'white', border: '1px solid #bfdbfe', borderRadius: 6, transform: 'rotate(-5deg) translate(-8px, 4px)', boxShadow: '0 2px 8px rgba(43,125,233,0.1)' }}>
+        <div style={{ position: 'absolute', width: 68, height: 90, background: 'white', border: '1px solid #bfdbfe', borderRadius: 6, transform: 'rotate(-5deg) translate(-8px, 4px)', boxShadow: '0 2px 8px rgba(14,160,154,0.1)' }}>
           <div style={{ margin: '6px 5px 3px', height: 6, background: '#dbeafe', borderRadius: 2 }} />
           {[1,2,3,4].map(i => <div key={i} style={{ margin: '2px 5px', height: 3, background: '#e0f2fe', borderRadius: 1, width: i % 3 === 0 ? '60%' : '90%' }} />)}
         </div>
-        <div style={{ position: 'relative', width: 70, height: 92, background: 'white', border: '1.5px solid #2b7de9', borderRadius: 7, boxShadow: '0 4px 16px rgba(43,125,233,0.2)' }}>
-          <div style={{ height: 18, background: 'linear-gradient(135deg, #2b7de9, #154aa0)', margin: 5, borderRadius: 4 }} />
+        <div style={{ position: 'relative', width: 70, height: 92, background: 'white', border: '1.5px solid #14a09a', borderRadius: 7, boxShadow: '0 4px 16px rgba(14,160,154,0.2)' }}>
+          <div style={{ height: 18, background: 'linear-gradient(135deg, #14a09a, #0b6f6b)', margin: 5, borderRadius: 4 }} />
           <div style={{ margin: '4px 5px 2px', height: 5, background: '#bfdbfe', borderRadius: 2 }} />
           <div style={{ margin: '2px 5px', height: 3, background: '#dbeafe', borderRadius: 1, width: '75%' }} />
           <div style={{ margin: '4px 5px 2px', height: 4, background: '#60a5fa', borderRadius: 2, width: '55%' }} />
           {[1,2,3].map(i => <div key={i} style={{ margin: '2px 5px', height: 3, background: '#e0f2fe', borderRadius: 1, width: i === 2 ? '60%' : '90%' }} />)}
-          <div style={{ position: 'absolute', bottom: 5, right: 5, fontSize: 7, fontWeight: 700, color: '#2b7de9', background: '#dbeafe', padding: '1px 4px', borderRadius: 3 }}>PDF</div>
+          <div style={{ position: 'absolute', bottom: 5, right: 5, fontSize: 7, fontWeight: 700, color: '#14a09a', background: '#dbeafe', padding: '1px 4px', borderRadius: 3 }}>PDF</div>
         </div>
       </div>
     );

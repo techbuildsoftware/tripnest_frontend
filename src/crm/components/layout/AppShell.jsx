@@ -5,7 +5,7 @@ import Navbar from './Navbar';
 import { useApp } from '../../context/AppContext';
 import { useTimeZone } from '../../context/TimezoneContext';
 import GlobalSearch from '../ui/GlobalSearch';
-import PageLoader from '../ui/PageLoader';
+import { PageSkeleton } from '../ui/PageLoader';
 
 export default function AppShell() {
   const { sidebarCollapsed, searchOpen, setSearchOpen, dataLoading } = useApp();
@@ -33,8 +33,8 @@ export default function AppShell() {
         </div>
         <main id="main-scroll" className="flex-1 overflow-y-auto overflow-x-hidden min-w-0 relative">
           {dataLoading && <div className="sticky top-0 z-30 h-0"><div className="absolute inset-x-0 top-0 h-0.5 overflow-hidden bg-primary-100"><div className="h-full w-1/3 bg-primary-600 animate-[pulse_1s_ease-in-out_infinite]" /></div></div>}
-          <Outlet />
-          {dataLoading && <div className="absolute inset-0 z-20 bg-slate-50/95"><PageLoader label="Loading workspace data…" minHeight="min-h-full" /></div>}
+          <div key={location.pathname} className="crm-page-enter"><Outlet /></div>
+          {dataLoading && <PageSkeleton />}
         </main>
       </div>
 

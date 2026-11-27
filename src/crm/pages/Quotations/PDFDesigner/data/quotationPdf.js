@@ -459,7 +459,7 @@ export function quotationForPdf(quotation, masters = {}) {
     };
   });
   const totals = quotationTotals(quotation);
-  const brandName = client?.name || quotation?.agentName || 'BuildSoftware';
+  const brandName = client?.name || quotation?.agentName || 'TripNest';
   const brandLogo = clientLogo(client);
   const highlights = services
     .filter((service) => service?.name || service?.label || service?.variantName)

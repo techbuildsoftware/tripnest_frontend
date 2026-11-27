@@ -36,7 +36,7 @@ function DocumentBrandMark({ quotation, size = 28, radius = 6, background = '#10
   return <img src={printableAssetUrl(quotation.logo)} alt="Company logo" style={{ height: size, maxWidth: size * 3, borderRadius: radius, objectFit: 'contain', background }} />;
 }
 
-const documentBrandName = (quotation) => quotation?.companyDetails?.name || quotation?.agent?.name || 'BuildSoftware';
+const documentBrandName = (quotation) => quotation?.companyDetails?.name || quotation?.agent?.name || 'TripNest';
 
 // ─── A4 Page wrapper ──────────────────────────────────────────────────────────
 function A4Page({ children, theme, config, pageNum, totalPages, quotation, isFirst = false }) {
@@ -124,7 +124,7 @@ export function ClassicTemplate({ quotation, config }) {
 
         {/* Footer signature */}
         <div style={{ marginTop: 12, textAlign: 'center', fontSize: 8, color: '#94A3B8', borderTop: `1px solid ${theme.borderColor}`, paddingTop: 6 }}>
-          Thank you for choosing {quotation?.companyDetails?.name || 'BuildSoftware'}. We look forward to serving you.
+          Thank you for choosing {quotation?.companyDetails?.name || 'TripNest'}. We look forward to serving you.
         </div>
       </A4Page>
     </div>
@@ -500,7 +500,7 @@ const TA = {
 // Service badge colors
 const SERVICE_BADGE = {
   Hotel:        { bg: TA.lightTeal, text: TA.teal },
-  Transfer:     { bg: '#E0F0FF',    text: '#154aa0' },
+  Transfer:     { bg: '#E0F0FF',    text: '#0b6f6b' },
   Sightseeing:  { bg: '#F3E8FF',    text: '#7c3aed' },
   Activity:     { bg: '#FFF3E0',    text: '#d97706' },
   Meal:         { bg: '#F0FDF4',    text: '#15803d' },
@@ -729,7 +729,7 @@ function TATravelDayBanner({ from, to, date }) {
   );
 }
 
-export function BuildSoftwarePremiumTemplate({ quotation, config }) {
+export function TripNestPremiumTemplate({ quotation, config }) {
   const { totalSelling: totalSell } = quotationTotals(quotation);
   const perPerson = quotationPricePerPerson(quotation);
   const passengerPrices = quotationPassengerPrices(quotation);

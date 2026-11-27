@@ -107,12 +107,12 @@ export const THEMES = {
   },
   'sunset-orange': {
     name: 'Sunset Orange',
-    accent: '#1d62c9',
+    accent: '#0e8a85',
     secondary: '#DC2626',
-    sectionBg: '#1d62c9',
+    sectionBg: '#0e8a85',
     sectionText: '#FFFFFF',
-    coverGradient: 'linear-gradient(135deg, #1d62c9 0%, #DC2626 100%)',
-    priceColor: '#1d62c9',
+    coverGradient: 'linear-gradient(135deg, #0e8a85 0%, #DC2626 100%)',
+    priceColor: '#0e8a85',
     borderColor: '#bfdbfe',
   },
   'nature-green': {

@@ -81,7 +81,7 @@ get('/reports/business', ({ query, ctx }) => {
     const lines = [...(b.hotels || []), ...(b.services || [])];
     return {
       id: b.id, booking: b.id, bookingId: b.id, date: b.bookingDate, travelDate: b.arrivalDate, agent: b.agentName || 'Direct client', client: b.guestName, guestName: b.guestName, destination: b.destination, branch: 'Head Office',
-      status: b.status === 'Cancelled' ? 'Cancelled' : travelState(b), salesPerson: b.salesPerson || 'BuildSoftware', currency: b.currency || 'THB', clientType: b.clientType || 'Agent', pax: num(b.adults) + num(b.children),
+      status: b.status === 'Cancelled' ? 'Cancelled' : travelState(b), salesPerson: b.salesPerson || 'TripNest', currency: b.currency || 'THB', clientType: b.clientType || 'Agent', pax: num(b.adults) + num(b.children),
       revenue: num(b.totalSelling), cost: num(b.totalCost), profit: num(b.profit), serviceTypes: [...new Set(lines.map((l) => (l.checkIn || l.type === 'Hotel' ? 'Hotel' : l.type)).filter(Boolean))],
       suppliers: [...new Set(lines.map((l) => l.supplierName || l.supplier).filter(Boolean))],
       guests: (b.guests || []).map((g) => ({ name: g.name, nationality: g.nationality || 'Indian', passport: g.passport || '', email: g.email || b.guestEmail || '', phone: g.phone || '', travelType: g.travelType || 'Leisure' })),

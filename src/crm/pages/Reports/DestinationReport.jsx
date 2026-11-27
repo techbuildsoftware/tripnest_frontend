@@ -23,7 +23,7 @@ const trendData = [
 ];
 
 const pieData = [
-  { name: 'Pattaya',        value: 35, revenue: 2037000, color: '#2563EB' },
+  { name: 'Pattaya',        value: 35, revenue: 2037000, color: '#0e8a85' },
   { name: 'Bangkok',        value: 26, revenue: 1513200, color: '#3b82f6' },
   { name: 'Phuket',         value: 18, revenue: 1047600, color: '#22C55E' },
   { name: 'Krabi',          value: 10, revenue: 582000,  color: '#A855F7' },
@@ -86,7 +86,7 @@ const LineTooltip = ({ active, payload, label, metric = 'Revenue' }) => {
         return (
           <div key={p.name} className="flex items-center justify-between gap-3 mb-0.5">
             <div className="flex items-center gap-1.5 min-w-0">
-              <span className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ background: p.color || '#2563EB' }} />
+              <span className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ background: p.color || '#0e8a85' }} />
               <span className="text-slate-600 truncate">{p.name}:</span>
             </div>
             <span className="font-bold text-slate-900 flex-shrink-0">{formatted}</span>
@@ -118,7 +118,7 @@ export default function DestinationReport() {
   const [selectedDest, setSelectedDest] = useState('All');
   const { filters, updateFilter, generate, reset, loading, error, rows, options, summary } = useBusinessReport();
   const chartDestinations = summary.destinations.slice(0, 6);
-  const colors = ['#2563EB', '#3b82f6', '#22C55E', '#A855F7', '#EC4899', '#EF4444'];
+  const colors = ['#0e8a85', '#3b82f6', '#22C55E', '#A855F7', '#EC4899', '#EF4444'];
 
   // Continuous, unbroken trend data across all recorded dates
   const trendData = useMemo(() => {
@@ -404,8 +404,8 @@ export default function DestinationReport() {
             <AreaChart data={trendData} margin={{ top: 8, right: 10, bottom: 0, left: 0 }}>
               <defs>
                 <linearGradient id="colorTrendTotal" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#2563EB" stopOpacity={0.25} />
-                  <stop offset="95%" stopColor="#2563EB" stopOpacity={0.0} />
+                  <stop offset="5%" stopColor="#0e8a85" stopOpacity={0.25} />
+                  <stop offset="95%" stopColor="#0e8a85" stopOpacity={0.0} />
                 </linearGradient>
                 <linearGradient id="colorTrendDest" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.25} />
@@ -424,12 +424,12 @@ export default function DestinationReport() {
                     type="monotone"
                     dataKey="total"
                     name={`Total ${trendMetric}`}
-                    stroke="#2563EB"
+                    stroke="#0e8a85"
                     strokeWidth={2.5}
                     fillOpacity={1}
                     fill="url(#colorTrendTotal)"
                     connectNulls={true}
-                    dot={{ r: 3, fill: '#ffffff', stroke: '#2563EB', strokeWidth: 2 }}
+                    dot={{ r: 3, fill: '#ffffff', stroke: '#0e8a85', strokeWidth: 2 }}
                     activeDot={{ r: 5 }}
                   />
                   {chartDestinations.map((d, index) => (
@@ -576,7 +576,7 @@ export default function DestinationReport() {
               <XAxis dataKey="name" tick={{ fontSize: 9, fill: '#64748b' }} axisLine={false} tickLine={false} />
               <YAxis tickFormatter={fmtShort} tick={{ fontSize: 9, fill: '#64748b' }} axisLine={false} tickLine={false} />
               <Tooltip formatter={(v) => `THB ${Number(v).toLocaleString()}`} contentStyle={{ borderRadius: '8px', fontSize: '11px' }} />
-              <Bar dataKey="avgBooking" name="Avg Booking" fill="#2563EB" radius={[3, 3, 0, 0]} barSize={16}>
+              <Bar dataKey="avgBooking" name="Avg Booking" fill="#0e8a85" radius={[3, 3, 0, 0]} barSize={16}>
                 {destAvgBooking.map((_, i) => (
                   <Cell key={i} fill={i === 0 ? '#1D4ED8' : '#60A5FA'} />
                 ))}

@@ -3,7 +3,7 @@ import { formatDate } from '../../../../lib/date';
 import { quotationPassengerPrices, quotationPricePerPerson } from '../data/quotationPdf';
 
 // A print popup is an about:blank document, so Vite's relative asset URL must
-// be made absolute for the same BuildSoftware logo to load there as well.
+// be made absolute for the same TripNest logo to load there as well.
 const printableAssetUrl = (source) => typeof window === 'undefined' || /^https?:/i.test(source)
   ? source
   : new URL(source, window.location.origin).href;
@@ -184,7 +184,7 @@ export function PDFHeader({ quotation, theme, config }) {
           {quotation?.logo && <img src={printableAssetUrl(quotation.logo)} alt="Company logo" style={{ height: 36, maxWidth: 96, objectFit: 'contain' }} />}
           <div>
             <div style={{ fontWeight: 800, fontSize: 12, color: theme.accent }}>
-              {quotation?.companyDetails?.name || quotation?.agent?.name || 'BuildSoftware'}
+              {quotation?.companyDetails?.name || quotation?.agent?.name || 'TripNest'}
             </div>
             <div style={{ fontSize: 8, color: '#64748B' }}>
               {quotation?.companyDetails?.tagline || ''}

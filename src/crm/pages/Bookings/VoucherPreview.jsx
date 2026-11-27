@@ -416,7 +416,7 @@ const dataRows = (booking, masters, quotation, hotelMasters, voucherOverride = n
   };
 };
 function Empty({ text }) { return <div className="py-8 text-center text-xs text-slate-400">{text}</div>; }
-function Header({ booking, page, title, totalSections = 7 }) { return <div className="bg-gradient-to-r from-[#172554] to-[#154aa0] px-5 py-4 text-white flex justify-between"><div><div className="flex items-center gap-2 font-black"><Globe className="w-5 h-5 text-yellow-300" /> BUILDSOFTWARE</div><div className="text-[10px] text-blue-100 mt-1">Your Thailand travel partner</div></div><div className="text-right"><div className="text-[10px] text-blue-100">Combined Voucher · {title}</div><div className="font-bold text-sm">{booking.id}</div><div className="text-[10px] text-blue-100">Section {page} of {totalSections}</div></div></div>; }
+function Header({ booking, page, title, totalSections = 7 }) { return <div className="bg-gradient-to-r from-[#172554] to-[#0b6f6b] px-5 py-4 text-white flex justify-between"><div><div className="flex items-center gap-2 font-black"><Globe className="w-5 h-5 text-yellow-300" /> BUILDSOFTWARE</div><div className="text-[10px] text-blue-100 mt-1">Your Thailand travel partner</div></div><div className="text-right"><div className="text-[10px] text-blue-100">Combined Voucher · {title}</div><div className="font-bold text-sm">{booking.id}</div><div className="text-[10px] text-blue-100">Section {page} of {totalSections}</div></div></div>; }
 function DynamicHeader({ booking, title }) {
   const { template, sectionOrder, brand } = React.useContext(VoucherConfigContext);
   const page = sectionOrder.indexOf(TITLE_SECTIONS[title]) + 1;
@@ -632,7 +632,7 @@ export default function VoucherPreview() {
   const hasHotelSpecialRequest = rows.hotels.some((hotel) => String(hotel.specialRequest || hotel.specialRequests || '').trim());
   const sightseeingWatermarkImage = voucherType === 'sightseeing' ? attachmentUrl(rows.activities.map((item) => item.imageUrl || item.image || item.images)) : '';
   const whatsapp = () => setWhatsappOpen(true);
-  const email = () => { if (!guest.email) return toast.error('Add a guest email before sharing.'); window.location.href = `mailto:${encodeURIComponent(guest.email)}?subject=${encodeURIComponent(`BuildSoftware voucher - ${booking.id}`)}&body=${encodeURIComponent(`Your booking voucher ${booking.id} is ready.`)}`; };
+  const email = () => { if (!guest.email) return toast.error('Add a guest email before sharing.'); window.location.href = `mailto:${encodeURIComponent(guest.email)}?subject=${encodeURIComponent(`TripNest voucher - ${booking.id}`)}&body=${encodeURIComponent(`Your booking voucher ${booking.id} is ready.`)}`; };
   const selectTemplate = (templateId) => {
     const selected = templates.find((item) => item.id === templateId);
     if (!selected) return;
@@ -640,7 +640,7 @@ export default function VoucherPreview() {
     setTemplate(mergeVoucherSettings(selected.config));
   };
   const coverInfoCards = [
-    { icon: <PlaneLanding className="w-5 h-5 text-white" style={{ filter: 'drop-shadow(0 2px 2px rgba(0,0,0,0.2))' }} />, label: 'ARRIVAL', value: displayDate(booking.arrivalDate), color: '#2b7de9', shadow: '#1d62c9', bg: '#eff6ff' },
+    { icon: <PlaneLanding className="w-5 h-5 text-white" style={{ filter: 'drop-shadow(0 2px 2px rgba(0,0,0,0.2))' }} />, label: 'ARRIVAL', value: displayDate(booking.arrivalDate), color: '#14a09a', shadow: '#0e8a85', bg: '#eff6ff' },
     { icon: <PlaneTakeoff className="w-5 h-5 text-white" style={{ filter: 'drop-shadow(0 2px 2px rgba(0,0,0,0.2))' }} />, label: 'DEPARTURE', value: displayDate(booking.departureDate), color: '#ef4444', shadow: '#dc2626', bg: '#fef2f2' },
     { icon: <MapPin className="w-5 h-5 text-white" style={{ filter: 'drop-shadow(0 2px 2px rgba(0,0,0,0.2))' }} />, label: 'DESTINATION', value: cell(booking.destination || booking.destinations?.join(', ')), color: '#10b981', shadow: '#059669', bg: '#f0fdf4' },
     { icon: <Users className="w-5 h-5 text-white" style={{ filter: 'drop-shadow(0 2px 2px rgba(0,0,0,0.2))' }} />, label: 'GUESTS', value: `${booking.adults || 0} Adult · ${booking.children || 0} Child`, color: '#f59e0b', shadow: '#d97706', bg: '#fffbeb' },
@@ -679,7 +679,7 @@ export default function VoucherPreview() {
             </div>
           </div>
           <h1 className="font-bold" style={{ fontSize: 32, fontFamily: 'Georgia, "Times New Roman", serif', color: isLuxury ? '#f0e6c0' : '#0f172a', letterSpacing: '-0.5px' }}>
-            Welcome to <span style={{ color: isLuxury ? '#d4af37' : '#154aa0' }}>{booking.destination || booking.destinations?.[0] || 'Thailand'}</span>
+            Welcome to <span style={{ color: isLuxury ? '#d4af37' : '#0b6f6b' }}>{booking.destination || booking.destinations?.[0] || 'Thailand'}</span>
           </h1>
           <div className="flex items-center gap-2 my-2">
             <div style={{ width: 40, height: 1, background: 'rgba(212,170,58,0.5)' }} />
@@ -718,7 +718,7 @@ export default function VoucherPreview() {
         </div>
         {/* Guest List */}
         <div style={{ borderRadius: 12, overflow: 'hidden', border: isLuxury ? '1px solid rgba(212,175,55,0.25)' : '1px solid #e2e8f0' }}>
-          <div className="flex items-center gap-2 px-4 py-3" style={{ background: isLuxury ? 'linear-gradient(90deg, #0a0a0a, #1a1a1a)' : 'linear-gradient(90deg, #1e3a8a, #154aa0)', borderBottom: isLuxury ? '1px solid rgba(212,175,55,0.3)' : 'none' }}>
+          <div className="flex items-center gap-2 px-4 py-3" style={{ background: isLuxury ? 'linear-gradient(90deg, #0a0a0a, #1a1a1a)' : 'linear-gradient(90deg, #1e3a8a, #0b6f6b)', borderBottom: isLuxury ? '1px solid rgba(212,175,55,0.3)' : 'none' }}>
             <Users className="w-4 h-4" style={{ color: isLuxury ? '#d4af37' : '#fff' }} />
             <span style={{ fontWeight: 900, color: isLuxury ? '#d4af37' : '#fff', fontSize: 13, fontFamily: isLuxury ? 'Georgia, serif' : 'inherit', letterSpacing: isLuxury ? '0.05em' : 'normal' }}>Guest List</span>
           </div>
@@ -847,7 +847,7 @@ export default function VoucherPreview() {
   if (isEditorialTemplate) {
     return (
       <div className="flex h-full overflow-hidden">
-        {whatsappOpen && <WhatsAppSendDialog title="Send voucher by WhatsApp" recipientName={guest.name || booking.guestName} recipientPhone={guest.phone || booking.guestPhone || linkedQuotation?.guests?.[0]?.phone || ''} initialMessage={'Hello ' + (guest.name || booking.guestName || '') + ', your BuildSoftware voucher for booking ' + booking.id + ' is ready.'} onClose={() => setWhatsappOpen(false)} />}
+        {whatsappOpen && <WhatsAppSendDialog title="Send voucher by WhatsApp" recipientName={guest.name || booking.guestName} recipientPhone={guest.phone || booking.guestPhone || linkedQuotation?.guests?.[0]?.phone || ''} initialMessage={'Hello ' + (guest.name || booking.guestName || '') + ', your TripNest voucher for booking ' + booking.id + ' is ready.'} onClose={() => setWhatsappOpen(false)} />}
         <style>{VOUCHER_LAYOUT_LIVE_CSS}</style>
         <aside className="w-80 flex-shrink-0 bg-white border-r border-slate-200 flex flex-col print:hidden">
           <div className="p-4 border-b">
@@ -856,7 +856,7 @@ export default function VoucherPreview() {
             <p className="text-[10px] text-blue-600">{booking.id}</p>
             <div className="mt-3 rounded-lg bg-slate-50 px-2 py-1.5 text-[10px] font-semibold text-slate-600">{selectedTemplate?.name || 'Default voucher template'}</div>
             <select value={activeTemplateId} onChange={(event) => selectTemplate(event.target.value)} className="form-select mt-2 h-8 w-full text-xs" aria-label="Voucher template">{templates.map((item) => <option key={item.id} value={item.id}>{item.name}{item.isDefault ? ' (Default)' : ''}</option>)}</select>
-            <div className="mt-3 px-2 py-1.5 rounded-lg text-[10px] font-semibold" style={{ background: editorialTemplateType === 'confirmation-itinerary' ? '#eff6ff' : '#eff6ff', color: editorialTemplateType === 'confirmation-itinerary' ? '#154aa0' : '#173B8F' }}>{editorialTemplateType === 'confirmation-itinerary' ? 'Confirmation Itinerary Voucher' : editorialTemplateType === 'travel-itinerary' ? 'Travel Itinerary Voucher' : 'Modern Journey Voucher'}</div>
+            <div className="mt-3 px-2 py-1.5 rounded-lg text-[10px] font-semibold" style={{ background: editorialTemplateType === 'confirmation-itinerary' ? '#eff6ff' : '#eff6ff', color: editorialTemplateType === 'confirmation-itinerary' ? '#0b6f6b' : '#173B8F' }}>{editorialTemplateType === 'confirmation-itinerary' ? 'Confirmation Itinerary Voucher' : editorialTemplateType === 'travel-itinerary' ? 'Travel Itinerary Voucher' : 'Modern Journey Voucher'}</div>
           </div>
           {editorialTemplateType === 'confirmation-itinerary' && <nav className="flex-1 overflow-y-auto p-2 border-b border-slate-100">
             <div className="px-2 pt-1 pb-2 text-[10px] font-bold uppercase tracking-wide text-slate-400">Voucher sections</div>
@@ -889,7 +889,7 @@ export default function VoucherPreview() {
 
   return (
     <VoucherConfigContext.Provider value={{ template: activeTemplate, sectionOrder, brand, termsHtml: voucher.termsHtml, voucherType, serviceTerms: { hotel: voucher.hotelTermsHtml, sightseeing: voucher.sightseeingTermsHtml, transfer: voucher.transferTermsHtml } }}>
-      {whatsappOpen && <WhatsAppSendDialog title="Send voucher by WhatsApp" recipientName={guest.name || booking.guestName} recipientPhone={guest.phone || booking.guestPhone || linkedQuotation?.guests?.[0]?.phone || ''} initialMessage={'Hello ' + (guest.name || booking.guestName || '') + ', your BuildSoftware voucher for booking ' + booking.id + ' is ready.'} onClose={() => setWhatsappOpen(false)} />}
+      {whatsappOpen && <WhatsAppSendDialog title="Send voucher by WhatsApp" recipientName={guest.name || booking.guestName} recipientPhone={guest.phone || booking.guestPhone || linkedQuotation?.guests?.[0]?.phone || ''} initialMessage={'Hello ' + (guest.name || booking.guestName || '') + ', your TripNest voucher for booking ' + booking.id + ' is ready.'} onClose={() => setWhatsappOpen(false)} />}
       <div className="flex h-full overflow-hidden">
         <style>{VOUCHER_LAYOUT_LIVE_CSS}</style>
         <aside className="w-80 flex-shrink-0 bg-white border-r border-slate-200 flex flex-col print:hidden">
@@ -1152,7 +1152,7 @@ function SectionTerms({ title, type }) {
     ? { background: 'rgba(212,175,55,0.07)', border: '1px solid rgba(212,175,55,0.25)', color: '#a89060', heading: '#d4af37' }
     : theme === 'vibrant'
       ? { background: '#fdf4ff', border: '1px solid #f5d0fe', color: '#701a75', heading: '#a21caf' }
-      : { background: '#eff6ff', border: '1px solid #bfdbfe', color: '#1e3a8a', heading: '#154aa0' };
+      : { background: '#eff6ff', border: '1px solid #bfdbfe', color: '#1e3a8a', heading: '#0b6f6b' };
   const showPaidWatermark = voucherType === 'sightseeing' && type === 'sightseeing';
   return <div data-pdf-keep-together="true" className="relative overflow-hidden" style={{ marginTop: 12, borderRadius: 8, padding: 12, fontSize: 10, lineHeight: 1.6, background: tone.background, border: tone.border, color: tone.color }}>
     {showPaidWatermark && <div aria-hidden="true" className="pointer-events-none absolute right-4 top-4 -rotate-12 rounded border-[4px] px-3 py-1.5 text-3xl font-black tracking-[0.24em]" style={{ color: 'rgba(22, 163, 74, .34)', borderColor: 'rgba(22, 163, 74, .34)' }}>PAID</div>}

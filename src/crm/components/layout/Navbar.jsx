@@ -11,8 +11,6 @@ import { useAuth } from '../../context/AuthContext';
 import { useTimeZone } from '../../context/TimezoneContext';
 import NotificationPanel from '../ui/NotificationPanel';
 import GlobalSearch from '../ui/GlobalSearch';
-import topbarBg from '../../assets/Topbar.png';
-import topbar1 from '../../assets/Topbar1.png';
 
 const quickCreateItems = [
   { label: 'New Query', path: '/queries/new', icon: MessageSquare, color: 'text-primary-600', bg: 'bg-primary-50' },
@@ -38,7 +36,7 @@ const ThailandFlag = () => (
 
 const IndiaFlag = () => (
   <svg width="22" height="15" viewBox="0 0 22 15" className="rounded-sm shadow-sm flex-shrink-0">
-    <rect width="22" height="5" fill="#4d9bff" />
+    <rect width="22" height="5" fill="#3fb5b0" />
     <rect y="5" width="22" height="5" fill="white" />
     <rect y="10" width="22" height="5" fill="#138808" />
     <circle cx="11" cy="7.5" r="1.4" fill="none" stroke="#000080" strokeWidth="0.65" />
@@ -85,22 +83,13 @@ export default function Navbar({ onMenuClick }) {
     <header
       className="h-14 flex items-center px-4 gap-3 flex-shrink-0 sticky top-0 z-30 relative"
       style={{
-        background: isDashboard ? 'transparent' : 'transparent',
-        backdropFilter: isDashboard ? 'none' : 'none',
-        WebkitBackdropFilter: isDashboard ? 'none' : 'none',
-        borderBottom: isDashboard ? 'none' : '1px solid rgba(226,232,240,0.5)',
-        boxShadow: isDashboard ? 'none' : '0 1px 12px rgba(15,23,42,0.06)',
+        background: 'transparent',
+        boxShadow: '0 4px 18px -10px rgba(19,35,79,0.25)',
       }}
     >
-      <div className="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
-        <div className="absolute inset-0 flex">
-          <img src={topbar1} alt="" className="h-full object-cover object-left flex-1" style={{ minWidth: 0 }} />
-          <img src={topbarBg} alt="" className="h-full object-cover object-center flex-1" style={{ minWidth: 0 }} />
-        </div>
-        <div 
-          className="absolute inset-0 backdrop-blur-[2px]"
-          style={{ background: 'linear-gradient(to right, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.3) 100%)' }}
-        />
+      <div className="absolute inset-0 -z-10 pointer-events-none overflow-hidden bg-white">
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(90deg, rgba(14,138,133,0.05) 0%, rgba(255,255,255,0) 35%, rgba(255,255,255,0) 65%, rgba(19,35,79,0.05) 100%)' }} />
+        <div className="absolute inset-x-0 bottom-0 h-[2px]" style={{ background: 'linear-gradient(90deg, #13234f 0%, #0e8a85 55%, #22c3a6 100%)' }} />
       </div>
 
       {/* Mobile menu button */}
@@ -111,7 +100,7 @@ export default function Navbar({ onMenuClick }) {
       {/* Desktop Collapse Button */}
       <button 
         onClick={() => setSidebarCollapsed(!sidebarCollapsed)} 
-        className="hidden lg:flex items-center justify-center w-8 h-8 mr-1 rounded-xl bg-white/50 backdrop-blur-sm border border-slate-200 text-slate-500 hover:text-primary-600 hover:border-primary-300 hover:bg-white flex-shrink-0 z-10 transition-all shadow-sm"
+        className="hidden lg:flex items-center justify-center w-8 h-8 mr-1 rounded-xl bg-white border border-slate-200 text-slate-500 hover:text-primary-600 hover:border-primary-300 hover:bg-white flex-shrink-0 z-10 transition-all shadow-sm"
       >
         <Menu className="w-4.5 h-4.5" />
       </button>
@@ -122,9 +111,8 @@ export default function Navbar({ onMenuClick }) {
           onClick={() => setSearchOpen(true)}
           className="w-full flex items-center gap-2 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl text-slate-400 text-sm hover:border-primary-400 transition-all group"
           style={{
-            background: isDashboard ? 'rgba(255,255,255,0.85)' : '#f1f5f9',
-            border: '1.5px solid #e2e8f0',
-            backdropFilter: isDashboard ? 'blur(8px)' : 'none'
+            background: '#f4f7fb',
+            border: '1.5px solid #e3eaf3',
           }}
         >
           <Search className="w-4 h-4 flex-shrink-0 text-slate-400 group-hover:text-primary-500 transition-colors" />
@@ -148,8 +136,8 @@ export default function Navbar({ onMenuClick }) {
             onClick={() => { setShowNewMenu(!showNewMenu); setShowNotifications(false); setShowUserMenu(false); setShowTimeZoneMenu(false); }}
             className="flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-full text-sm font-semibold text-white transition-all shadow-lg hover:shadow-primary-500/30 hover:scale-105 active:scale-95"
             style={{
-              background: 'linear-gradient(135deg, #2b7de9, #154aa0)',
-              boxShadow: '0 4px 14px rgba(43,125,233,0.35)',
+              background: 'linear-gradient(135deg, #14a09a, #0b6f6b)',
+              boxShadow: '0 4px 14px rgba(14,160,154,0.35)',
             }}
           >
             <Plus className="w-4 h-4 sm:w-3.5 sm:h-3.5" />
@@ -185,7 +173,7 @@ export default function Navbar({ onMenuClick }) {
         <div className="relative" ref={notifRef}>
           <button
             onClick={() => { setShowNotifications(!showNotifications); setShowNewMenu(false); setShowUserMenu(false); setShowTimeZoneMenu(false); }}
-            className="relative w-9 h-9 flex items-center justify-center rounded-full bg-white/90 backdrop-blur-sm hover:bg-white transition-colors text-slate-600 hover:text-slate-800 shadow-sm"
+            className="relative w-9 h-9 flex items-center justify-center rounded-full bg-white border border-slate-200 hover:border-primary-300 hover:bg-primary-50 transition-colors text-slate-600 hover:text-slate-800 shadow-sm"
           >
             <Bell className="w-5 h-5" />
             {unreadCount > 0 && (
@@ -207,7 +195,7 @@ export default function Navbar({ onMenuClick }) {
           <button
             type="button"
             onClick={() => { setShowTimeZoneMenu(!showTimeZoneMenu); setShowNewMenu(false); setShowNotifications(false); setShowUserMenu(false); }}
-            className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg border text-sm font-semibold text-slate-700 bg-white/90 backdrop-blur-sm hover:bg-white transition-colors shadow-sm"
+            className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg border text-sm font-semibold text-slate-700 bg-white border border-slate-200 hover:border-primary-300 hover:bg-primary-50 transition-colors shadow-sm"
             style={{ borderColor: '#e2e8f0', fontSize: '12px' }}
             aria-label="Change display timezone"
           >
@@ -235,7 +223,7 @@ export default function Navbar({ onMenuClick }) {
 
         {/* Currency */}
         <div
-          className="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-lg border text-sm font-semibold text-slate-700 cursor-pointer bg-white/90 backdrop-blur-sm hover:bg-white transition-colors shadow-sm"
+          className="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-lg border text-sm font-semibold text-slate-700 cursor-pointer bg-white border border-slate-200 hover:border-primary-300 hover:bg-primary-50 transition-colors shadow-sm"
           style={{ borderColor: '#e2e8f0', fontSize: '12px' }}
         >
           <span className="text-[12px] font-bold text-slate-600">THB</span>
@@ -246,14 +234,14 @@ export default function Navbar({ onMenuClick }) {
         <div className="relative" ref={userRef}>
           <button
             onClick={() => { setShowUserMenu(!showUserMenu); setShowNewMenu(false); setShowNotifications(false); setShowTimeZoneMenu(false); }}
-            className="flex items-center gap-2 pl-1 pr-2.5 py-0.5 rounded-full bg-white/90 backdrop-blur-sm hover:bg-white transition-all shadow-sm"
+            className="flex items-center gap-2 pl-1 pr-2.5 py-0.5 rounded-full bg-white border border-slate-200 hover:border-primary-300 hover:bg-primary-50 transition-all shadow-sm"
             style={{ border: '1.5px solid #e2e8f0' }}
           >
             <div
               className="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
               style={{
-                background: 'linear-gradient(135deg, #60a5fa, #154aa0)',
-                boxShadow: '0 2px 8px rgba(43,125,233,0.4)',
+                background: 'linear-gradient(135deg, #13234f, #0e8a85)',
+                boxShadow: '0 2px 8px rgba(14,160,154,0.4)',
               }}
             >
               {user?.name?.charAt(0).toUpperCase() || 'R'}
@@ -275,7 +263,7 @@ export default function Navbar({ onMenuClick }) {
             >
               <div className="px-4 py-3 border-b border-slate-100">
                 <div className="text-sm font-bold text-slate-900">{user?.name || 'Ronik Soni'}</div>
-                <div className="text-xs text-slate-500 mt-0.5">{user?.email || 'admin@buildsoftware.in'}</div>
+                <div className="text-xs text-slate-500 mt-0.5">{user?.email || 'admin@tripnest.com'}</div>
                 <div className="text-[10px] text-primary-600 font-medium mt-0.5">{user?.role || 'Managing Director'}</div>
               </div>
               <button

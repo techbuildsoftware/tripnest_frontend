@@ -8,7 +8,7 @@ import LogoImg from '../../assets/logo-color.png';
 const amount = (value, currency = 'THB') => `${currency === 'THB' ? '฿' : `${currency} `}${Number(value || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
 function CompanyHeader({ company, scopeLabel, onDownload }) {
-  const name = company?.name || 'BuildSoftware';
+  const name = company?.name || 'TripNest';
   const logo = typeof company?.logo === 'string' ? company.logo.trim() : '';
   const details = [company?.email, company?.phone, company?.website, company?.address].filter(Boolean);
   return (
@@ -48,7 +48,7 @@ export default function ClientPaymentPortal() {
   if (state.error || !state.data) return <div className="min-h-screen grid place-items-center bg-slate-50 p-6"><div className="max-w-md rounded-2xl border border-red-200 bg-white p-8 text-center shadow-sm"><FileText className="mx-auto h-10 w-10 text-red-400" /><h1 className="mt-4 text-lg font-extrabold text-slate-900">Payment link unavailable</h1><p className="mt-2 text-sm text-slate-500">{state.error || 'This payment statement could not be found.'}</p></div></div>;
 
   const { invoice, payments, schedules = [], currency, guestName, bookingId, destination, travelDate, scopeLabel = 'Full Payment', company = {} } = state.data;
-  const companyName = company.name || 'BuildSoftware';
+  const companyName = company.name || 'TripNest';
   const complete = invoice.remaining <= 0;
   const cards = [
     { label: `${scopeLabel} total`, value: invoice.total, icon: FileText, color: 'text-blue-600 bg-blue-50' },

@@ -56,7 +56,7 @@ export default function Reports() {
     return months;
   }, {})).sort((left, right) => left.key.localeCompare(right.key));
   const agentPerformance = summary.agents;
-  const destinationColors = ['#2563EB', '#16A34A', '#7C3AED', '#F59E0B', '#64748B', '#EC4899'];
+  const destinationColors = ['#0e8a85', '#16A34A', '#7C3AED', '#F59E0B', '#64748B', '#EC4899'];
   const destData = summary.destinations.map((destination, index) => ({
     ...destination,
     value: summary.totals.revenue ? Math.round((destination.revenue / summary.totals.revenue) * 100) : 0,
@@ -211,7 +211,7 @@ export default function Reports() {
               <XAxis dataKey="month" tick={{ fontSize: 10, fill: '#64748b' }} axisLine={false} tickLine={false} />
               <YAxis tickFormatter={fmt} tick={{ fontSize: 10, fill: '#64748b' }} axisLine={false} tickLine={false} />
               <Tooltip formatter={(v) => fmtFull(v)} contentStyle={{ borderRadius: '8px', fontSize: '11px' }} />
-              <Bar dataKey="revenue" fill="#2563EB" name="Revenue" radius={[4, 4, 0, 0]} barSize={16} />
+              <Bar dataKey="revenue" fill="#0e8a85" name="Revenue" radius={[4, 4, 0, 0]} barSize={16} />
               <Bar dataKey="profit" fill="#16A34A" name="Profit" radius={[4, 4, 0, 0]} barSize={16} />
             </BarChart>
           </ResponsiveContainer>
@@ -260,8 +260,8 @@ export default function Reports() {
             <AreaChart data={summary.trends}>
               <defs>
                 <linearGradient id="reportsSalesGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#2563EB" stopOpacity={0.25} />
-                  <stop offset="95%" stopColor="#2563EB" stopOpacity={0} />
+                  <stop offset="5%" stopColor="#0e8a85" stopOpacity={0.25} />
+                  <stop offset="95%" stopColor="#0e8a85" stopOpacity={0} />
                 </linearGradient>
                 <linearGradient id="reportsProfitGrad" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="5%" stopColor="#10B981" stopOpacity={0.25} />
@@ -272,7 +272,7 @@ export default function Reports() {
               <XAxis dataKey="date" tick={{ fontSize: 10, fill: '#64748b' }} axisLine={false} tickLine={false} />
               <YAxis tickFormatter={fmt} tick={{ fontSize: 10, fill: '#64748b' }} axisLine={false} tickLine={false} />
               <Tooltip formatter={(v) => fmtFull(v)} contentStyle={{ borderRadius: '8px', fontSize: '11px' }} />
-              <Area type="monotone" dataKey="sales" stroke="#2563EB" strokeWidth={2} fillOpacity={1} fill="url(#reportsSalesGrad)" name="Sales Revenue" />
+              <Area type="monotone" dataKey="sales" stroke="#0e8a85" strokeWidth={2} fillOpacity={1} fill="url(#reportsSalesGrad)" name="Sales Revenue" />
               <Area type="monotone" dataKey="profit" stroke="#10B981" strokeWidth={2} fillOpacity={1} fill="url(#reportsProfitGrad)" name="Net Profit" />
             </AreaChart>
           </ResponsiveContainer>

@@ -80,7 +80,7 @@
   width: 500px;
   height: 500px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(224, 92, 0, 0.22) 0%, rgba(43,125,233, 0.08) 50%, transparent 70%);
+  background: radial-gradient(circle, rgba(224, 92, 0, 0.22) 0%, rgba(14,160,154, 0.08) 50%, transparent 70%);
   pointer-events: none;
   filter: blur(40px);
 }
@@ -162,7 +162,7 @@
 
 .cp-trust-card:hover {
   background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(43,125,233, 0.4);
+  border-color: rgba(14,160,154, 0.4);
   transform: translateY(-2px);
 }
 
@@ -224,7 +224,7 @@
   display: inline-block;
   font-size: 11px;
   font-weight: 800;
-  color: #1d62c9;
+  color: #0e8a85;
   text-transform: uppercase;
   letter-spacing: 0.8px;
   margin-bottom: 6px;
@@ -276,7 +276,7 @@
 }
 
 .cp-cat-btn--active {
-  background: linear-gradient(135deg, #1d62c9 0%, #f59e0b 100%);
+  background: linear-gradient(135deg, #0e8a85 0%, #f59e0b 100%);
   color: #ffffff;
   border-color: transparent;
   box-shadow: 0 3px 10px rgba(234, 88, 12, 0.25);
@@ -330,7 +330,7 @@
 }
 
 .cp-input:focus {
-  border-color: #1d62c9;
+  border-color: #0e8a85;
   box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.12);
 }
 
@@ -372,7 +372,7 @@
 .cp-dest-chip--selected {
   background: rgba(234, 88, 12, 0.08);
   border-color: rgba(234, 88, 12, 0.4);
-  color: #154aa0;
+  color: #0b6f6b;
   font-weight: 700;
 }
 
@@ -382,7 +382,7 @@
   justify-content: center;
   gap: 8px;
   padding: 13px 26px;
-  background: linear-gradient(135deg, #1d62c9 0%, #f59e0b 100%);
+  background: linear-gradient(135deg, #0e8a85 0%, #f59e0b 100%);
   color: #ffffff;
   border: none;
   border-radius: 12px;
@@ -492,7 +492,7 @@
 .cp-success-ref-code {
   font-size: 17px;
   font-weight: 800;
-  color: #1d62c9;
+  color: #0e8a85;
   letter-spacing: 0.8px;
 }
 
@@ -713,7 +713,7 @@
 
 .cp-dept-info a {
   font-size: 12px;
-  color: #2563eb;
+  color: #0e8a85;
   text-decoration: none;
   font-weight: 600;
   transition: color 0.2s;
@@ -850,7 +850,7 @@
 .cp-hub-role {
   font-size: 11px;
   font-weight: 800;
-  color: #1d62c9;
+  color: #0e8a85;
   text-transform: uppercase;
   letter-spacing: 0.6px;
 }
@@ -904,7 +904,7 @@
 }
 
 .cp-hub-mail {
-  color: #2563eb;
+  color: #0e8a85;
   font-weight: 600;
   text-decoration: none;
 }
@@ -931,7 +931,7 @@
 }
 
 .cp-faq-item--open {
-  border-color: #1d62c9;
+  border-color: #0e8a85;
   box-shadow: 0 4px 16px rgba(234, 88, 12, 0.08);
 }
 
@@ -954,7 +954,7 @@
 }
 
 .cp-faq-question:hover {
-  color: #1d62c9;
+  color: #0e8a85;
 }
 
 .cp-faq-toggle-icon {
@@ -965,7 +965,7 @@
 }
 
 .cp-faq-item--open .cp-faq-toggle-icon {
-  color: #1d62c9;
+  color: #0e8a85;
 }
 
 .cp-faq-answer {
@@ -979,7 +979,7 @@
 
 /* ── Header Active Link ── */
 .lp-nav-link--active {
-  color: #1d62c9 !important;
+  color: #0e8a85 !important;
   background: rgba(234, 88, 12, 0.08);
   font-weight: 700 !important;
 }
@@ -1001,7 +1001,7 @@
 .lp-mobile-menu-item:hover,
 .lp-mobile-menu-item--active {
   background: #eff6ff;
-  color: #1d62c9;
+  color: #0e8a85;
 }
 
 .lp-mobile-menu-login {
@@ -1009,7 +1009,7 @@
   font-size: 14px;
   font-weight: 700;
   color: #ffffff;
-  background: linear-gradient(135deg, #1d62c9, #f59e0b);
+  background: linear-gradient(135deg, #0e8a85, #f59e0b);
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -1030,7 +1030,7 @@
 }
 
 .lp-footer-legal-btn:hover {
-  color: #1d62c9;
+  color: #0e8a85;
 }
 
 /* footer logo/brand styles live in LandingPage.css (shared lp-footer classes) */

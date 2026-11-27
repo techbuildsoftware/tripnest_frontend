@@ -56,17 +56,17 @@ function ExplorePromo({ onLearnMore }) {
         .sbx-body{position:absolute;z-index:4;inset:0;padding:clamp(9px,1.7vh,15px) 12px;display:flex;flex-direction:column;justify-content:center;color:#fff}
         .sbx-eyebrow{font-size:clamp(10.5px,1.6vh,13px);font-weight:600;color:rgba(255,255,255,.88);line-height:1}
         .sbx-title{font-size:clamp(18px,3.1vh,26px);font-weight:800;letter-spacing:-.01em;line-height:1.08;
-          background:linear-gradient(90deg,#fff 0%,#cfe3ff 55%,#7cb8ff 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
+          background:linear-gradient(90deg,#fff 0%,#cfe3ff 55%,#74d0cb 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
           animation:sbx-rise .9s cubic-bezier(.2,.8,.2,1) both}
         @keyframes sbx-rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-        .sbx-bar{width:30px;height:2px;border-radius:2px;margin:5px 0 4px;background:linear-gradient(90deg,#4d9bff,#2b7de9);
+        .sbx-bar{width:30px;height:2px;border-radius:2px;margin:5px 0 4px;background:linear-gradient(90deg,#3fb5b0,#14a09a);
           transform-origin:left;animation:sbx-grow 1.1s .2s ease-out both}
         @keyframes sbx-grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
         .sbx-sub{font-size:clamp(8.5px,1.3vh,10.5px);line-height:1.3;color:rgba(255,255,255,.82);max-width:118px}
         .sbx-btn{position:relative;overflow:hidden;margin-top:clamp(5px,1.1vh,9px);align-self:flex-start;display:inline-flex;align-items:center;gap:5px;
           padding:clamp(4px,.8vh,6px) 11px;border-radius:999px;border:0;cursor:pointer;color:#fff;font-weight:800;font-size:clamp(9.5px,1.45vh,11.5px);
-          background:linear-gradient(135deg,#4d9bff,#2b7de9);box-shadow:0 6px 14px rgba(43,125,233,.5);transition:transform .2s,box-shadow .2s}
-        .sbx-btn:hover{transform:translateY(-1px);box-shadow:0 9px 18px rgba(43,125,233,.65)}
+          background:linear-gradient(135deg,#3fb5b0,#14a09a);box-shadow:0 6px 14px rgba(14,160,154,.5);transition:transform .2s,box-shadow .2s}
+        .sbx-btn:hover{transform:translateY(-1px);box-shadow:0 9px 18px rgba(14,160,154,.65)}
         .sbx-btn::after{content:'';position:absolute;top:0;left:-60%;width:40%;height:100%;
           background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:sbx-shine 3.4s ease-in-out infinite}
         @keyframes sbx-shine{0%,60%{left:-60%}100%{left:130%}}
@@ -75,7 +75,7 @@ function ExplorePromo({ onLearnMore }) {
           border:1px solid rgba(255,255,255,.2);animation:sbx-rise .8s both}
         .sbx-dots{position:absolute;z-index:4;left:12px;bottom:6px;display:flex;gap:4px}
         .sbx-dot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.4);transition:all .4s}
-        .sbx-dot.is-on{width:14px;border-radius:3px;background:#4d9bff}
+        .sbx-dot.is-on{width:14px;border-radius:3px;background:#3fb5b0}
         @media (max-height:640px){.sbx-sub,.sbx-loc{display:none}.sbx-dots{display:none}}
         @media (prefers-reduced-motion:reduce){.sbx-slide.is-on,.sbx-plane,.sbx-glow,.sbx-btn::after{animation:none}}
       `}</style>
@@ -171,7 +171,7 @@ export default function Sidebar({ mobileOpen, onMobileClose }) {
 
       <aside
         className={`
-          fixed top-0 left-0 h-full z-50 flex flex-col bg-[#0b1f45]
+          fixed top-0 left-0 h-full z-50 flex flex-col bg-[#13234f]
           transition-all duration-300 ease-in-out
           ${collapsed ? 'w-14' : 'w-52'}
           ${mobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
@@ -196,7 +196,7 @@ export default function Sidebar({ mobileOpen, onMobileClose }) {
             >
               <img src={LogoTransparent} alt="Logo" className="h-10 w-10 object-contain rounded-lg bg-white p-0.5 shadow-md" />
               <div className="flex flex-col justify-center mt-0.5">
-                <div className="text-white font-extrabold text-[15px] leading-none tracking-tight">BuildSoftware</div>
+                <div className="text-white font-extrabold text-[15px] leading-none tracking-tight">TripNest</div>
                 <div className="text-sky-200/80 text-[11px] font-semibold mt-1 tracking-[0.15em]">THAILAND</div>
               </div>
             </div>
@@ -244,7 +244,7 @@ export default function Sidebar({ mobileOpen, onMobileClose }) {
                     >
                       <div className="w-6 h-6 rounded-md flex items-center justify-center flex-shrink-0"
                         style={{
-                          background: `linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%), #2b7de9`,
+                          background: `linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%), #14a09a`,
                           boxShadow: '0 2px 4px rgba(0,0,0,0.15), inset 0 1px 1px rgba(255,255,255,0.6)',
                           border: '1px solid rgba(0,0,0,0.05)'
                         }}>
@@ -258,7 +258,7 @@ export default function Sidebar({ mobileOpen, onMobileClose }) {
                       )}
                       {collapsed && (
                         <div className="absolute left-[calc(100%+8px)] hidden group-hover:flex items-center z-[100] whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
-                          <div className="w-2.5 h-2.5 bg-[#2b7de9] rounded-[1.5px] rotate-45 -mr-1.5 relative z-10 shadow-sm"></div>
+                          <div className="w-2.5 h-2.5 bg-[#14a09a] rounded-[1.5px] rotate-45 -mr-1.5 relative z-10 shadow-sm"></div>
                           <div className="bg-[#111827] text-white pl-3 pr-2.5 py-1 rounded-md shadow-xl border border-white/5 relative z-0">
                             <span className="text-[11.5px] font-semibold tracking-wide">Operations</span>
                           </div>
@@ -283,7 +283,7 @@ export default function Sidebar({ mobileOpen, onMobileClose }) {
                                 <div className={`absolute left-[13px] top-1/2 -translate-y-1/2 w-3 border-t ${subActive ? 'border-white/60' : 'border-white/20 group-hover:border-white/40'} transition-colors`} />
                                 
                                 {/* Circle node */}
-                                <div className={`absolute left-[24px] top-1/2 -translate-y-1/2 w-[5px] h-[5px] rounded-full ${subActive ? 'bg-[#4d9bff] shadow-[0_0_8px_rgba(43,125,233,0.8)]' : 'bg-transparent border border-white/30 group-hover:border-white/60'} z-10 transition-all`} />
+                                <div className={`absolute left-[24px] top-1/2 -translate-y-1/2 w-[5px] h-[5px] rounded-full ${subActive ? 'bg-[#3fb5b0] shadow-[0_0_8px_rgba(14,160,154,0.8)]' : 'bg-transparent border border-white/30 group-hover:border-white/60'} z-10 transition-all`} />
                                 
                                 {sub.label}
                               </NavLink>
@@ -307,7 +307,7 @@ export default function Sidebar({ mobileOpen, onMobileClose }) {
                     >
                       <div className="w-6 h-6 rounded-md flex items-center justify-center flex-shrink-0"
                         style={{
-                          background: `linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%), #2b7de9`,
+                          background: `linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%), #14a09a`,
                           boxShadow: '0 2px 4px rgba(0,0,0,0.15), inset 0 1px 1px rgba(255,255,255,0.6)',
                           border: '1px solid rgba(0,0,0,0.05)'
                         }}>
@@ -321,7 +321,7 @@ export default function Sidebar({ mobileOpen, onMobileClose }) {
                       )}
                       {collapsed && (
                         <div className="absolute left-[calc(100%+8px)] hidden group-hover:flex items-center z-[100] whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
-                          <div className="w-2.5 h-2.5 bg-[#2b7de9] rounded-[1.5px] rotate-45 -mr-1.5 relative z-10 shadow-sm"></div>
+                          <div className="w-2.5 h-2.5 bg-[#14a09a] rounded-[1.5px] rotate-45 -mr-1.5 relative z-10 shadow-sm"></div>
                           <div className="bg-[#111827] text-white pl-3 pr-2.5 py-1 rounded-md shadow-xl border border-white/5 relative z-0">
                             <span className="text-[11.5px] font-semibold tracking-wide">Accounts</span>
                           </div>
@@ -339,7 +339,7 @@ export default function Sidebar({ mobileOpen, onMobileClose }) {
                                 className={`group flex items-center relative pl-8 pr-3 py-[7px] rounded-lg text-[11.5px] transition-all cursor-pointer
                                   ${subActive ? 'text-white font-semibold bg-white/10 shadow-sm' : 'text-sky-100/70 hover:text-white hover:bg-white/5'}`}>
                                 <div className={`absolute left-[13px] top-1/2 -translate-y-1/2 w-3 border-t ${subActive ? 'border-white/60' : 'border-white/20 group-hover:border-white/40'} transition-colors`} />
-                                <div className={`absolute left-[24px] top-1/2 -translate-y-1/2 w-[5px] h-[5px] rounded-full ${subActive ? 'bg-[#4d9bff] shadow-[0_0_8px_rgba(43,125,233,0.8)]' : 'bg-transparent border border-white/30 group-hover:border-white/60'} z-10 transition-all`} />
+                                <div className={`absolute left-[24px] top-1/2 -translate-y-1/2 w-[5px] h-[5px] rounded-full ${subActive ? 'bg-[#3fb5b0] shadow-[0_0_8px_rgba(14,160,154,0.8)]' : 'bg-transparent border border-white/30 group-hover:border-white/60'} z-10 transition-all`} />
                                 {sub.label}
                               </NavLink>
                             );
@@ -365,7 +365,7 @@ export default function Sidebar({ mobileOpen, onMobileClose }) {
                   <div
                     className="w-6 h-6 rounded-md flex items-center justify-center flex-shrink-0"
                     style={{
-                      background: `linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%), #2b7de9`,
+                      background: `linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%), #14a09a`,
                       boxShadow: '0 2px 4px rgba(0,0,0,0.15), inset 0 1px 1px rgba(255,255,255,0.6)',
                       border: '1px solid rgba(0,0,0,0.05)'
                     }}
@@ -377,7 +377,7 @@ export default function Sidebar({ mobileOpen, onMobileClose }) {
                   )}
                   {collapsed && (
                     <div className="absolute left-[calc(100%+8px)] hidden group-hover:flex items-center z-[100] whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
-                      <div className="w-2.5 h-2.5 bg-[#2b7de9] rounded-[1.5px] rotate-45 -mr-1.5 relative z-10 shadow-sm"></div>
+                      <div className="w-2.5 h-2.5 bg-[#14a09a] rounded-[1.5px] rotate-45 -mr-1.5 relative z-10 shadow-sm"></div>
                       <div className="bg-[#111827] text-white pl-3 pr-2.5 py-1 rounded-md shadow-xl border border-white/5 relative z-0">
                         <span className="text-[11.5px] font-semibold tracking-wide">{label}</span>
                       </div>
@@ -412,7 +412,7 @@ export default function Sidebar({ mobileOpen, onMobileClose }) {
               </svg>
 
               <div className="relative flex items-center gap-2.5 overflow-hidden">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#4d9bff] to-[#2b7de9] flex items-center justify-center text-white text-[17px] font-extrabold flex-shrink-0 shadow-[0_4px_12px_rgba(43,125,233,0.5)] ring-2 ring-white/20">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#3fb5b0] to-[#14a09a] flex items-center justify-center text-white text-[17px] font-extrabold flex-shrink-0 shadow-[0_4px_12px_rgba(14,160,154,0.5)] ring-2 ring-white/20">
                   {user?.name?.charAt(0).toUpperCase() || 'A'}
                 </div>
                 <div className="flex flex-col overflow-hidden leading-tight">

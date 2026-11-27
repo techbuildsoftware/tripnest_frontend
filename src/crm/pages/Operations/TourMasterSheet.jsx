@@ -516,7 +516,7 @@ function TourDetailsDrawer({ row, vehicles, drivers, guides, suppliers, hotelMas
                   </div>
                   <div>
                     <div className="text-[8px] font-bold uppercase tracking-wider text-slate-400 leading-none">Operation Person</div>
-                    <div className="text-[11px] mt-0.5 font-extrabold text-slate-800 leading-tight">{booking.operationPerson || booking.assignedTo || "BuildSoftware"}</div>
+                    <div className="text-[11px] mt-0.5 font-extrabold text-slate-800 leading-tight">{booking.operationPerson || booking.assignedTo || "TripNest"}</div>
                   </div>
                 </div>
               </div>
@@ -880,7 +880,7 @@ export default function TourMasterSheet() {
         row.service.flightTicketAttachment?.name || "",
         row.service.remarks || "",
         clientPaymentStatus(row.booking),
-        row.booking.operationPerson || row.booking.assignedTo || "BuildSoftware",
+        row.booking.operationPerson || row.booking.assignedTo || "TripNest",
         row.service.meetingPoint || "",
       ]),
     });
@@ -1086,7 +1086,7 @@ export default function TourMasterSheet() {
                       <div>
                         <span className="inline-flex max-w-full items-center rounded-md bg-emerald-500 px-1.5 py-[3px] text-[8.5px] font-bold text-white leading-none shadow-sm">
                           <UserRound className="h-2.5 w-2.5 mr-1" />
-                          {row.booking.company || "BuildSoftware Pvt Ltd"}
+                          {row.booking.company || "TripNest Pvt Ltd"}
                         </span>
                       </div>
                     </div>
@@ -1265,7 +1265,7 @@ export default function TourMasterSheet() {
                       className={`h-7 w-[90px] rounded border border-slate-200 px-2 text-[10px] font-extrabold shadow-sm ${
                         serviceStatus(service) === 'Confirm' || serviceStatus(service) === 'Confirmed' ? 'bg-[#25D366] text-white border-transparent'
                         : serviceStatus(service) === 'Pending' ? 'bg-[#F2A900] text-white border-transparent'
-                        : serviceStatus(service) === 'In Progress' ? 'bg-[#2b7de9] text-white border-transparent'
+                        : serviceStatus(service) === 'In Progress' ? 'bg-[#14a09a] text-white border-transparent'
                         : 'bg-slate-100 text-slate-600 border-slate-300'
                       }`}
                     >
@@ -1308,7 +1308,7 @@ export default function TourMasterSheet() {
                   <td className="px-2 py-2 border-r border-slate-100 align-middle">
                     <div className="flex flex-col gap-0.5 leading-tight">
                       <span className="font-medium text-slate-800 text-[10.5px]">
-                        {row.booking.operationPerson || row.booking.assignedTo || "BuildSoftware"}
+                        {row.booking.operationPerson || row.booking.assignedTo || "TripNest"}
                       </span>
                       <span className="font-medium text-slate-500 text-[9.5px]">
                         +919727544503

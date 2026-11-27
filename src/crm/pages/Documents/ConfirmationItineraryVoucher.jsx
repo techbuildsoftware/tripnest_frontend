@@ -243,11 +243,11 @@ export default function ConfirmationItineraryVoucher({ settings, booking: rawBoo
   const cfg = { ...CONFIRMATION_ITINERARY_DEFAULTS, ...(settings || {}), logo: brand?.logo || settings?.logo, companyName: brand?.name || settings?.companyName || CONFIRMATION_ITINERARY_DEFAULTS.companyName };
   const booking = rawBooking || {}; const voucher = voucherOverride || booking.voucher || {}; const data = liveData || {};
   // Agent vouchers must carry the selected agent's contact information. Do not
-  // show BuildSoftware's contact details as if they belong to that agent.
+  // show TripNest's contact details as if they belong to that agent.
   const isAgentVoucher = voucher?.settings?.voucherFor === 'Agent' && Boolean(brand?.isAgent);
   const footerContacts = isAgentVoucher
     ? [[Phone, brand?.phone], [Mail, brand?.email], [Globe, brand?.website]].filter(([, value]) => value)
-    : [[Phone, '+66 84 340 4016'], [Mail, 'info@buildsoftware.in'], [Globe, 'www.buildsoftware.in']];
+    : [[Phone, '+66 84 340 4016'], [Mail, 'info@tripnest.com'], [Globe, 'www.tripnest.com']];
   
   const sourceServices = sortVoucherRows(Array.isArray(voucher.services) && voucher.services.length ? voucher.services : (booking.services || []));
   const hotels = sortVoucherRows(Array.isArray(data.hotels) && data.hotels.length ? data.hotels : (Array.isArray(voucher.hotels) && voucher.hotels.length ? voucher.hotels : (booking.hotels || sourceServices.filter((item) => item.type === 'Hotel'))));

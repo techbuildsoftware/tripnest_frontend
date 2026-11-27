@@ -16,8 +16,8 @@ Run: `npm install && npm run dev` · Build: `npm run build`
 3. Replace placeholder prices, ratings, review counts, stats, testimonials and offers with real data; confirm the payment-method chips in the footer; update currency rates in `src/currency.js` (indicative only).
 4. Submit the sitemap in Google Search Console; create a Google Business Profile; connect social accounts.
 5. Auth is still a front-end demo (localStorage) and the site is a client-rendered SPA – add a real backend and, for better SEO, pre-rendering (e.g. Next.js / vite-plugin-ssg) later.
-## CRM (BuildSoftware demo) – `/crm`
+## CRM (TripNest demo) – `/crm`
 The full B2B travel CRM lives in `src/crm` (separate entry `crm.html`, own Tailwind config, router basename `/crm`). **No backend**: an in-browser mock server (`src/crm/lib/demo`) stores everything in IndexedDB, seeded with dummy data.
 - Open `http://localhost:5173/crm/login` (after `npm install && npm run dev`). Old `/admin` redirects here.
-- Staff login: `admin@buildsoftware.in` / `Admin@123` · Agent login: `AGENT-AGT-2026-001` / `Agent@123` (pre-filled on the login page).
+- Staff login: `admin@tripnest.com` / `Admin@123` · Agent login: `AGENT-AGT-2026-001` / `Agent@123` (pre-filled on the login page).
 - Reset data: Settings → Reset demo data, or run `__resetDemoData()` in the browser console.

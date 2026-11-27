@@ -23,7 +23,7 @@ const config = {
       ['company', 'Assigned Company'],
       ['destinationImage', 'Destination Image', 'file'],
     ],
-    defaults: { company: 'BuildSoftware Pvt Ltd', country: 'Thailand' },
+    defaults: { company: 'TripNest Pvt Ltd', country: 'Thailand' },
   },
   locations: {
     title: 'Location', plural: 'Locations',

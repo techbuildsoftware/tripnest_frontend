@@ -483,7 +483,7 @@ export default function AgentMaster() {
             <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-6 gap-3">
               <div className="col-span-1 lg:col-span-2">
                 <label className="form-label text-[10px]">Sales Person *</label>
-                <input type="text" value={form.salesPerson || 'BuildSoftware'} onChange={e => set('salesPerson', e.target.value)} className="form-input text-xs py-1.5" />
+                <input type="text" value={form.salesPerson || 'TripNest'} onChange={e => set('salesPerson', e.target.value)} className="form-input text-xs py-1.5" />
               </div>
               <div className="col-span-1 lg:col-span-1">
                 <label className="form-label text-[10px]">Currency</label>

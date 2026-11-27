@@ -9,7 +9,7 @@
 
 /* ── CSS Custom Properties ───────────────────────────────── */
 :root {
-  --lp-primary: #2b7de9;
+  --lp-primary: #14a09a;
   --lp-primary-light: #ffa54d;
   --lp-primary-dark: #d96a08;
   --lp-gold: #f5a623;
@@ -35,7 +35,7 @@
   --lp-font: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
   --lp-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --lp-transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-  --lp-3d-shadow: 0 16px 40px rgba(43,125,233, 0.16), 0 6px 18px rgba(0, 0, 0, 0.08);
+  --lp-3d-shadow: 0 16px 40px rgba(14,160,154, 0.16), 0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
 /* ── Root & Base ─────────────────────────────────────────── */
@@ -96,7 +96,7 @@
 }
 
 .lp-header--scrolled .lp-header-logo-sub {
-  color: #1f6fe0;
+  color: #0e8a85;
 }
 
 .lp-header-inner {
@@ -166,7 +166,7 @@
 .lp-header-logo-sub {
   font-size: 9.5px;
   font-weight: 700;
-  color: #1f6fe0;
+  color: #0e8a85;
   letter-spacing: 1.8px;
   text-transform: uppercase;
   transition: color 0.3s;
@@ -195,7 +195,7 @@
 }
 
 .lp-nav-link:hover {
-  color: #154aa0;
+  color: #0b6f6b;
   background: rgba(247, 146, 42, 0.15);
 }
 
@@ -204,7 +204,7 @@
   align-items: center;
   gap: 7px;
   padding: 8px 18px;
-  background: linear-gradient(135deg, #4d9bff 0%, #ffbd70 100%);
+  background: linear-gradient(135deg, #3fb5b0 0%, #ffbd70 100%);
   color: #3b1d07;
   font-size: 13.5px;
   font-weight: 800;
@@ -616,7 +616,7 @@
 }
 
 .lp-hero .lp-btn-primary {
-  background: linear-gradient(135deg, #4d9bff 0%, #ffbd70 100%);
+  background: linear-gradient(135deg, #3fb5b0 0%, #ffbd70 100%);
   color: var(--h-ink);
   font-weight: 800;
   letter-spacing: 0.005em;
@@ -682,13 +682,13 @@
   border-radius: 40px;
   cursor: pointer;
   transition: var(--lp-transition);
-  box-shadow: 0 5px 20px rgba(43,125,233, 0.4);
+  box-shadow: 0 5px 20px rgba(14,160,154, 0.4);
   text-decoration: none;
 }
 
 .lp-btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(43,125,233, 0.55);
+  box-shadow: 0 8px 28px rgba(14,160,154, 0.55);
 }
 
 .lp-btn-outline {
@@ -1159,7 +1159,7 @@
   width: 100%;
   margin-top: 0.35em;
   padding: 0.7em 1em;
-  background: linear-gradient(135deg, #4d9bff 0%, #ffc079 100%);
+  background: linear-gradient(135deg, #3fb5b0 0%, #ffc079 100%);
   color: var(--h-ink);
   border: none;
   border-radius: 0.85em;
@@ -2096,7 +2096,7 @@
 
 .lp-dest-chip--temp {
   margin-left: auto;
-  background: rgba(43,125,233, 0.1);
+  background: rgba(14,160,154, 0.1);
   color: #b87a00;
 }
 
@@ -2194,7 +2194,7 @@
 .lp-cta-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at center, rgba(43,125,233, 0.06) 0%, transparent 70%);
+  background: radial-gradient(ellipse at center, rgba(14,160,154, 0.06) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -2551,7 +2551,7 @@
 .lp-footer-powered-text {
   font-size: 13px;
   font-weight: 600;
-  color: #2563eb;
+  color: #0e8a85;
   letter-spacing: -0.1px;
   transition: color 0.18s, text-decoration 0.18s;
 }
@@ -2971,7 +2971,7 @@
 .lp-modal-brand-tag {
   font-size: 8.5px;
   font-weight: 800;
-  color: #1d62c9;
+  color: #0e8a85;
   letter-spacing: 1.2px;
   text-transform: uppercase;
 }
@@ -3009,7 +3009,7 @@
   display: inline-block;
   font-size: 10px;
   font-weight: 800;
-  color: #1d62c9;
+  color: #0e8a85;
   text-transform: uppercase;
   letter-spacing: 0.8px;
 }

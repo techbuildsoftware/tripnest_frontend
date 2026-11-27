@@ -1,4 +1,4 @@
-// BuildSoftware demo build: there is no backend. Every request is answered by the
+// TripNest demo build: there is no backend. Every request is answered by the
 // in-browser mock engine (src/lib/demo/server) using the data stored in IndexedDB.
 import { getDisplayTimeZone } from './date';
 import { handle } from './demo/server';

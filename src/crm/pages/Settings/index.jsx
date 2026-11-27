@@ -48,11 +48,11 @@ const SMTP_PRESETS = [
 export default function SettingsPage() {
   const [activeSection, setActiveSection] = useState('company');
   const [company, setCompany] = useState({
-    name: 'BuildSoftware CRM',
-    email: 'admin@buildsoftware.in',
+    name: 'TripNest CRM',
+    email: 'admin@tripnest.com',
     phone: '+66 76 345 678',
     address: '123 Phuket Road, Phuket 83000, Thailand',
-    website: 'www.buildsoftware.in',
+    website: 'www.tripnest.com',
     currency: 'THB',
     timezone: 'Asia/Bangkok',
     logo: null,
@@ -224,7 +224,7 @@ export default function SettingsPage() {
     setConnectingWhatsapp(true);
     try {
       if (whatsappSettings.apiKey.trim()) await saveWhatsappSettings();
-      const response = await apiClient.post('/whatsapp/connect', { displayName: deviceName || 'BuildSoftware WhatsApp', waitForQr: true });
+      const response = await apiClient.post('/whatsapp/connect', { displayName: deviceName || 'TripNest WhatsApp', waitForQr: true });
       const connection = response.data || {};
       setWhatsappQr(connection);
       setDeviceName('');
@@ -462,7 +462,7 @@ export default function SettingsPage() {
                 <label><span className="form-label">SMTP port</span><input type="number" min="1" max="65535" value={emailSettings.port || ''} onChange={(event) => setEmailSettings((current) => ({ ...current, port: Number(event.target.value) }))} className="form-input" placeholder="465" /></label>
                 <label><span className="form-label">Mailbox login email</span><input type="email" value={emailSettings.username || ''} onChange={(event) => setEmailSettings((current) => ({ ...current, username: event.target.value }))} className="form-input" placeholder="reservations@yourdomain.com" autoComplete="username" /></label>
                 <label><span className="form-label">Mailbox password {emailSettings.hasPassword && <span className="text-emerald-600">(saved)</span>}</span><input type="password" value={emailSettings.password || ''} onChange={(event) => setEmailSettings((current) => ({ ...current, password: event.target.value }))} className="form-input" placeholder={emailSettings.hasPassword ? 'Leave blank to keep saved password' : 'Enter mailbox password'} autoComplete="new-password" /></label>
-                <label><span className="form-label">Sender name</span><input value={emailSettings.fromName || ''} onChange={(event) => setEmailSettings((current) => ({ ...current, fromName: event.target.value }))} className="form-input" placeholder="BuildSoftware Pvt Ltd" /></label>
+                <label><span className="form-label">Sender name</span><input value={emailSettings.fromName || ''} onChange={(event) => setEmailSettings((current) => ({ ...current, fromName: event.target.value }))} className="form-input" placeholder="TripNest Pvt Ltd" /></label>
                 <label><span className="form-label">From email</span><input type="email" value={emailSettings.fromEmail || ''} onChange={(event) => setEmailSettings((current) => ({ ...current, fromEmail: event.target.value }))} className="form-input" placeholder="reservations@yourdomain.com" /></label>
                 <label className="flex items-center gap-3 rounded-lg border border-slate-200 bg-slate-50 p-3 sm:col-span-2"><input type="checkbox" checked={emailSettings.secure !== false} onChange={(event) => setEmailSettings((current) => ({ ...current, secure: event.target.checked }))} className="h-4 w-4 rounded" /><span><span className="block text-sm font-semibold text-slate-800">Use SSL / secure SMTP</span><span className="block text-xs text-slate-500">Keep enabled for the GoDaddy port 465 configuration.</span></span></label>
               </div>

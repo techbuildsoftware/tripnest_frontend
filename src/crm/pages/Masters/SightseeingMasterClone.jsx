@@ -2945,7 +2945,7 @@ export default function SightseeingMasterClone() {
                 <div className="flex items-center justify-between px-4 py-2.5 bg-gradient-to-r from-[#0d3f6e] to-[#1a5fa8]">
                   <div>
                     <div className="text-xs font-bold text-white">
-                      BuildSoftware
+                      TripNest
                     </div>
                     <div className="text-[9px] text-blue-200">
                       Your trusted travel partner
@@ -3638,7 +3638,7 @@ export default function SightseeingMasterClone() {
           <div className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-[#0d3f6e] to-[#1a5fa8]">
             <div>
               <div className="text-sm font-bold text-white">
-                BuildSoftware
+                TripNest
               </div>
               <div className="text-[10px] text-blue-200">
                 Your trusted travel partner

@@ -335,7 +335,7 @@ export default function Queries() {
               </button>
 
               <div className="relative z-10 flex gap-2.5 sm:gap-3 pr-10">
-                <div className="w-10 h-10 rounded-xl bg-[#2b7de9] flex items-center justify-center shadow-lg shadow-blue-500/30 flex-shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-[#14a09a] flex items-center justify-center shadow-lg shadow-blue-500/30 flex-shrink-0">
                   <FileText className="w-5 h-5 text-white" />
                 </div>
                 <div className="pt-0.5">
@@ -385,7 +385,7 @@ export default function Queries() {
                 {/* Column 1: Traveller & Contact */}
                 <div className="bg-[#f8fafc] border border-slate-200/60 rounded-[14px] p-3 sm:p-4 shadow-sm relative overflow-hidden">
                   <div className="flex items-center gap-2.5 mb-2.5 sm:mb-4">
-                    <div className="w-8 h-8 rounded-xl bg-[#2b7de9] flex items-center justify-center text-white shadow-sm z-10 relative">
+                    <div className="w-8 h-8 rounded-xl bg-[#14a09a] flex items-center justify-center text-white shadow-sm z-10 relative">
                       <Users className="w-4 h-4" />
                     </div>
                     <div className="flex-1 z-10 relative">
@@ -409,7 +409,7 @@ export default function Queries() {
                     </div>
                     <div className="flex items-start justify-between text-[11px] gap-2 border-b border-slate-100 pb-1 sm:pb-1.5">
                       <div className="flex items-center gap-1.5 text-slate-500 mt-0.5 whitespace-nowrap"><Mail className="w-3.5 h-3.5" /> <span>Email</span></div>
-                      <div className="font-bold text-[#1d62c9] text-right break-words hover:underline cursor-pointer flex-1" title={viewQuery.contactEmail}>{viewQuery.contactEmail || '—'}</div>
+                      <div className="font-bold text-[#0e8a85] text-right break-words hover:underline cursor-pointer flex-1" title={viewQuery.contactEmail}>{viewQuery.contactEmail || '—'}</div>
                     </div>
                     <div className="flex items-start justify-between text-[11px] gap-2">
                       <div className="flex items-center gap-1.5 text-slate-500 mt-0.5"><Phone className="w-3.5 h-3.5" /> <span>Phone</span></div>
@@ -454,7 +454,7 @@ export default function Queries() {
                       <div className="flex items-center gap-1.5 text-slate-500 mt-0.5"><Users className="w-3.5 h-3.5" /> <span>Pax Details</span></div>
                       <div className="flex items-center gap-1.5 flex-wrap justify-end max-w-[60%] sm:max-w-[160px]">
                         <span className="font-bold text-slate-900 text-right">{Number(viewQuery.adults||0)}A · {Number(viewQuery.children||0)}C · {Number(viewQuery.infants||0)}I</span>
-                        <span className="bg-[#dbeafe] text-[#123b80] text-[9px] font-bold px-1.5 py-0.5 rounded-full">{Number(viewQuery.adults||0)+Number(viewQuery.children||0)} Pax</span>
+                        <span className="bg-[#dbeafe] text-[#0a5856] text-[9px] font-bold px-1.5 py-0.5 rounded-full">{Number(viewQuery.adults||0)+Number(viewQuery.children||0)} Pax</span>
                       </div>
                     </div>
                   </div>
@@ -491,7 +491,7 @@ export default function Queries() {
                     </div>
                     <div className="flex items-start justify-between text-[11px] gap-2">
                       <div className="flex items-center gap-1.5 text-slate-500 mt-0.5"><Building className="w-3.5 h-3.5" /> <span>Company</span></div>
-                      <div className="font-bold text-slate-900 text-right break-words max-w-[60%] sm:max-w-[160px]">{viewQuery.company || 'BuildSoftware Pvt Ltd'}</div>
+                      <div className="font-bold text-slate-900 text-right break-words max-w-[60%] sm:max-w-[160px]">{viewQuery.company || 'TripNest Pvt Ltd'}</div>
                     </div>
                   </div>
                 </div>
@@ -521,7 +521,7 @@ export default function Queries() {
                           className="w-10 h-10 rounded-lg object-cover shadow-sm" 
                         />
                         <div className="flex-1 min-w-0">
-                          <span className="inline-block px-2 py-0.5 rounded-full bg-[#2b7de9] text-white text-[9px] font-bold mb-1 shadow-sm shadow-blue-500/20">Leg {index + 1}</span>
+                          <span className="inline-block px-2 py-0.5 rounded-full bg-[#14a09a] text-white text-[9px] font-bold mb-1 shadow-sm shadow-blue-500/20">Leg {index + 1}</span>
                           <div className="text-[12px] font-extrabold text-slate-900 truncate flex items-center gap-1.5">
                             {segment.departureDestination || '—'} <ArrowRight className="w-3 h-3 text-slate-400 flex-shrink-0" /> {segment.arrivalDestination || '—'}
                           </div>
@@ -529,12 +529,12 @@ export default function Queries() {
                             <Calendar className="w-3 h-3" /> {formatDate(segment.fromDate)} to {formatDate(segment.toDate)}
                           </div>
                         </div>
-                        <div className="w-6 h-6 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 flex-shrink-0 cursor-pointer hover:bg-[#eff6ff] hover:text-[#1d62c9] border border-slate-100 transition-colors">
+                        <div className="w-6 h-6 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 flex-shrink-0 cursor-pointer hover:bg-[#eff6ff] hover:text-[#0e8a85] border border-slate-100 transition-colors">
                           <ChevronRight className="w-3 h-3" />
                         </div>
                       </div>
                       {index < viewQuery.travelSegments.length - 1 && (
-                        <div className="text-[#2b7de9] flex-shrink-0 px-0.5 opacity-70">
+                        <div className="text-[#14a09a] flex-shrink-0 px-0.5 opacity-70">
                           <Plane className="w-5 h-5 rotate-45" />
                         </div>
                       )}
@@ -577,7 +577,7 @@ export default function Queries() {
                     setViewQuery(null);
                     navigate(`/queries/${query.id}`);
                   }}
-                  className="flex-1 sm:flex-none justify-center px-4 sm:px-5 py-2 rounded-[10px] bg-[#1d62c9] text-white text-xs font-bold hover:bg-blue-700 transition-colors flex items-center gap-2 shadow-md shadow-blue-500/20"
+                  className="flex-1 sm:flex-none justify-center px-4 sm:px-5 py-2 rounded-[10px] bg-[#0e8a85] text-white text-xs font-bold hover:bg-blue-700 transition-colors flex items-center gap-2 shadow-md shadow-blue-500/20"
                 >
                   <Edit className="w-3.5 h-3.5" /> Edit Query
                 </button>

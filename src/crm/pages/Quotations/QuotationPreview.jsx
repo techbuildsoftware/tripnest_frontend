@@ -13,7 +13,7 @@ import {
   PremiumTemplate,
   DetailedTemplate,
   CompactTemplate,
-  BuildSoftwarePremiumTemplate,
+  TripNestPremiumTemplate,
   LuxuryBoutiqueTemplate,
   LuxuryTravelQuotationTemplate,
   ThaiExperienceTemplate,
@@ -110,7 +110,7 @@ export function renderPdfTemplate(quotation, config, clientPreview = false, clie
     case 'classic': return <ClassicTemplate {...props} />;
     case 'detailed': return <DetailedTemplate {...props} />;
     case 'compact': return <CompactTemplate {...props} />;
-    case 'buildsoftware-premium': return <BuildSoftwarePremiumTemplate {...props} />;
+    case 'buildsoftware-premium': return <TripNestPremiumTemplate {...props} />;
     case 'luxury-boutique': return <LuxuryBoutiqueTemplate {...props} />;
     case 'luxury-travel': return <LuxuryTravelQuotationTemplate {...props} />;
     case 'thai-experience': return <ThaiExperienceTemplate {...props} />;
@@ -404,9 +404,9 @@ export function StandardQuotationPreview({ quotation, viewMode, clientPriceVisib
   const perPersonLabel = passengerPrices.hasDifferentChildPrice
     ? `${fmt(passengerPrices.adult)} Per Adult · ${fmt(passengerPrices.child)} Per Child`
     : `${fmt(passengerPrices.adult)} Per Person`;
-  const brandName = branding?.name || 'BuildSoftware';
+  const brandName = branding?.name || 'TripNest';
   const brandLogo = branding?.logo || quotation?.logo || '';
-  const brandEmail = branding?.email || 'admin@buildsoftware.in';
+  const brandEmail = branding?.email || 'admin@tripnest.com';
   const brandPhone = branding?.phone || '+66 76 345 678';
   const hotelBreakdown = useMemo(() => internalHotelBreakdown(quotation, hotelMasters), [quotation, hotelMasters]);
   const guests = quotation.guests?.length

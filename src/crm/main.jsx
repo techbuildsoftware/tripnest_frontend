@@ -3,9 +3,9 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 
-// Always show the BuildSoftware title and icon in the browser tab, even if the
+// Always show the TripNest title and icon in the browser tab, even if the
 // browser cached another app's tab details for this localhost port.
-document.title = 'BuildSoftware CRM';
+document.title = 'TripNest CRM';
 document.querySelectorAll("link[rel~='icon'], link[rel='shortcut icon']").forEach((el) => el.remove());
 const favicon = document.createElement('link');
 favicon.rel = 'icon';

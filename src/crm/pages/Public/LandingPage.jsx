@@ -19,15 +19,15 @@ import tourPartnerImg from '../../assets/tour_partner.jpg';
 import topbarImg from '../../assets/Topbar1.png';
 import { RefHero, RefDestinations, RefExperiences, RefSolutions, RefPartner, RefTestimonials } from './LandingRefSections';
 
-// ─── 7-Step "Take a Tour of BuildSoftware" Data (Reference Image 2) ───────────
+// ─── 7-Step "Take a Tour of TripNest" Data (Reference Image 2) ───────────
 const tourSteps = [
   {
     step: 1,
-    title: 'Welcome to BuildSoftware',
+    title: 'Welcome to TripNest',
     desc: 'Learn about our company and B2B partnership benefits.',
     image: bangkokImg,
     badge: '1',
-    modalTitle: 'Welcome to BuildSoftware',
+    modalTitle: 'Welcome to TripNest',
     modalSubtitle: 'Thailand’s Leading B2B Destination Management Company',
     details: [
       'Over 15+ years of operational excellence crafting unforgettable journeys in Thailand.',
@@ -64,7 +64,7 @@ const tourSteps = [
     details: [
       'Direct contracts with top international brands: Marriott, Hyatt, Four Seasons, Banyan Tree, and boutique luxury stays.',
       'Private pool villas in Phuket, Koh Samui, and Krabi with private chef services.',
-      'Guaranteed room allotment and instant inventory check in the BuildSoftware CRM.',
+      'Guaranteed room allotment and instant inventory check in the TripNest CRM.',
       'Special agent amenities: VIP welcome drinks, complimentary room upgrades, and flexible policies.',
     ],
   },
@@ -119,12 +119,12 @@ const tourSteps = [
     desc: 'How to register, account approval and support.',
     image: tourPartnerImg,
     badge: '7',
-    modalTitle: 'Join the BuildSoftware B2B Network',
+    modalTitle: 'Join the TripNest B2B Network',
     modalSubtitle: 'Instant Registration, Dedicated Account Manager & CRM Access',
     details: [
       'Fast online onboarding: register your agency and receive verified approval within 24 hours.',
       'Dedicated Key Account Manager assigned for day-to-day operations and customized contracting.',
-      'Access the full BuildSoftware CRM portal to manage queries, bookings, vouchers, and accounts.',
+      'Access the full TripNest CRM portal to manage queries, bookings, vouchers, and accounts.',
       'Exclusive agent incentives, fam-trips, and continuous B2B support.',
     ],
   },
@@ -384,7 +384,7 @@ function Header({ onLoginClick, isAuthenticated }) {
         >
           {/* Logo with White Background - Zero border, Zero shadow */}
           <div className="lp-header-logo-badge">
-            <img src={logoWhite} alt="BuildSoftware" className="lp-header-logo-img" />
+            <img src={logoWhite} alt="TripNest" className="lp-header-logo-img" />
           </div>
         </div>
 
@@ -735,7 +735,7 @@ function HeroSection({ onLoginClick, onContactClick, onOpenDestination }) {
           </h1>
 
           <p className="lp-hero-subtitle">
-            Experience Thailand like never before — BuildSoftware crafts unforgettable journeys with precision, passion, and local expertise.
+            Experience Thailand like never before — TripNest crafts unforgettable journeys with precision, passion, and local expertise.
           </p>
 
           <div className="lp-hero-actions">
@@ -773,7 +773,7 @@ function HeroSection({ onLoginClick, onContactClick, onOpenDestination }) {
   );
 }
 
-// ─── "Take a Tour of BuildSoftware" Section (Directly from Reference Image 2) ──
+// ─── "Take a Tour of TripNest" Section (Directly from Reference Image 2) ──
 function TourSection({ onStartTour, onSelectStep, onWatchVideo }) {
   return (
     <section id="tour" className="lp-tour-section">
@@ -782,7 +782,7 @@ function TourSection({ onStartTour, onSelectStep, onWatchVideo }) {
         <div className="lp-tour-header">
           <div className="lp-tour-header-text">
             <h2 className="lp-tour-title">
-              Take a Tour of <span className="lp-tour-title-gold">BuildSoftware</span>
+              Take a Tour of <span className="lp-tour-title-gold">TripNest</span>
             </h2>
             <p className="lp-tour-subtitle">
               Explore our services, destinations and partner portal in a quick guided tour.
@@ -946,7 +946,7 @@ function VideoModal({ isOpen, onClose, onOpenLogin }) {
         </button>
 
         <div className="lp-video-player-wrap">
-          <img src={bangkokImg} alt="BuildSoftware Overview" className="lp-video-player-thumb" />
+          <img src={bangkokImg} alt="TripNest Overview" className="lp-video-player-thumb" />
           <div className="lp-video-player-overlay">
             <div className="lp-video-play-pulse">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
@@ -958,7 +958,7 @@ function VideoModal({ isOpen, onClose, onOpenLogin }) {
         </div>
 
         <div className="lp-video-modal-body">
-          <h3 className="lp-video-modal-title">Experience the BuildSoftware Ecosystem</h3>
+          <h3 className="lp-video-modal-title">Experience the TripNest Ecosystem</h3>
           <p className="lp-video-modal-desc">
             Discover how leading global travel agents and B2B partners leverage our end-to-end Thailand operations, automated CRM quotations, contracted luxury hotels, and VIP airport transfers.
           </p>
@@ -1157,9 +1157,9 @@ function LoginModal({ isOpen, onClose, navigate }) {
               <div className="lp-modal-banner-inner">
                 <div className="lp-modal-top-row">
                   <div className="lp-modal-logo-badge">
-                    <img src={logoTransparent} alt="BuildSoftware" className="lp-modal-logo" />
+                    <img src={logoTransparent} alt="TripNest" className="lp-modal-logo" />
                     <div className="lp-modal-logo-titles">
-                      <span className="lp-modal-brand-name">BuildSoftware</span>
+                      <span className="lp-modal-brand-name">TripNest</span>
                       <span className="lp-modal-brand-tag">DMC PORTAL</span>
                     </div>
                   </div>
@@ -1171,7 +1171,7 @@ function LoginModal({ isOpen, onClose, navigate }) {
 
                 <div className="lp-modal-title-block">
                   <span className="lp-modal-eyebrow">🇹🇭 OFFICIAL B2B OPERATIONS ACCESS</span>
-                  <h2 className="lp-modal-title">Welcome to BuildSoftware Portal</h2>
+                  <h2 className="lp-modal-title">Welcome to TripNest Portal</h2>
                   <p className="lp-modal-subtitle">
                     Select your authorized login portal below to access CRM itineraries, live quotations, and ground operations.
                   </p>
@@ -1353,7 +1353,7 @@ function ServicesSection() {
           <span className="lp-eyebrow lp-eyebrow--light">What We Offer</span>
           <h2 className="lp-section-title">Complete Thailand Travel Solutions</h2>
           <p className="lp-section-desc">
-            From the moment you land to the moment you depart — BuildSoftware handles every detail of your perfect Thailand experience.
+            From the moment you land to the moment you depart — TripNest handles every detail of your perfect Thailand experience.
           </p>
         </div>
 
@@ -1381,7 +1381,7 @@ function CTASection({ onContactClick }) {
         <span className="lp-cta-eyebrow">For Travel Professionals</span>
         <h2 className="lp-cta-title">Ready to Power Your<br />Thailand Operations?</h2>
         <p className="lp-cta-desc">
-          Join hundreds of travel agents and operators who trust BuildSoftware CRM to manage bookings, quotations, and operations all in one place.
+          Join hundreds of travel agents and operators who trust TripNest CRM to manage bookings, quotations, and operations all in one place.
         </p>
         <button className="lp-cta-btn" onClick={onContactClick}>
           Contact Us
@@ -1409,7 +1409,7 @@ function Footer({ onOpenDestination }) {
         <div className="lp-footer-brand">
           {/* Logo on white background - Zero border, Zero shadow */}
           <div className="lp-footer-logo-badge">
-            <img src={logoWhite} alt="BuildSoftware" className="lp-footer-logo" />
+            <img src={logoWhite} alt="TripNest" className="lp-footer-logo" />
           </div>
           <div className="lp-footer-brand-body">
             <p className="lp-footer-tagline">
@@ -1490,7 +1490,7 @@ function Footer({ onOpenDestination }) {
                   <polyline points="22,6 12,13 2,6" />
                 </svg>
               </div>
-              <a href="mailto:b2b@buildsoftware.in">b2b@buildsoftware.in</a>
+              <a href="mailto:b2b@tripnest.com">b2b@tripnest.com</a>
             </li>
             <li>
               <div className="lp-footer-contact-icon">
@@ -1523,7 +1523,7 @@ function Footer({ onOpenDestination }) {
       <div className="lp-footer-bottom">
         <div className="lp-footer-bottom-left">
           <p className="lp-footer-copyright">
-            © {new Date().getFullYear()} BuildSoftware. All rights reserved.
+            © {new Date().getFullYear()} TripNest. All rights reserved.
           </p>
         </div>
         <div className="lp-footer-bottom-links">

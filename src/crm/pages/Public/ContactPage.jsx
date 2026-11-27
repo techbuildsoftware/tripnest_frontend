@@ -24,7 +24,7 @@ const faqs = [
   },
   {
     q: 'Do you provide white-label client vouchers and airport placards?',
-    a: 'Yes, 100%! All client documents, day-by-day travel itineraries, service vouchers, and airport welcome signboards are customized with your travel agency brand name and logo with zero BuildSoftware public branding visible to your travelers.',
+    a: 'Yes, 100%! All client documents, day-by-day travel itineraries, service vouchers, and airport welcome signboards are customized with your travel agency brand name and logo with zero TripNest public branding visible to your travelers.',
   },
   {
     q: 'How does airport arrival pickup work for our clients in Thailand?',
@@ -49,7 +49,7 @@ const officeHubs = [
     address: '142 Silom Road, Suriyawong, Bang Rak, Bangkok 10500',
     airport: 'Suvarnabhumi (BKK) Gate 4 & Don Mueang (DMK) Gate 2',
     phone: '+66 2 123 4567',
-    email: 'ops@buildsoftware.in',
+    email: 'ops@tripnest.com',
     image: bangkokImg,
     status: '● Live 24/7 Dispatch',
     specialties: ['VIP Limousine Fleet', 'Chao Phraya River Charters', 'Luxury Hotel Contracting'],
@@ -61,7 +61,7 @@ const officeHubs = [
     address: '48/12 Chao Fah West Road, Chalong, Mueang Phuket 83000',
     airport: 'Phuket International Airport (HKT) Ground Counter',
     phone: '+66 76 987 654',
-    email: 'phuket@buildsoftware.in',
+    email: 'phuket@tripnest.com',
     image: phuketImg,
     status: '● Live Pier Logistics',
     specialties: ['Private Speedboat Fleet', 'Phi Phi & Phang Nga Charters', 'Krabi VIP Transfers'],
@@ -73,7 +73,7 @@ const officeHubs = [
     address: '88 Nimmanahaeminda Road, Suthep, Mueang Chiang Mai 50200',
     airport: 'Chiang Mai International Airport (CNX)',
     phone: '+66 53 456 789',
-    email: 'chiangmai@buildsoftware.in',
+    email: 'chiangmai@tripnest.com',
     image: chiangmaiImg,
     status: '● Active Tour Coordination',
     specialties: ['Ethical Elephant Sanctuaries', 'Golden Triangle Expeditions', 'Lanna Heritage Guides'],
@@ -120,9 +120,9 @@ function LoginModal({ isOpen, onClose, navigate }) {
               <div className="lp-modal-banner-inner">
                 <div className="lp-modal-top-row">
                   <div className="lp-modal-logo-badge">
-                    <img src={logoTransparent} alt="BuildSoftware" className="lp-modal-logo" />
+                    <img src={logoTransparent} alt="TripNest" className="lp-modal-logo" />
                     <div className="lp-modal-logo-titles">
-                      <span className="lp-modal-brand-name">BuildSoftware</span>
+                      <span className="lp-modal-brand-name">TripNest</span>
                       <span className="lp-modal-brand-tag">DMC PORTAL</span>
                     </div>
                   </div>
@@ -134,7 +134,7 @@ function LoginModal({ isOpen, onClose, navigate }) {
 
                 <div className="lp-modal-title-block">
                   <span className="lp-modal-eyebrow">🇹🇭 OFFICIAL B2B OPERATIONS ACCESS</span>
-                  <h2 className="lp-modal-title">Welcome to BuildSoftware Portal</h2>
+                  <h2 className="lp-modal-title">Welcome to TripNest Portal</h2>
                   <p className="lp-modal-subtitle">
                     Select your authorized login portal below to access CRM itineraries, live quotations, and ground operations.
                   </p>
@@ -319,7 +319,7 @@ export default function ContactPage() {
             style={{ cursor: 'pointer' }}
           >
             <div className="lp-header-logo-badge">
-              <img src={logoWhite} alt="BuildSoftware" className="lp-header-logo-img" />
+              <img src={logoWhite} alt="TripNest" className="lp-header-logo-img" />
             </div>
           </div>
 
@@ -382,7 +382,7 @@ export default function ContactPage() {
             <span>🇹🇭 Dedicated Inbound Ground Support</span>
           </div>
           <h1 className="cp-hero-title">
-            Contact BuildSoftware Operations
+            Contact TripNest Operations
           </h1>
           <p className="cp-hero-subtitle">
             Direct communication with our Bangkok &amp; Phuket ground operations desks. Instant B2B tour quotations, VIP airport transfers, group logistics, and 24/7 client dispatch across Thailand.
@@ -658,28 +658,28 @@ export default function ContactPage() {
                     <div className="cp-dept-icon">📑</div>
                     <div className="cp-dept-info">
                       <strong>FIT &amp; Group Quotations</strong>
-                      <a href="mailto:quotes@buildsoftware.in">quotes@buildsoftware.in</a>
+                      <a href="mailto:quotes@tripnest.com">quotes@tripnest.com</a>
                     </div>
                   </li>
                   <li className="cp-dept-item">
                     <div className="cp-dept-icon">🛎️</div>
                     <div className="cp-dept-info">
                       <strong>Reservations &amp; Vouchers</strong>
-                      <a href="mailto:ops@buildsoftware.in">ops@buildsoftware.in</a>
+                      <a href="mailto:ops@tripnest.com">ops@tripnest.com</a>
                     </div>
                   </li>
                   <li className="cp-dept-item">
                     <div className="cp-dept-icon">🤝</div>
                     <div className="cp-dept-info">
                       <strong>Agent Partnerships &amp; Contracting</strong>
-                      <a href="mailto:partners@buildsoftware.in">partners@buildsoftware.in</a>
+                      <a href="mailto:partners@tripnest.com">partners@tripnest.com</a>
                     </div>
                   </li>
                   <li className="cp-dept-item">
                     <div className="cp-dept-icon">💳</div>
                     <div className="cp-dept-info">
                       <strong>Accounts &amp; Billing Portal</strong>
-                      <a href="mailto:billing@buildsoftware.in">billing@buildsoftware.in</a>
+                      <a href="mailto:billing@tripnest.com">billing@tripnest.com</a>
                     </div>
                   </li>
                 </ul>
@@ -794,7 +794,7 @@ export default function ContactPage() {
           <div className="lp-footer-brand">
             {/* Logo on white background - Zero border, Zero shadow */}
             <div className="lp-footer-logo-badge">
-              <img src={logoWhite} alt="BuildSoftware" className="lp-footer-logo" />
+              <img src={logoWhite} alt="TripNest" className="lp-footer-logo" />
             </div>
             <div className="lp-footer-brand-body">
               <p className="lp-footer-tagline">
@@ -865,7 +865,7 @@ export default function ContactPage() {
                     <polyline points="22,6 12,13 2,6" />
                   </svg>
                 </div>
-                <a href="mailto:b2b@buildsoftware.in">b2b@buildsoftware.in</a>
+                <a href="mailto:b2b@tripnest.com">b2b@tripnest.com</a>
               </li>
               <li>
                 <div className="lp-footer-contact-icon">
@@ -888,7 +888,7 @@ export default function ContactPage() {
         <div className="lp-footer-bottom">
           <div className="lp-footer-bottom-left">
             <p className="lp-footer-copyright">
-              © {new Date().getFullYear()} BuildSoftware. All rights reserved.
+              © {new Date().getFullYear()} TripNest. All rights reserved.
             </p>
           </div>
           <div className="lp-footer-bottom-links">

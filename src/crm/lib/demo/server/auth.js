@@ -1,6 +1,6 @@
 import { ApiError, db, get, post, ok } from './core';
 
-export const DEMO_ADMIN = { identifier: 'admin@buildsoftware.in', password: 'Admin@123' };
+export const DEMO_ADMIN = { identifier: 'admin@tripnest.com', password: 'Admin@123' };
 export const DEMO_AGENT = { identifier: 'AGENT-AGT-2026-001', password: 'Agent@123' };
 
 const staffUser = (u) => ({ id: u.id, name: u.name, email: u.email, role: u.role, status: u.status });

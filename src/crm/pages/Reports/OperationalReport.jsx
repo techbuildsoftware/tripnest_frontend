@@ -308,7 +308,7 @@ export default function OperationalReport({ type }) {
         subtitle: 'Revenue vs Cost',
         m1Label: 'Revenue',
         m2Label: 'Cost',
-        m1Color: '#2563EB',
+        m1Color: '#0e8a85',
         m2Color: '#8B5CF6',
         data: top,
       };

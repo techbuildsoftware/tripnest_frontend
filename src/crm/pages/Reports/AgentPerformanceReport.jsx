@@ -105,7 +105,7 @@ export default function AgentPerformanceReport() {
   const { filters, updateFilter, generate, reset, loading, error, rows, options, summary } = useBusinessReport(reportInitialFilters);
   const audienceLabel = clientType === 'B2C' ? 'B2C Customer' : 'Agent';
 
-  const palette = ['#2563EB', '#F59E0B', '#10B981', '#8B5CF6', '#EC4899', '#06B6D4', '#64748B'];
+  const palette = ['#0e8a85', '#F59E0B', '#10B981', '#8B5CF6', '#EC4899', '#06B6D4', '#64748B'];
   const topAgents = useMemo(() => summary.agents.slice(0, 5), [summary.agents]);
 
   // Dense monthly trend calculation to eliminate empty horizontal gaps
@@ -656,7 +656,7 @@ export default function AgentPerformanceReport() {
               <XAxis dataKey="name" tick={{ fontSize: 9.5, fill: '#64748b' }} axisLine={false} tickLine={false} />
               <YAxis tickFormatter={fmtShort} tick={{ fontSize: 9.5, fill: '#64748b' }} axisLine={false} tickLine={false} />
               <Tooltip formatter={(v) => `THB ${Number(v).toLocaleString()}`} contentStyle={{ borderRadius: '8px', fontSize: '11px' }} />
-              <Bar dataKey="profit" name="Net Profit" fill="#2563EB" radius={[3, 3, 0, 0]} barSize={16}>
+              <Bar dataKey="profit" name="Net Profit" fill="#0e8a85" radius={[3, 3, 0, 0]} barSize={16}>
                 {agentProfitMatrix.map((_, i) => (
                   <Cell key={i} fill={i === 0 ? '#1D4ED8' : '#60A5FA'} />
                 ))}

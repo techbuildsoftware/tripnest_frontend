@@ -12,7 +12,7 @@ import { formatDate } from '../../lib/date';
 import PageLoader from '../../components/ui/PageLoader';
 
 const blank = {
-  name: '', email: '', phone: '', salesPerson: 'BuildSoftware',
+  name: '', email: '', phone: '', salesPerson: 'TripNest',
   status: 'Active', gstVatNumber: '', dateOfBirth: '', anniversaryDate: '',
   country: '', state: '', city: '', zip: '', address: '', companyLogo: null, familyMembers: [],
 };

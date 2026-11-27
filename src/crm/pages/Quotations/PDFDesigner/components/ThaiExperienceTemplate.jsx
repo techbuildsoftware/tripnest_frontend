@@ -3,7 +3,7 @@
  * 🌴 Magazine-quality Thailand travel quotation
  * Deep Ocean Navy  #0A2240
  * Warm Coral       #FF6B4A
- * Sunset Gold      #7cb8ff
+ * Sunset Gold      #74d0cb
  * Light Aqua       #E0F7FA
  */
 import React from 'react';
@@ -18,7 +18,7 @@ const C = {
   navyLight: '#163459',
   coral:     '#FF6B4A',
   coralSoft: '#FFF0ED',
-  gold:      '#7cb8ff',
+  gold:      '#74d0cb',
   goldSoft:  '#FFF8EE',
   aqua:      '#E0F7FA',
   aquaDark:  '#00ACC1',
@@ -61,7 +61,7 @@ function safeUrl(src) {
 }
 
 function brandName(q) {
-  return q?.companyDetails?.name || q?.agent?.name || 'BuildSoftware';
+  return q?.companyDetails?.name || q?.agent?.name || 'TripNest';
 }
 
 // ─── Reusable tiny atoms ───────────────────────────────────────────────────────
@@ -775,8 +775,8 @@ function SummaryPage({ quotation, pageNum, totalPages, showPrice = true }) {
       {(termsHtml || notes.length > 0) && (
         <div data-pdf-keep-together="true" style={{ background: '#FFFBEB', borderRadius: 8, padding: '8px 10px', border: '1px solid #FDE68A', marginBottom: 8 }}>
           <div style={{ fontSize: 7.5, fontWeight: 800, color: '#92400E', marginBottom: 4 }}>📌 Important Notes</div>
-          {termsHtml ? <div className="rich-text-content" style={{ fontSize: 6.5, color: '#0e2c63', lineHeight: 1.4 }} dangerouslySetInnerHTML={{ __html: termsHtml }} /> : notes.slice(0, 5).map((line, i) => (
-            <div key={i} style={{ fontSize: 6.5, color: '#0e2c63', marginBottom: 2, lineHeight: 1.4 }}>• {line.replace(/^[•–-]\s*/, '')}</div>
+          {termsHtml ? <div className="rich-text-content" style={{ fontSize: 6.5, color: '#093f3e', lineHeight: 1.4 }} dangerouslySetInnerHTML={{ __html: termsHtml }} /> : notes.slice(0, 5).map((line, i) => (
+            <div key={i} style={{ fontSize: 6.5, color: '#093f3e', marginBottom: 2, lineHeight: 1.4 }}>• {line.replace(/^[•–-]\s*/, '')}</div>
           ))}
         </div>
       )}

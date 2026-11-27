@@ -13,7 +13,7 @@ export const DEFAULT_VOUCHER_SETTINGS = {
   templateName: 'Combined Voucher',
   companyName: 'BUILDSOFTWARE',
   tagline: 'Your Thailand travel partner',
-  primaryColor: '#154aa0',
+  primaryColor: '#0b6f6b',
   secondaryColor: '#172554',
   accentColor: '#facc15',
   welcomeTitle: 'Welcome to Thailand',

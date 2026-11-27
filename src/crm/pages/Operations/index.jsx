@@ -287,7 +287,7 @@ export default function Operations() {
                               <CheckCircle2 className="w-2.5 h-2.5 text-white" />
                             </div>
                           ) : t.status === 'active' ? (
-                            <div className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center shadow-[0_0_0_3px_#f8fafc,0_0_12px_rgba(43,125,233,0.6)] animate-pulse">
+                            <div className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center shadow-[0_0_0_3px_#f8fafc,0_0_12px_rgba(14,160,154,0.6)] animate-pulse">
                               <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
                             </div>
                           ) : (

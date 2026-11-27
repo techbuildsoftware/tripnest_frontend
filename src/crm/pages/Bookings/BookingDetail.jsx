@@ -292,7 +292,7 @@ function ActBtns({ onView, onEdit, onDelete, onMail }) {
   );
 }
 
-const DEFAULT_SUPPLIER_EMAIL_BODY = '<p>Dear Supplier,</p><p>Greetings from BuildSoftware.</p><p>Please check the service request below and confirm its availability at your earliest convenience.</p><p>Thank you,</p>';
+const DEFAULT_SUPPLIER_EMAIL_BODY = '<p>Dear Supplier,</p><p>Greetings from TripNest.</p><p>Please check the service request below and confirm its availability at your earliest convenience.</p><p>Thank you,</p>';
 const serviceSupplierName = (service) => String(service?.yachtSupplier || service?.transferVehicleSupplier || service?.vehicleSupplierName || (typeof service?.supplier === 'object' ? service.supplier?.name : service?.supplier) || '').trim();
 const serviceSupplierId = (service) => String(service?.yachtSupplierId || service?.transferVehicleSupplierId || service?.vehicleSupplierId || service?.supplierId || (typeof service?.supplier === 'object' ? (service.supplier.id || service.supplier._id) : '') || '').trim();
 const supplierKey = (name, email) => `${String(name || '').trim().toLowerCase()}|${String(email || '').trim().toLowerCase()}`;
@@ -2275,7 +2275,7 @@ export default function BookingDetail() {
                   {['Bank Transfer', 'Cash', 'Card', 'Other'].map(m => <option key={m}>{m}</option>)}
                 </select>
               </div>
-              {paymentMethod !== 'Cash' && <div><label className="form-label">BuildSoftware payment bank</label><select value={paymentBank} onChange={e => setPaymentBank(e.target.value)} className="form-select"><option value="">Select payment bank (optional)</option>{banks.filter((bank) => bank.status === 'Active').map(bank => <option key={bank.id} value={bank.name}>{bank.name}</option>)}</select></div>}
+              {paymentMethod !== 'Cash' && <div><label className="form-label">TripNest payment bank</label><select value={paymentBank} onChange={e => setPaymentBank(e.target.value)} className="form-select"><option value="">Select payment bank (optional)</option>{banks.filter((bank) => bank.status === 'Active').map(bank => <option key={bank.id} value={bank.name}>{bank.name}</option>)}</select></div>}
               <div><label className="form-label">Approval</label><select value={paymentApprovalStatus} onChange={e => setPaymentApprovalStatus(e.target.value)} className="form-select"><option>Confirmed</option><option>Pending</option></select></div>
               <div><span className="form-label">Attachment</span>
                 <label className={`flex h-9 cursor-pointer items-center gap-2 rounded-lg border px-2.5 text-xs transition-colors ${paymentAttachment ? 'border-emerald-300 bg-emerald-50 text-emerald-800' : 'border-dashed border-slate-300 bg-white text-slate-500 hover:border-blue-400 hover:bg-blue-50/40'}`}>

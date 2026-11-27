@@ -992,7 +992,7 @@ export default function QuotationBuilder() {
         recipientPhone={b2cMode
           ? selectedB2cClient?.phone || selectedB2cClient?.mobile || selectedB2cClient?.mobileNumber || quotation.guests?.[0]?.phone || sourceQuery?.mobileNumber || ''
           : agents.find((agent) => agent.id === quotation.agentId)?.phone || agents.find((agent) => agent.id === quotation.agentId)?.mobile || quotation.guests?.[0]?.phone || sourceQuery?.mobileNumber || ''}
-        initialMessage={'Hello ' + (quotation.guestName || quotation.agentName || '') + ', your BuildSoftware quotation ' + (quotation.id || '') + ' is ready. Please contact us if you need any changes.'}
+        initialMessage={'Hello ' + (quotation.guestName || quotation.agentName || '') + ', your TripNest quotation ' + (quotation.id || '') + ' is ready. Please contact us if you need any changes.'}
         attachment={whatsappAttachment}
         preparingAttachment={preparingWhatsappPdf}
         requireAttachment
@@ -1023,7 +1023,7 @@ export default function QuotationBuilder() {
       {/* Header & Actions */}
       <div className="bg-white/90 backdrop-blur-md border-b border-slate-200 px-2.5 sm:px-4 py-1.5 flex-shrink-0 flex items-center justify-between gap-x-3 gap-y-1.5 flex-wrap lg:flex-nowrap no-print lg:overflow-x-auto shadow-[0_2px_10px_rgb(0,0,0,0.02)] z-20">
         <div className="flex items-center gap-2 sm:gap-2.5 min-w-0 lg:shrink-0">
-          <button onClick={() => navigate('/app/quotations')} className="w-6 h-6 flex items-center justify-center text-slate-400 hover:text-[#1d62c9] hover:bg-blue-50 rounded-full transition-all border border-transparent hover:border-blue-100">
+          <button onClick={() => navigate('/app/quotations')} className="w-6 h-6 flex items-center justify-center text-slate-400 hover:text-[#0e8a85] hover:bg-blue-50 rounded-full transition-all border border-transparent hover:border-blue-100">
             <ArrowLeft className="w-3.5 h-3.5" />
           </button>
           
@@ -1036,7 +1036,7 @@ export default function QuotationBuilder() {
                 <h1 className="text-[13px] font-extrabold text-slate-900 leading-none">
                   QUOTATION
                 </h1>
-                <span className="px-1.5 py-0.5 rounded-sm bg-[#eff6ff] text-[#1d62c9] text-[9px] font-bold tracking-wider uppercase border border-blue-200 shadow-sm">{quotation.id || 'NEW'}</span>
+                <span className="px-1.5 py-0.5 rounded-sm bg-[#eff6ff] text-[#0e8a85] text-[9px] font-bold tracking-wider uppercase border border-blue-200 shadow-sm">{quotation.id || 'NEW'}</span>
                 <span className="text-[10px] font-semibold text-slate-400">V{quotation.version}</span>
                 <span className={`badge ${statusColors[quotation.status] || 'badge-gray'} ml-0.5 py-0.5 px-1.5 text-[9px] shadow-sm`}>{quotation.status}</span>
               </div>
@@ -1044,7 +1044,7 @@ export default function QuotationBuilder() {
                 {quotation.queryId && (
                   <button
                     onClick={() => navigate(`/queries/${quotation.queryId}`)}
-                    className="text-[10px] text-[#1d62c9] hover:text-[#154aa0] hover:underline font-medium"
+                    className="text-[10px] text-[#0e8a85] hover:text-[#0b6f6b] hover:underline font-medium"
                     title="Open source query"
                   >
                     Source: {quotation.queryId}
@@ -1066,7 +1066,7 @@ export default function QuotationBuilder() {
             </button>
             <button
               onClick={() => setViewMode('client')}
-              className={`px-2 py-1 text-[10px] font-bold rounded-[4px] transition-all ${viewMode === 'client' ? 'bg-[#1d62c9] text-white shadow-sm' : 'text-slate-500 hover:text-slate-700 hover:bg-slate-200/50'}`}
+              className={`px-2 py-1 text-[10px] font-bold rounded-[4px] transition-all ${viewMode === 'client' ? 'bg-[#0e8a85] text-white shadow-sm' : 'text-slate-500 hover:text-slate-700 hover:bg-slate-200/50'}`}
             >
               <span className="sm:hidden">Client</span><span className="hidden sm:inline">Client Preview</span>
             </button>
@@ -1385,7 +1385,7 @@ export default function QuotationBuilder() {
   );
 }
 
-const DEFAULT_QUOTATION_EMAIL_BODY = '<p>Thank you for choosing BuildSoftware.</p><p>Please find your personalized travel quotation attached. We have prepared the itinerary to make your Thailand journey smooth and memorable.</p><p>If you would like any changes, simply reply to this email and our team will be happy to assist.</p><p>Warm regards,<br>BuildSoftware Team</p>';
+const DEFAULT_QUOTATION_EMAIL_BODY = '<p>Thank you for choosing TripNest.</p><p>Please find your personalized travel quotation attached. We have prepared the itinerary to make your Thailand journey smooth and memorable.</p><p>If you would like any changes, simply reply to this email and our team will be happy to assist.</p><p>Warm regards,<br>TripNest Team</p>';
 const mailDateTime = (value) => formatDateTime(value);
 
 function QuotationPdfSettingsModal({ isOpen, settings, onPreviewChange, onApply, onClose }) {
@@ -1501,7 +1501,7 @@ function QuotationSendPicker({ onClose, onEmail, onWhatsApp }) {
 }
 
 function QuotationEmailComposer({ quotation, recipient, attachment, preparingAttachment, templates, selectedTemplateId, onTemplateChange, onClose, onSent, onAfterAttempt }) {
-  const [subject, setSubject] = useState(`Your BuildSoftware travel quotation - ${quotation.id || ''}`.trim());
+  const [subject, setSubject] = useState(`Your TripNest travel quotation - ${quotation.id || ''}`.trim());
   const [bodyHtml, setBodyHtml] = useState(DEFAULT_QUOTATION_EMAIL_BODY);
   const [ccMails, setCcMails] = useState('');
   const [sending, setSending] = useState(false);
@@ -1514,7 +1514,7 @@ function QuotationEmailComposer({ quotation, recipient, attachment, preparingAtt
     apiClient.get(`/quotation-emails/${encodeURIComponent(quotation.id)}/draft`).then((result) => {
       const draft = result.data;
       if (!active || !draft?.bodyHtml) return;
-      setSubject(draft.subject || `Your BuildSoftware travel quotation - ${quotation.id}`);
+      setSubject(draft.subject || `Your TripNest travel quotation - ${quotation.id}`);
       setBodyHtml(draft.bodyHtml);
       setDraftInfo(draft);
     }).catch(() => {}).finally(() => { if (active) setLoadingDraft(false); });
@@ -1560,7 +1560,7 @@ function QuotationEmailComposer({ quotation, recipient, attachment, preparingAtt
 
 const DEFAULT_HOTEL_AVAILABILITY_BODY =
   '<p>Dear Sir/Madam,</p>' +
-  '<p>Greetings from BuildSoftware Co. Ltd.!</p>' +
+  '<p>Greetings from TripNest Co. Ltd.!</p>' +
   '<p>Kindly check availability for the room(s) and stay dates listed below. If available, please place a provisional hold for 24 hours and share the hold confirmation or reference.</p>' +
   '<p>If the requested stay is unavailable, please advise us immediately.</p>' +
   '<p>We look forward to your confirmation at your earliest convenience.</p>';

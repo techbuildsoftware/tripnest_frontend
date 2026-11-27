@@ -25,7 +25,7 @@ export function buildMasters() {
 
   // ── Operations masters ────────────────────────────────────────────────────
   const destNames = ['Bangkok', 'Pattaya', 'Phuket', 'Krabi', 'Chiang Mai', 'Koh Samui', 'Phi Phi Islands'];
-  const destinations = names('DST', destNames, (n) => ({ company: 'BuildSoftware Co LTD', country: 'Thailand', destinationImage: destinationImages[n] ? photo(destinationImages[n], `${n}.jpg`) : null }));
+  const destinations = names('DST', destNames, (n) => ({ company: 'TripNest Co LTD', country: 'Thailand', destinationImage: destinationImages[n] ? photo(destinationImages[n], `${n}.jpg`) : null }));
   const locationMap = {
     Bangkok: ['Sukhumvit', 'Silom', 'Riverside', 'Siam Square'],
     Pattaya: ['Jomtien Beach', 'Walking Street', 'Central Pattaya'],
@@ -116,8 +116,8 @@ export function buildMasters() {
       { name: 'EUR', value: 1, isBase: false, rates: [{ currency: 'THB', value: 38.8 }] },
     ]),
     banks: withIds('BNK', [
-      { name: 'Kasikorn Bank', accountDetails: 'A/C Name: BuildSoftware Co LTD\nA/C No: 123-4-56789-0\nSWIFT: KASITHBK', currency: 'THB', country: 'Thailand', state: 'Bangkok', city: 'Bangkok', zip: '10110', address: 'Sukhumvit Road, Bangkok' },
-      { name: 'HDFC Bank', accountDetails: 'A/C Name: BuildSoftware Pvt Ltd\nA/C No: 5020001234567\nIFSC: HDFC0000123', currency: 'INR', country: 'India', state: 'Maharashtra', city: 'Mumbai', zip: '400001', address: 'Fort, Mumbai' },
+      { name: 'Kasikorn Bank', accountDetails: 'A/C Name: TripNest Co LTD\nA/C No: 123-4-56789-0\nSWIFT: KASITHBK', currency: 'THB', country: 'Thailand', state: 'Bangkok', city: 'Bangkok', zip: '10110', address: 'Sukhumvit Road, Bangkok' },
+      { name: 'HDFC Bank', accountDetails: 'A/C Name: TripNest Pvt Ltd\nA/C No: 5020001234567\nIFSC: HDFC0000123', currency: 'INR', country: 'India', state: 'Maharashtra', city: 'Mumbai', zip: '400001', address: 'Fort, Mumbai' },
     ]),
     'expense-types': names('EXP', ['Marketing', 'Office Rent', 'Software Subscriptions', 'Travel & Conveyance', 'Bank Charges'], () => ({ remarks: '' })),
   };

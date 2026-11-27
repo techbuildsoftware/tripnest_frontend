@@ -60,7 +60,7 @@ export function buildSeed() {
   activityM['insurance-costs'] = [{ id: 'INC-C-001', name: 'Insurance Cost', plan: 'Thailand Silver', day: '1-7 Days', age: '0-40 Years', sumInsured: 'USD 50,000', cost: 450, currency: 'THB', status: 'Active' }];
 
   const quotationTemplates = [
-    { name: 'BuildSoftware Classic', description: 'Clean day-wise itinerary with full pricing summary.', isDefault: true, config: {} },
+    { name: 'TripNest Classic', description: 'Clean day-wise itinerary with full pricing summary.', isDefault: true, config: {} },
     { name: 'Compact Summary', description: 'Short one-page quotation overview.', isDefault: false, config: {} },
   ].map((t, i) => ({ id: `PDT-Q-00${i + 1}`, documentType: 'quotation', isFavorite: i === 0, isEnabled: true, createdAt: stamp(-60), updatedAt: stamp(-5 - i), ...t }));
   const voucherTemplates = [
@@ -83,11 +83,11 @@ export function buildSeed() {
   });
 
   const settings = {
-    company: { name: 'BuildSoftware CRM', email: 'admin@buildsoftware.in', phone: '+66 76 345 678', address: '123 Phuket Road, Phuket 83000, Thailand', website: 'www.buildsoftware.in', currency: 'THB', timezone: 'Asia/Bangkok', logo: null },
+    company: { name: 'TripNest CRM', email: 'admin@tripnest.com', phone: '+66 76 345 678', address: '123 Phuket Road, Phuket 83000, Thailand', website: 'www.tripnest.com', currency: 'THB', timezone: 'Asia/Bangkok', logo: null },
     quotation: { defaultMarkup: 10, defaultValidDays: 14, defaultCurrency: 'THB', autoSaveInterval: 30, showSupplierInClient: false, defaultMealPlan: 'RB', defaultHotelCategory: '4 Star' },
     notifications: { quotationFollowup: true, paymentDue: true, supplierConfirmation: true, arrivalReminder: true, emailNotifications: true, browserNotifications: false },
     ai: { provider: 'openai', model: 'gpt-4o-mini', customModel: '', openaiApiKey: '', geminiApiKey: '', hasOpenaiApiKey: true, hasGeminiApiKey: false },
-    smtp: { host: 'smtpout.secureserver.net', port: 465, secure: true, username: 'demo@buildsoftware.in', fromName: 'BuildSoftware Reservations', fromEmail: 'demo@buildsoftware.in', hasPassword: true, configured: true },
+    smtp: { host: 'smtpout.secureserver.net', port: 465, secure: true, username: 'demo@tripnest.com', fromName: 'TripNest Reservations', fromEmail: 'demo@tripnest.com', hasPassword: true, configured: true },
     whatsapp: { baseUrl: 'https://api.pulsesend.app/api', hasApiKey: true, configured: true, defaultConnectedPhoneNumber: '+66949831312' },
   };
 
@@ -100,7 +100,7 @@ export function buildSeed() {
     sales: masters.sales, operationsM: masters.operations, activityM, financeM: masters.finance, systemM: masters.system,
     pdfTemplates: [...quotationTemplates, ...voucherTemplates], proformas: [], settings,
     emailLogs: { quotation: [], supplier: [], hotel: [] }, shareLinks: {}, paymentLinks: {}, hotelAvailability: {},
-    whatsappSessions: [{ id: 'wa-session-1', displayName: 'BuildSoftware Sales', phoneNumber: '+66949831312', status: 'connected', createdAt: stamp(-30) }],
+    whatsappSessions: [{ id: 'wa-session-1', displayName: 'TripNest Sales', phoneNumber: '+66949831312', status: 'connected', createdAt: stamp(-30) }],
     counters: { query: 100, quotation: 100, booking: 200, proforma: 0, generic: 0 },
     dueDate: addDays(today, 0),
   };

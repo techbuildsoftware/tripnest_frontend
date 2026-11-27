@@ -296,7 +296,7 @@ export default function SalesReport() {
               }} />
               <Bar dataKey="sales" fill="#3B82F6" radius={[0,4,4,0]}>
                 {agentData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={index === 0 ? '#2563EB' : '#93C5FD'} />
+                  <Cell key={`cell-${index}`} fill={index === 0 ? '#0e8a85' : '#93C5FD'} />
                 ))}
               </Bar>
             </BarChart>

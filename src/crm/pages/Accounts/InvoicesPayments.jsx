@@ -165,7 +165,7 @@ const typeConfig = {
 };
 
 const TEMPLATES = [
-  { id: 1, name: 'Proforma Invoice', color: 'from-blue-600 to-blue-800', accentColor: '#2b7de9', label: 'PROFORMA INVOICE', headerBg: '#0e2c63', tag: 'PRO' },
+  { id: 1, name: 'Proforma Invoice', color: 'from-blue-600 to-blue-800', accentColor: '#14a09a', label: 'PROFORMA INVOICE', headerBg: '#093f3e', tag: 'PRO' },
   { id: 2, name: 'Booking Invoice',  color: 'from-indigo-600 to-indigo-800', accentColor: '#6366f1', label: 'BOOKING INVOICE', headerBg: '#312e81', tag: 'BKG' },
   { id: 3, name: 'Tax/GST Invoice',  color: 'from-violet-600 to-violet-800', accentColor: '#7c3aed', label: 'TAX INVOICE', headerBg: '#4c1d95', tag: 'GST' },
   { id: 4, name: 'Credit Note',      color: 'from-red-500 to-red-700',     accentColor: '#ef4444', label: 'CREDIT NOTE', headerBg: '#7f1d1d', tag: 'CR' },
@@ -175,8 +175,8 @@ const TEMPLATES = [
 
 const fmt = (n) => `฿ ${Number(n || 0).toLocaleString()}`;
 const DEFAULT_COMPANY_PROFILE = {
-  name: 'BuildSoftware Pvt Ltd', email: 'admin@buildsoftware.in', phone: '+66 94 983 1312',
-  address: '64/103 Soi 3/5, Thepprasit Road, Pattaya, Thailand 20150', website: 'www.buildsoftware.in', logo: '',
+  name: 'TripNest Pvt Ltd', email: 'admin@tripnest.com', phone: '+66 94 983 1312',
+  address: '64/103 Soi 3/5, Thepprasit Road, Pattaya, Thailand 20150', website: 'www.tripnest.com', logo: '',
 };
 const attachmentUrl = (value) => {
   if (!value) return '';
@@ -354,7 +354,7 @@ function FlightRouteGraphic() {
         <svg className="relative w-full h-full" viewBox="0 0 160 50" fill="none">
           <path
             d="M 15 36 Q 75 8 135 18"
-            stroke="#1d62c9"
+            stroke="#0e8a85"
             strokeWidth="1.4"
             strokeDasharray="4 4"
             fill="none"
@@ -362,7 +362,7 @@ function FlightRouteGraphic() {
           <g transform="translate(135, 18) rotate(22)">
             <path
               d="M 0 -5 L 3 0 L 8 2 L 3 3.5 L 0 5 L 0.8 0.8 L -4 0 L 0.8 -0.8 Z"
-              fill="#154aa0"
+              fill="#0b6f6b"
             />
           </g>
         </svg>
@@ -564,12 +564,12 @@ function PreviewModal({ invoice, company, onClose, onEdit, onDelete }) {
                     Notes & Terms
                   </span>
                   <p className="text-xs text-slate-600 leading-relaxed font-normal mt-0.5">
-                    {invoice.remarks || 'Thank you for booking with BuildSoftware. Please settle payment by the due date.'}
+                    {invoice.remarks || 'Thank you for booking with TripNest. Please settle payment by the due date.'}
                   </p>
                 </div>
                 <div className="flex items-center gap-1.5 text-[11px] text-slate-400 font-normal">
                   <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                  <span>Electronic Invoice · BuildSoftware</span>
+                  <span>Electronic Invoice · TripNest</span>
                 </div>
               </div>
 
@@ -620,7 +620,7 @@ function PreviewModal({ invoice, company, onClose, onEdit, onDelete }) {
             </div>
           </div>
 
-          {/* This is the only document selected for browser printing/PDF download. Designed to match the luxury BuildSoftware client booking invoice. */}
+          {/* This is the only document selected for browser printing/PDF download. Designed to match the luxury TripNest client booking invoice. */}
           <div
             id="client-payment-invoice"
             className="fixed left-[-10000px] top-0 bg-white text-slate-800"
@@ -653,7 +653,7 @@ function PreviewModal({ invoice, company, onClose, onEdit, onDelete }) {
                 {/* Center: Company Name & Contact Details */}
                 <div className="flex-1 px-4 text-center">
                   <h1 className="text-xl font-extrabold text-[#14365d] tracking-tight leading-tight">
-                    {profile.name || 'BuildSoftware Pvt Ltd'}
+                    {profile.name || 'TripNest Pvt Ltd'}
                   </h1>
                   <p className="text-[11px] font-medium text-slate-500 mt-0.5">
                     At Your service 24 Hours
@@ -669,11 +669,11 @@ function PreviewModal({ invoice, company, onClose, onEdit, onDelete }) {
                     </div>
                     <div className="flex items-center justify-center gap-1.5">
                       <Mail className="h-3 w-3 text-[#14365d] shrink-0" />
-                      <span>{profile.email || 'admin@buildsoftware.in'}</span>
+                      <span>{profile.email || 'admin@tripnest.com'}</span>
                     </div>
                     <div className="flex items-center justify-center gap-1.5">
                       <Globe className="h-3 w-3 text-[#14365d] shrink-0" />
-                      <span>{profile.website || 'www.buildsoftware.in'}</span>
+                      <span>{profile.website || 'www.tripnest.com'}</span>
                     </div>
                   </div>
                 </div>
@@ -690,7 +690,7 @@ function PreviewModal({ invoice, company, onClose, onEdit, onDelete }) {
               {/* 2. Title Strip: BOOKING INVOICE & Meta Card */}
               <div className="flex items-center justify-between gap-4 mt-2">
                 <div>
-                  <h2 className="text-2xl font-black tracking-wide text-[#154aa0] uppercase leading-none font-sans">
+                  <h2 className="text-2xl font-black tracking-wide text-[#0b6f6b] uppercase leading-none font-sans">
                     {invoice.type === 'Proforma' ? 'PROFORMA INVOICE' : 'BOOKING INVOICE'}
                   </h2>
                   <p className="text-[9.5px] font-bold text-slate-500 tracking-wider uppercase mt-1.5">
@@ -734,7 +734,7 @@ function PreviewModal({ invoice, company, onClose, onEdit, onDelete }) {
                 <div className="border-l border-slate-200/90 pl-6 text-left">
                   <div>
                     <div className="text-[9px] font-bold uppercase tracking-[0.16em] text-slate-400">BOOKING REFERENCE</div>
-                    <div className="mt-1 text-xl font-black text-[#154aa0] tracking-tight">
+                    <div className="mt-1 text-xl font-black text-[#0b6f6b] tracking-tight">
                       {invoice.bookingId || invoice.id.replace(/^INV-/, '') || 'BK-2026-122'}
                     </div>
                   </div>
@@ -749,7 +749,7 @@ function PreviewModal({ invoice, company, onClose, onEdit, onDelete }) {
                 <div className="grid grid-cols-[1.15fr_1.85fr_0.85fr_0.65fr_1.1fr] divide-x divide-blue-200/80 rounded-xl border border-blue-200 bg-[#f0f7ff] py-2 px-1 text-center items-center">
                   <div className="px-2 min-w-0">
                     <div className="flex items-center justify-center gap-1 text-[8.5px] font-bold uppercase tracking-wider text-slate-500 whitespace-nowrap">
-                      <MapPin className="h-2.5 w-2.5 text-[#154aa0]" /> DESTINATION
+                      <MapPin className="h-2.5 w-2.5 text-[#0b6f6b]" /> DESTINATION
                     </div>
                     <div className="mt-0.5 text-xs font-black text-[#14365d] whitespace-nowrap truncate" title={invoice.booking?.destination || invoice.booking?.destinations?.[0] || 'Thailand'}>
                       {invoice.booking?.destination || invoice.booking?.destinations?.[0] || 'Thailand'}
@@ -758,7 +758,7 @@ function PreviewModal({ invoice, company, onClose, onEdit, onDelete }) {
 
                   <div className="px-2 min-w-0">
                     <div className="flex items-center justify-center gap-1 text-[8.5px] font-bold uppercase tracking-wider text-slate-500 whitespace-nowrap">
-                      <Calendar className="h-2.5 w-2.5 text-[#154aa0]" /> TRAVEL PERIOD
+                      <Calendar className="h-2.5 w-2.5 text-[#0b6f6b]" /> TRAVEL PERIOD
                     </div>
                     <div className="mt-0.5 text-[11px] font-black text-[#14365d] whitespace-nowrap tracking-tight">
                       {invoice.booking?.arrivalDate ? `${formatInvoiceDate(invoice.booking.arrivalDate)}${invoice.booking?.departureDate ? ` - ${formatInvoiceDate(invoice.booking.departureDate)}` : ''}` : '--'}
@@ -767,7 +767,7 @@ function PreviewModal({ invoice, company, onClose, onEdit, onDelete }) {
 
                   <div className="px-2 min-w-0">
                     <div className="flex items-center justify-center gap-1 text-[8.5px] font-bold uppercase tracking-wider text-slate-500 whitespace-nowrap">
-                      <Users className="h-2.5 w-2.5 text-[#154aa0]" /> GUESTS
+                      <Users className="h-2.5 w-2.5 text-[#0b6f6b]" /> GUESTS
                     </div>
                     <div className="mt-0.5 text-xs font-black text-[#14365d] whitespace-nowrap">
                       {invoice.booking?.pax ? `${invoice.booking.pax} Pax` : (invoice.booking?.adults ? `${invoice.booking.adults} Pax` : '-- Pax')}
@@ -776,7 +776,7 @@ function PreviewModal({ invoice, company, onClose, onEdit, onDelete }) {
 
                   <div className="px-2 min-w-0">
                     <div className="flex items-center justify-center gap-1 text-[8.5px] font-bold uppercase tracking-wider text-slate-500 whitespace-nowrap">
-                      <Bed className="h-2.5 w-2.5 text-[#154aa0]" /> ROOMS
+                      <Bed className="h-2.5 w-2.5 text-[#0b6f6b]" /> ROOMS
                     </div>
                     <div className="mt-0.5 text-xs font-black text-[#14365d] whitespace-nowrap">
                       {invoice.booking?.rooms ? `${invoice.booking.rooms}` : '--'}
@@ -785,7 +785,7 @@ function PreviewModal({ invoice, company, onClose, onEdit, onDelete }) {
 
                   <div className="px-2 min-w-0">
                     <div className="flex items-center justify-center gap-1 text-[8.5px] font-bold uppercase tracking-wider text-slate-500 whitespace-nowrap">
-                      <Tag className="h-2.5 w-2.5 text-[#154aa0]" /> PACKAGE TYPE
+                      <Tag className="h-2.5 w-2.5 text-[#0b6f6b]" /> PACKAGE TYPE
                     </div>
                     <div className="mt-0.5 text-xs font-black text-[#14365d] whitespace-nowrap">
                       {invoice.booking?.packageType || 'Land Package'}
@@ -803,7 +803,7 @@ function PreviewModal({ invoice, company, onClose, onEdit, onDelete }) {
                   <WatArunTempleSilhouette />
                   <div className="relative z-10">
                     <div className="flex items-center gap-2">
-                      <Luggage className="h-4 w-4 text-[#154aa0] shrink-0" />
+                      <Luggage className="h-4 w-4 text-[#0b6f6b] shrink-0" />
                       <span className="text-sm font-extrabold text-[#14365d]">
                         {invoice.booking?.destination ? `${invoice.booking.destination} Land Package` : 'Thailand Land Package'}
                       </span>
@@ -856,7 +856,7 @@ function PreviewModal({ invoice, company, onClose, onEdit, onDelete }) {
                 {/* Left: Payment Terms */}
                 {showPaymentTerms && <div className="rounded-xl border border-slate-200 bg-white p-3.5 shadow-xs">
                   <div className="flex items-center gap-1.5 text-xs font-black text-[#14365d] uppercase tracking-wide">
-                    <FileText className="h-3.5 w-3.5 text-[#154aa0]" />
+                    <FileText className="h-3.5 w-3.5 text-[#0b6f6b]" />
                     PAYMENT TERMS
                   </div>
                   {invoiceSettings.invoiceTermsHtml
@@ -868,7 +868,7 @@ function PreviewModal({ invoice, company, onClose, onEdit, onDelete }) {
                 {showBankDetails && <div className="rounded-xl border border-slate-200 bg-white p-3.5 shadow-xs">
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-1.5 text-xs font-black text-[#14365d] uppercase tracking-wide">
-                      <Landmark className="h-3.5 w-3.5 text-[#154aa0]" />
+                      <Landmark className="h-3.5 w-3.5 text-[#0b6f6b]" />
                       BANK DETAILS ({bankDetails?.currency || invoice.currency || 'THB'})
                     </div>
                     {bankLines.length
@@ -881,7 +881,7 @@ function PreviewModal({ invoice, company, onClose, onEdit, onDelete }) {
               {/* 8. Thank you note */}
               <div className="text-center mt-3 pt-1">
                 <div className="text-[11px] font-extrabold text-[#14365d]">
-                  Thank you for choosing BuildSoftware Pvt Ltd.
+                  Thank you for choosing TripNest Pvt Ltd.
                 </div>
                 <p className="text-[9.5px] text-slate-500 mt-0.5">
                   Please contact us if you need any assistance with this invoice.
@@ -927,7 +927,7 @@ function PreviewModal({ invoice, company, onClose, onEdit, onDelete }) {
             <div className="bg-[#0b2447] text-white px-8 py-2 flex items-center justify-between text-[9.5px] font-medium mt-2">
               <div className="flex items-center gap-1.5">
                 <Globe className="h-3 w-3 text-blue-300" />
-                <span>www.buildsoftware.in</span>
+                <span>www.tripnest.com</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <span>At Your service 24 Hours</span>
@@ -1533,7 +1533,7 @@ function EditModal({ invoice, bookings = [], initialBookingId = '', onClose, onP
                 <div><label className={labelCls}>Payment Date</label><DateInput value={paymentForm.date} onChange={value => setPaymentForm(current => ({ ...current, date: value }))} className={inputCls} /></div>
                 <div><label className={labelCls}>Amount (THB)</label><input type="number" min="0" max={paymentMaximum()} step="0.01" value={paymentForm.amount} onChange={e => setPaymentForm(current => ({ ...current, amount: e.target.value }))} className={inputCls} /></div>
                 <div><label className={labelCls}>Method</label><select value={paymentForm.method} onChange={e => setPaymentForm(current => ({ ...current, method: e.target.value, bankName: e.target.value === 'Cash' ? '' : current.bankName }))} className={inputCls}>{['Bank Transfer', 'Cash', 'Card', 'Other'].map(method => <option key={method}>{method}</option>)}</select></div>
-                {paymentForm.method !== 'Cash' && <div><label className={labelCls}>BuildSoftware Payment Bank</label><select value={paymentForm.bankName} onChange={e => setPaymentForm(current => ({ ...current, bankName: e.target.value }))} className={inputCls}><option value="">Select payment bank (optional)</option>{banks.filter((bank) => bank.status === 'Active').map(bank => <option key={bank.id} value={bank.name}>{bank.name}</option>)}</select></div>}
+                {paymentForm.method !== 'Cash' && <div><label className={labelCls}>TripNest Payment Bank</label><select value={paymentForm.bankName} onChange={e => setPaymentForm(current => ({ ...current, bankName: e.target.value }))} className={inputCls}><option value="">Select payment bank (optional)</option>{banks.filter((bank) => bank.status === 'Active').map(bank => <option key={bank.id} value={bank.name}>{bank.name}</option>)}</select></div>}
                 <div><label className={labelCls}>Approval</label><select value={paymentForm.approvalStatus} onChange={e => setPaymentForm(current => ({ ...current, approvalStatus: e.target.value }))} className={inputCls}><option>Confirmed</option><option>Pending</option></select></div>
                 <label><span className={labelCls}>Attachment</span><input type="file" accept="image/*,application/pdf" onChange={e => setPaymentForm(current => ({ ...current, attachmentFile: e.target.files?.[0] || null }))} className={`${inputCls} h-[42px] py-2 text-xs`} /></label>
                 <label className="col-span-2"><span className={labelCls}>Remarks</span><textarea value={paymentForm.remarks} onChange={e => setPaymentForm(current => ({ ...current, remarks: e.target.value }))} className={`${inputCls} min-h-[72px]`} placeholder="Optional payment note or transaction details" /></label>
