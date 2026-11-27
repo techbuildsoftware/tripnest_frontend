@@ -61,10 +61,10 @@ export function Chips({ options, value, onChange, counts }) {
 
 /* ───────── layout blocks ───────── */
 export const Card = ({ title, sub, action, children, className = "", pad = true }) => (
-  <section className={`rounded-xl border border-slate-200/80 bg-white shadow-[0_1px_2px_rgba(19,35,79,.04)] ${className}`}>
+  <section className={`rounded-xl border border-slate-300/70 bg-white shadow-[0_1px_2px_rgba(19,35,79,.03)] ${className}`}>
     {(title || action) && (
-      <header className="flex items-center justify-between gap-3 border-b border-slate-100 px-4 py-2.5">
-        <div className="min-w-0"><h3 className="truncate text-[13px] font-extrabold text-navy">{title}</h3>{sub && <p className="truncate text-[11px] text-slate-400">{sub}</p>}</div>
+      <header className="flex items-center justify-between gap-3 border-b border-slate-100 px-4 py-2">
+        <div className="min-w-0"><h3 className="truncate text-[12.5px] font-bold text-navy">{title}</h3>{sub && <p className="truncate text-[11px] text-slate-400">{sub}</p>}</div>
         {action}
       </header>
     )}
@@ -73,27 +73,22 @@ export const Card = ({ title, sub, action, children, className = "", pad = true 
 );
 export const PageHead = ({ title, sub, children }) => (
   <div className="mb-3 flex flex-wrap items-end justify-between gap-2">
-    <div><h1 className="text-lg font-extrabold leading-tight text-navy">{title}</h1>{sub && <p className="text-xs text-slate-500">{sub}</p>}</div>
+    <div><h1 className="text-[17px] font-extrabold leading-tight tracking-tight text-navy">{title}</h1>{sub && <p className="text-xs text-slate-500">{sub}</p>}</div>
     <div className="flex flex-wrap items-center gap-2">{children}</div>
   </div>
 );
-export function Stat({ icon: I, label, value, delta, tone = "teal", spark, sub }) {
+export function Stat({ icon: I, label, value, delta, tone = "teal", sub }) {
   const tones = { teal: "bg-teal/10 text-teal", navy: "bg-navy/10 text-navy", sun: "bg-amber-100 text-amber-600", violet: "bg-violet-100 text-violet-600", rose: "bg-rose-100 text-rose-600", sky: "bg-sky-100 text-sky-600" };
   const up = delta >= 0;
   return (
-    <div className="relative overflow-hidden rounded-xl border border-slate-200/80 bg-white p-3.5 shadow-[0_1px_2px_rgba(19,35,79,.04)]">
-      <div className="flex items-start justify-between gap-2">
-        <div className="min-w-0">
-          <p className="truncate text-[11px] font-bold uppercase tracking-wider text-slate-400">{label}</p>
-          <p className="mt-1 truncate text-[22px] font-extrabold leading-none text-navy">{value}</p>
-          <p className="mt-1.5 flex items-center gap-1 text-[11px] font-semibold">
-            {delta !== undefined && <span className={`flex items-center gap-0.5 ${up ? "text-emerald-600" : "text-rose-600"}`}>{up ? <LuTrendingUp size={12} /> : <LuTrendingDown size={12} />}{Math.abs(delta)}%</span>}
-            <span className="truncate text-slate-400">{sub || (delta !== undefined ? "vs previous period" : "")}</span>
-          </p>
-        </div>
-        <span className={`grid h-9 w-9 shrink-0 place-items-center rounded-lg ${tones[tone]}`}><I size={17} /></span>
+    <div className="rounded-xl border border-slate-300/70 bg-white px-3.5 py-3 shadow-[0_1px_2px_rgba(19,35,79,.03)] transition hover:border-teal/30">
+      <div className="flex items-center gap-2">
+        <span className={`grid h-6 w-6 shrink-0 place-items-center rounded-md ${tones[tone]}`}><I size={13} /></span>
+        <p className="truncate text-[11px] font-semibold text-slate-500">{label}</p>
+        {delta !== undefined && <span className={`ml-auto flex shrink-0 items-center gap-0.5 rounded-full px-1.5 py-0.5 text-[10px] font-bold ${up ? "bg-emerald-50 text-emerald-600" : "bg-rose-50 text-rose-600"}`}>{up ? <LuTrendingUp size={10} /> : <LuTrendingDown size={10} />}{Math.abs(delta)}%</span>}
       </div>
-      {spark && <div className="pointer-events-none absolute bottom-3 right-3 h-7 w-24 opacity-80"><Spark data={spark} color={up ? "#0e8a85" : "#e11d48"} /></div>}
+      <p className="mt-2 truncate text-[21px] font-extrabold leading-none tracking-tight text-navy">{value}</p>
+      <p className="mt-1 truncate text-[10.5px] text-slate-400">{sub || (delta !== undefined ? "vs previous period" : "")}</p>
     </div>
   );
 }
@@ -174,16 +169,16 @@ export function DataTable({ columns, rows, onRow, empty = "Nothing here yet", si
   return (
     <div>
       <div className="overflow-x-auto">
-        <table className="w-full min-w-[640px] border-collapse text-left text-[12.5px]">
+        <table className="w-full min-w-[640px] border-collapse text-left text-[12px]">
           <thead>
-            <tr className="bg-slate-50/80 text-[10.5px] font-bold uppercase tracking-wider text-slate-400">
-              {columns.map((c) => <th key={c.key} style={{ width: c.w }} className={`whitespace-nowrap px-3 py-2 first:pl-4 last:pr-4 ${c.align === "right" ? "text-right" : ""}`}>{c.label}</th>)}
+            <tr className="bg-slate-50/80 text-[10px] font-bold uppercase tracking-wider text-slate-400">
+              {columns.map((c) => <th key={c.key} style={{ width: c.w }} className={`whitespace-nowrap px-3 py-[7px] first:pl-4 last:pr-4 ${c.align === "right" ? "text-right" : ""}`}>{c.label}</th>)}
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-100">
             {pg.slice.map((r, i) => (
               <tr key={r.id || r.ref || r.code || i} onClick={onRow ? () => onRow(r) : undefined} className={`transition hover:bg-teal/[.04] ${onRow ? "cursor-pointer" : ""}`}>
-                {columns.map((c) => <td key={c.key} className={`px-3 py-2 first:pl-4 last:pr-4 ${c.align === "right" ? "text-right" : ""} ${c.cls || ""}`}>{c.render ? c.render(r) : r[c.key]}</td>)}
+                {columns.map((c) => <td key={c.key} className={`px-3 py-[7px] first:pl-4 last:pr-4 ${c.align === "right" ? "text-right" : ""} ${c.cls || ""}`}>{c.render ? c.render(r) : r[c.key]}</td>)}
               </tr>
             ))}
           </tbody>

@@ -1,13 +1,17 @@
 import { useMemo, useState } from "react";
 import { LuWallet, LuCalendarCheck, LuClock, LuInbox, LuReceipt, LuPlus, LuTag, LuNewspaper, LuActivity, LuArrowRight } from "react-icons/lu";
 import { Link } from "../../router.jsx";
-import { useAdmin, thb, dShort, METHODS } from "../store.js";
+import { useAdmin, useSession, thb, dShort, METHODS } from "../store.js";
 import { Card, Stat, Badge, AreaChart, Donut, HBars, Chips, DataTable, Avatar } from "../ui.jsx";
 
 const DAY = 86400000;
 const ago = (s) => { const m = Math.max(1, Math.round((Date.now() - new Date(s)) / 60000)); return m < 60 ? `${m}m ago` : m < 1440 ? `${Math.round(m / 60)}h ago` : `${Math.round(m / 1440)}d ago`; };
 
+const greet = () => { const h = new Date().getHours(); return h < 12 ? "Good morning" : h < 17 ? "Good afternoon" : "Good evening"; };
+
 export default function Dashboard() {
+  const session = useSession();
+  const first = (session?.name || "Admin").split(" ")[0];
   const { bookings, payments, leads, packages, activity } = useAdmin();
   const [range, setRange] = useState("30 days");
   const n = parseInt(range);
@@ -47,13 +51,20 @@ export default function Dashboard() {
   ];
 
   return (
-    <div className="space-y-3">
-      <div className="flex flex-wrap items-end justify-between gap-2">
-        <div><h1 className="text-lg font-extrabold leading-tight text-navy">Dashboard</h1><p className="text-xs text-slate-500">Here's what's happening with TripNest today.</p></div>
-        <Chips options={["7 days", "30 days", "90 days"]} value={range} onChange={setRange} />
+    <div className="space-y-2.5">
+      <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-navy via-[#173066] to-teal px-4 py-3.5 text-white sm:px-5">
+        <span aria-hidden className="absolute -right-10 -top-14 h-40 w-40 rounded-full border border-white/10" /><span aria-hidden className="absolute right-24 -bottom-16 h-36 w-36 rounded-full bg-white/5" />
+        <div className="relative flex flex-wrap items-center justify-between gap-3">
+          <div><h1 className="text-[17px] font-extrabold leading-tight tracking-tight">{greet()}, {first} 👋</h1><p className="mt-0.5 text-xs text-white/70">{m.pendingN} payments and {m.newLeads} new leads need your attention today.</p></div>
+          <div className="flex flex-wrap items-center gap-2">
+            {[[LuPlus, "New booking", "/admin/bookings"], [LuTag, "Edit prices", "/admin/pricing"], [LuNewspaper, "New post", "/admin/posts"]].map(([I, l, to]) => (
+              <Link key={l} to={to} className="flex items-center gap-1.5 rounded-lg bg-white/12 px-2.5 py-1.5 text-[11.5px] font-semibold backdrop-blur transition hover:bg-white hover:text-navy"><I size={13} />{l}</Link>
+            ))}
+          </div>
+        </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-3 xl:grid-cols-5">
+      <div className="grid grid-cols-2 gap-2.5 xl:grid-cols-5">
         <Stat icon={LuWallet} label="Revenue" value={thb(m.rev)} delta={m.revDelta} />
         <Stat icon={LuCalendarCheck} label="Bookings" value={m.bk} delta={m.bkDelta} tone="sky" />
         <Stat icon={LuReceipt} label="Avg. order" value={thb(m.aov)} tone="violet" sub="per booking" />
@@ -61,21 +72,16 @@ export default function Dashboard() {
         <Stat icon={LuInbox} label="New leads" value={m.newLeads} tone="rose" sub="need a reply" />
       </div>
 
-      <div className="grid gap-3 lg:grid-cols-[1.7fr_1fr]">
-        <Card title="Revenue" sub={`Paid payments · last ${range}`} action={<span className="text-sm font-extrabold text-teal">{thb(m.rev)}</span>}>
-          <AreaChart data={m.series} fmt={thb} />
+      <div className="grid gap-2.5 lg:grid-cols-[1.7fr_1fr]">
+        <Card title="Revenue" sub={`Paid payments · last ${range}`} action={<div className="flex items-center gap-3"><span className="text-[13px] font-extrabold text-teal">{thb(m.rev)}</span><Chips options={["7 days", "30 days", "90 days"]} value={range} onChange={setRange} /></div>}>
+          <AreaChart data={m.series} fmt={thb} height={190} />
         </Card>
         <Card title="Bookings by status" sub="All time">
           <Donut parts={m.status} center={<div><p className="text-xl font-extrabold leading-none text-navy">{bookings.length}</p><p className="text-[10px] font-bold uppercase tracking-wider text-slate-400">total</p></div>} />
-          <div className="mt-4 grid grid-cols-3 gap-2 border-t border-slate-100 pt-3 text-center">
-            {[[LuPlus, "New booking", "/admin/bookings"], [LuTag, "Edit prices", "/admin/pricing"], [LuNewspaper, "New post", "/admin/posts"]].map(([I, l, to]) => (
-              <Link key={l} to={to} className="rounded-lg bg-slate-50 px-1 py-2 text-[11px] font-bold text-navy transition hover:bg-teal hover:text-white"><I className="mx-auto mb-1" size={16} />{l}</Link>
-            ))}
-          </div>
         </Card>
       </div>
 
-      <div className="grid gap-3 lg:grid-cols-3">
+      <div className="grid gap-2.5 lg:grid-cols-3">
         <Card title="Top trips by sales"><HBars rows={m.top} fmt={thb} /></Card>
         <Card title="Payment methods" sub="Collected amount"><HBars rows={m.methods} fmt={thb} /></Card>
         <Card title="Recent activity" action={<LuActivity size={15} className="text-slate-400" />} pad={false}>

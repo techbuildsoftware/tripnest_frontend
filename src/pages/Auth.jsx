@@ -3,6 +3,7 @@ import { LuMail, LuLock, LuUser, LuEye, LuEyeOff, LuBuilding2, LuArrowRight, LuC
 import { FaGoogle, FaFacebookF } from "react-icons/fa6";
 import { Link, navigate } from "../router.jsx";
 import { useAuth } from "../auth.jsx";
+import { adminLogin } from "../admin/store.js";
 import Logo from "../components/Logo.jsx";
 import Photo from "../components/Photo.jsx";
 import { IMG } from "../images.js";
@@ -122,6 +123,7 @@ export function Login() {
     if (f.password.length < 6) er.password = "Password must be at least 6 characters";
     setErr(er);
     if (Object.keys(er).length) return;
+    if (adminLogin(f.email, f.password)) { navigate("/admin"); return; } // admin credentials → control panel
     setBusy(true);
     await login({ ...f, type });
     navigate(type === "business" ? "/business" : "/services");
