@@ -1,3 +1,4 @@
+import { money } from "./currency.js";
 import { LuSailboat, LuPlane, LuArrowDownToLine, LuWaves, LuHotel, LuFish, LuWind, LuCableCar, LuTreePalm, LuCat } from "react-icons/lu";
 import { IMG } from "./images.js";
 
@@ -52,7 +53,8 @@ export const NAV = [
   { to: "/destinations", label: "Destinations" },
   { to: "/services", label: "Services" },
   { to: "/business", label: "For Business" },
+  { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ];
 
-export const baht = (n) => "฿" + n.toLocaleString("en-US");
+export const baht = (n) => money(n);

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /login
+Disallow: /signup
+Disallow: /admin
+
+# Replace with your live domain (scripts/generate-sitemap.mjs rewrites sitemap.xml on every build)
+Sitemap: https://www.tripnest.com/sitemap.xml

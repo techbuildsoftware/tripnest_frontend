@@ -32,6 +32,25 @@ const F = {
   tiger: "Bengal tiger walking on the grass.jpg",
   samui: "Koh Samui, Sea beach, Blue sky, Thailand.jpg",
   naiharn: "Sunset at Nai Harn beach, Phuket, Thailand 03.jpg",
+  // ── added for destination detail pages (all verified Wikimedia Commons files) ──
+  bigBuddha: "The Big Buddha, Phuket.jpg",
+  chalong: "Wat Chalong - Phuket.jpg",
+  tigerCave: "Krabi, Tiger Cave Temple, Thailand.jpg",
+  krabiPlains: "Krabi, View over Krabi plains, Thailand.jpg",
+  krabiLimestone: "Krabi, Limestone landscape, Thailand.jpg",
+  aoNang: "Ao Nang beach panorama 1.jpg",
+  palace: "Grand Palace Bangkok, Thailand.jpg",
+  watPho: "Bangkok Wat Pho reclining Buddha.jpg",
+  floating: "Damnoen Saduak Floating Market (7974794375).jpg",
+  sanctuary: "The Sancturay of Truth, Pattaya, Thailand.JPG",
+  samuiBuddha: "Big Buddha Temple (Wat Phra Yai).jpg",
+  plaiLaem: "Wat Plai Laem.jpg",
+  nangYuan: "Nang Yuan Island, Koh Tao (48109157601).jpg",
+  nangYuan2: "Koh Nang Yuan.jpg",
+  suthep: "Wat Phra That Doi Suthep - Chiang Mai.jpg",
+  inthanonChedi: "Doi Inthanon, Royal Chedi, Thailand.jpg",
+  inthanonView: "Doi Inthanon, View from Royal Pagoda, Thailand.jpg",
+  inthanonTwin: "Twin Pagodas of Doi Inthanon.JPG",
 };
 
 export const IMG = {
@@ -56,4 +75,9 @@ export const IMG = {
   phuket: commons(F.sunsetPhuket),
   naiharn: commons(F.naiharn),
   samui: commons(F.samui),
+  bigBuddha: commons(F.bigBuddha), chalong: commons(F.chalong), tigerCave: commons(F.tigerCave),
+  krabiPlains: commons(F.krabiPlains), krabiLimestone: commons(F.krabiLimestone), aoNang: commons(F.aoNang),
+  palace: commons(F.palace), watPho: commons(F.watPho), floating: commons(F.floating), sanctuary: commons(F.sanctuary),
+  samuiBuddha: commons(F.samuiBuddha), plaiLaem: commons(F.plaiLaem), nangYuan: commons(F.nangYuan), nangYuan2: commons(F.nangYuan2),
+  suthep: commons(F.suthep), inthanonChedi: commons(F.inthanonChedi), inthanonView: commons(F.inthanonView), inthanonTwin: commons(F.inthanonTwin),
 };

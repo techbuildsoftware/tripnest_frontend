@@ -1,7 +1,8 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { LuX, LuArrowRight, LuCheck, LuUsers, LuBriefcase } from "react-icons/lu";
+import { LuX, LuArrowRight, LuUsers, LuBriefcase } from "react-icons/lu";
 import { IMG } from "./images.js";
 import Photo from "./components/Photo.jsx";
+import { handleLead, LeadSuccess } from "./leads.jsx";
 
 const Ctx = createContext(null);
 export const useQuote = () => useContext(Ctx);
@@ -39,16 +40,9 @@ function QuoteModal({ preset, onClose }) {
         </div>
 
         {sent ? (
-          <div className="grid place-items-center p-12 text-center">
-            <div>
-              <span className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-teal text-white"><LuCheck size={30} /></span>
-              <h3 className="mt-5 text-2xl font-extrabold">Thank you!</h3>
-              <p className="mt-2 text-navy/65">Your request is in. We'll reply with your quote within one working day.</p>
-              <button onClick={onClose} className="btn btn-navy mt-6">Close</button>
-            </div>
-          </div>
+          <LeadSuccess result={sent} onClose={onClose} className="p-8" />
         ) : (
-          <form onSubmit={(e) => { e.preventDefault(); setSent(true); }} className="grid gap-2.5 p-4 sm:grid-cols-3 sm:p-5">
+          <form onSubmit={(e) => handleLead(e, "Quote", setSent, { audience: type })} className="grid gap-2.5 p-4 sm:grid-cols-3 sm:p-5">
             <div className="flex items-center justify-between gap-3 sm:col-span-3">
               <h3 className="text-lg font-extrabold">Get Free Quotes</h3>
               <div className="inline-flex rounded-full bg-navy/[.06] p-1 text-xs font-bold">

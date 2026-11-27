@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // Tiny dependency-free History API router → clean URLs like /destinations.
 // Static hosts need a "serve index.html for every path" rule (see public/_redirects, vercel.json).
@@ -11,10 +11,14 @@ const getPath = () => {
 
 export function useRoute() {
   const [path, setPath] = useState(getPath);
+  const last = useRef(path);
   useEffect(() => {
     const onChange = () => {
-      setPath(getPath());
-      window.scrollTo({ top: 0, behavior: "instant" });
+      const next = getPath();
+      setPath(next);
+      // Scroll to top only on a real page change – not when an in-page #anchor is clicked.
+      if (next !== last.current) window.scrollTo({ top: 0, behavior: "instant" });
+      last.current = next;
     };
     window.addEventListener("popstate", onChange);
     window.addEventListener("app:navigate", onChange);

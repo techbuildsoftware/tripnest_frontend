@@ -6,6 +6,8 @@ import SectionTitle from "../components/SectionTitle.jsx";
 import Photo from "../components/Photo.jsx";
 import { IMG } from "../images.js";
 import { useQuote } from "../quote.jsx";
+import { useSeo } from "../seo.js";
+import { handleLead, LeadSuccess } from "../leads.jsx";
 
 const FEATURES = [
   { icon: LuBadgePercent, t: "Net wholesale rates", d: "Unlock partner-only pricing on every service and set your own margin." },
@@ -22,7 +24,8 @@ const PLANS = [
 ];
 
 export default function Business() {
-  const [sent, setSent] = useState(false);
+  useSeo({ title: "TripNest for Business – Thailand travel partner program", description: "Net wholesale rates, white-label booking, API access and a dedicated partner manager for travel agents and companies selling Thailand." });
+  const [sent, setSent] = useState(null);
   return (
     <>
       <section className="relative isolate overflow-hidden pb-24 pt-40 text-white">
@@ -94,13 +97,9 @@ export default function Business() {
           </Reveal>
           <Reveal variant="reveal-right">
             {sent ? (
-              <div className="card p-10 text-center">
-                <span className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-teal text-white"><LuCheck size={30} /></span>
-                <h3 className="mt-5 text-2xl font-extrabold">Thank you!</h3>
-                <p className="mt-2 text-navy/65">We'll be in touch within one working day.</p>
-              </div>
+              <div className="card"><LeadSuccess result={sent} onClose={() => setSent(null)} className="p-8" /></div>
             ) : (
-              <form onSubmit={(e) => { e.preventDefault(); setSent(true); }} className="card grid gap-4 p-6 shadow-2xl shadow-navy/10 sm:grid-cols-2 sm:p-8">
+              <form onSubmit={(e) => handleLead(e, "Partner enquiry", setSent)} className="card grid gap-4 p-6 shadow-2xl shadow-navy/10 sm:grid-cols-2 sm:p-8">
                 <input required className="input" placeholder="Full name" aria-label="Full name" />
                 <input required className="input" placeholder="Company name" aria-label="Company" />
                 <input required type="email" className="input" placeholder="Work email" aria-label="Work email" />

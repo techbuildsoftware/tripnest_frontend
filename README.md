@@ -9,3 +9,10 @@ Run: `npm install && npm run dev` · Build: `npm run build`
 - Photos: `src/images.js`. Beach/Chiang Mai = your photos; the rest are Wikimedia Commons (credit required, see footer) – replace with your own for commercial use.
 - Placeholder content to replace: stats, testimonials, prices (฿), packages, partner plans.
 - Auth is a front-end demo (localStorage) – wire `src/auth.jsx` to your API.
+
+## Launch checklist (no backend needed)
+1. Copy `.env.example` → `.env`; set `VITE_SITE_URL`, `VITE_FORM_ENDPOINT` (leads), `VITE_GA_ID` / `VITE_META_PIXEL_ID` (optional). `npm run build` also regenerates `public/sitemap.xml` + `robots.txt`.
+2. Fill `src/siteConfig.js` (company address, registration + tourism licence numbers, FAQs). Have a lawyer review the Privacy / Terms / Cookies templates, then set `LEGAL_REVIEWED = true`.
+3. Replace placeholder prices, ratings, review counts, stats, testimonials and offers with real data; confirm the payment-method chips in the footer; update currency rates in `src/currency.js` (indicative only).
+4. Submit the sitemap in Google Search Console; create a Google Business Profile; connect social accounts.
+5. Auth is still a front-end demo (localStorage) and the site is a client-rendered SPA – add a real backend and, for better SEO, pre-rendering (e.g. Next.js / vite-plugin-ssg) later.

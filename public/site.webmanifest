@@ -1,0 +1,10 @@
+{
+  "name": "TripNest",
+  "short_name": "TripNest",
+  "description": "Thailand tours, flights, hotels and activities",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#13234f",
+  "icons": [{ "src": "/favicon.png", "sizes": "any", "type": "image/png", "purpose": "any" }]
+}

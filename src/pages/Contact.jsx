@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { LuPhone, LuMail, LuMapPin, LuSend, LuCheck, LuClock, LuUser, LuBriefcase } from "react-icons/lu";
+import { LuPhone, LuMail, LuMapPin, LuSend, LuClock, LuUser, LuBriefcase } from "react-icons/lu";
 import { FaWhatsapp } from "react-icons/fa6";
 import { Link } from "../router.jsx";
 import { Reveal } from "../hooks.jsx";
@@ -7,15 +7,18 @@ import { CONTACT } from "../data.js";
 import SectionTitle from "../components/SectionTitle.jsx";
 import Photo from "../components/Photo.jsx";
 import { IMG } from "../images.js";
+import { useSeo } from "../seo.js";
+import { handleLead, LeadSuccess, waLink } from "../leads.jsx";
 
 const Wrap = ({ href, ...p }) => (href.startsWith("/") ? <Link to={href} {...p} /> : <a href={href} {...p} />);
 
 export default function Contact() {
-  const [sent, setSent] = useState(false);
+  useSeo({ title: "Contact TripNest – plan your Thailand trip", description: "Call, WhatsApp or email TripNest. Questions about a booking, a partnership or a custom Thailand package — we reply within 4 working hours." });
+  const [sent, setSent] = useState(null);
   const [who, setWho] = useState("traveller");
   const cards = [
     { icon: LuPhone, t: "Call us", v: CONTACT.phone, href: `tel:${CONTACT.tel}` },
-    { icon: FaWhatsapp, t: "WhatsApp", v: "Chat instantly", href: `https://wa.me/${CONTACT.tel.replace("+", "")}` },
+    { icon: FaWhatsapp, t: "WhatsApp", v: "Chat instantly", href: waLink() },
     { icon: LuMail, t: "Email", v: CONTACT.email, href: `mailto:${CONTACT.email}` },
     { icon: LuClock, t: "Support hours", v: "24 / 7, all year", href: "/contact" },
   ];
@@ -50,9 +53,9 @@ export default function Contact() {
         </div>
         <Reveal variant="reveal-right" className="h-full">
           {sent ? (
-            <div className="card grid h-full place-items-center p-10 text-center"><div><span className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-teal text-white"><LuCheck size={26} /></span><h3 className="mt-4 text-xl font-extrabold">Message sent!</h3><p className="mt-1.5 text-sm text-navy/65">Thanks for reaching out — we'll reply shortly.</p></div></div>
+            <div className="card grid h-full place-items-center"><LeadSuccess result={sent} onClose={() => setSent(false)} className="p-8" /></div>
           ) : (
-            <form onSubmit={(e) => { e.preventDefault(); setSent(true); }} className="card h-full overflow-hidden shadow-xl shadow-navy/10">
+            <form onSubmit={(e) => handleLead(e, "Contact", setSent, { audience: who })} className="card h-full overflow-hidden shadow-xl shadow-navy/10">
               <div className="flex items-center gap-3 bg-navy px-6 py-4 text-white">
                 <span className="grid h-10 w-10 place-items-center rounded-xl bg-teal"><LuSend size={18} /></span>
                 <div><h2 className="text-base font-extrabold leading-tight">Send us a message</h2><p className="text-xs text-white/70">We reply within 4 working hours</p></div>
