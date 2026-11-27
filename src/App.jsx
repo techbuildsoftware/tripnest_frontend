@@ -15,7 +15,6 @@ import Footer from "./components/Footer.jsx";
 import Home from "./pages/Home.jsx";
 
 // Every page except Home loads on demand → smaller first download, faster first visit.
-const AdminApp = lazy(() => import("./admin/AdminApp.jsx"));
 const Destinations = lazy(() => import("./pages/Destinations.jsx"));
 const DestinationDetail = lazy(() => import("./pages/DestinationDetail.jsx"));
 const Services = lazy(() => import("./pages/Services.jsx"));
@@ -70,7 +69,7 @@ function MobileBar() {
 export default function App() {
   const path = useRoute();
   useCurrency(); // re-render the whole tree when the visitor switches currency
-  if (path === "/admin" || path.startsWith("/admin/")) return <Suspense fallback={<Loading />}><AdminApp path={path} /></Suspense>;
+  if (path === "/admin" || path.startsWith("/admin/")) { window.location.replace("/crm/login"); return <Loading />; }
   const detail = path.match(/^\/destinations\/([\w-]+)$/);
   const Page = ROUTES[path] || NotFound;
   return (

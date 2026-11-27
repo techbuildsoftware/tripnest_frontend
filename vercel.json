@@ -1,1 +1,7 @@
-{ "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }] }
+{
+  "rewrites": [
+    { "source": "/crm/(.*)", "destination": "/crm.html" },
+    { "source": "/crm", "destination": "/crm.html" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}

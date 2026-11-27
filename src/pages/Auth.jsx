@@ -123,7 +123,7 @@ export function Login() {
     if (f.password.length < 6) er.password = "Password must be at least 6 characters";
     setErr(er);
     if (Object.keys(er).length) return;
-    if (adminLogin(f.email, f.password)) { navigate("/admin"); return; } // admin credentials → control panel
+    if (adminLogin(f.email, f.password)) { window.location.assign("/crm/login"); return; } // admin credentials → control panel
     setBusy(true);
     await login({ ...f, type });
     navigate(type === "business" ? "/business" : "/services");
